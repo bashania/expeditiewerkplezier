@@ -15,24 +15,7 @@ function PageHeader({ eyebrow, title, sub, children }) {
   );
 }
 
-/* ===================== HOME ===================== */
-function Home({ heroVariant, aanbodVariant, onEbook, onNav, onPlay }) {
-  return (
-    <main>
-      <Hero variant={heroVariant} onEbook={onEbook} onNav={onNav} onPlay={onPlay} />
-      {heroVariant !== "statement" && <TrustBar />}
-      <Recognition />
-      <Benefits />
-      <Aanbod variant={aanbodVariant} onNav={onNav} sand />
-      <AboutTeaser onNav={onNav} />
-      <Mission />
-      <Testimonials />
-      <EbookSplit onEbook={onEbook} />
-      <BlogTeaser onNav={onNav} />
-      <FinalCTA onNav={onNav} onEbook={onEbook} />
-    </main>
-  );
-}
+/* ===================== HOME lives in home.jsx ===================== */
 
 /* ===================== OVER AGATHE ===================== */
 const OA_REASONS = [
@@ -286,13 +269,19 @@ function OverAgathe({ onScan, onNav, onPlay }) {
 }
 
 /* ===================== AANBOD ===================== */
-function AanbodPage({ aanbodVariant, onEbook, onNav }) {
+function AanbodPage({ onScan, onEbook, onNav }) {
+  const goScan = onScan || onEbook;
   return (
     <main>
       <PageHeader eyebrow="Aanbod"
         title="Zo werken we samen aan jouw <em>werkgeluk</em>"
-        sub="Drie manieren om met meer rust, energie en plezier te leven en werken. Kies wat bij jou en je situatie past — twijfel je? Dan denk ik graag met je mee." />
-      <Aanbod variant={aanbodVariant} onNav={onNav} />
+        sub="Van een gratis eerste stap tot een compleet 1-op-1 traject. Kies waar je instapt — twijfel je? Dan denk ik graag met je mee." />
+
+      <section className="ewk-section">
+        <div className="ewk-wrap">
+          <WerkLadder onScan={goScan} onNav={onNav} />
+        </div>
+      </section>
       <section className="ewk-section ewk-section--wash">
         <div className="ewk-wrap">
           <SectionHead eyebrow="Hoe het werkt" title="Van eerste contact tot blijvende verandering" />
@@ -319,13 +308,13 @@ function AanbodPage({ aanbodVariant, onEbook, onNav }) {
           <FaqList />
         </div>
       </section>
-      <FinalCTA onNav={onNav} onEbook={onEbook} />
+      <FinalCTA onNav={onNav} onScan={goScan} />
     </main>
   );
 }
 
 /* ===================== ERVARINGEN ===================== */
-function ErvaringenPage({ onEbook, onNav, onPlay }) {
+function ErvaringenPage({ onScan, onNav, onPlay }) {
   return (
     <main>
       <PageHeader eyebrow="Ervaringen"
@@ -353,14 +342,14 @@ function ErvaringenPage({ onEbook, onNav, onPlay }) {
         </div>
       </section>
       <Mission />
-      <EbookSplit onEbook={onEbook} />
-      <FinalCTA onNav={onNav} onEbook={onEbook} />
+      <ScanCTA onScan={onScan} />
+      <FinalCTA onNav={onNav} onScan={onScan} />
     </main>
   );
 }
 
 /* ===================== BLOG ===================== */
-function BlogPage({ onNav }) {
+function BlogPage({ onNav, onScan }) {
   const [cat, setCat] = useStP("Alles");
   const cats = ["Alles", ...Array.from(new Set(POSTS.map((p) => p.cat)))];
   const list = cat === "Alles" ? POSTS : POSTS.filter((p) => p.cat === cat);
@@ -381,7 +370,7 @@ function BlogPage({ onNav }) {
           </div>
         </div>
       </section>
-      <FinalCTA onNav={onNav} onEbook={() => onNav("Home")} />
+      <FinalCTA onNav={onNav} onScan={onScan} />
     </main>
   );
 }
@@ -389,7 +378,7 @@ function BlogPage({ onNav }) {
 /* ===================== CONTACT ===================== */
 function ContactPage({ onNav }) {
   const [sent, setSent] = useStP(false);
-  const [form, setForm] = useStP({ naam: "", email: "", bericht: "", onderwerp: "Persoonlijke coaching" });
+  const [form, setForm] = useStP({ naam: "", email: "", bericht: "", onderwerp: "Stress & Energiescan" });
   const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
   function submit(e) { e.preventDefault(); if (!form.email || !form.naam) return; setSent(true); }
   return (
@@ -413,7 +402,9 @@ function ContactPage({ onNav }) {
                 <div className="ewk-field">
                   <label>Waar gaat het over?</label>
                   <select className="ewk-input" value={form.onderwerp} onChange={set("onderwerp")}>
-                    {TRAJECTEN.map((o) => <option key={o.key}>{o.title}</option>)}
+                    <option>Stress &amp; Energiescan</option>
+                    <option>1-op-1 Deep Dive</option>
+                    <option>Rust Ruimte Regie (traject)</option>
                     <option>Iets anders</option>
                   </select>
                 </div>
@@ -465,4 +456,4 @@ function ContactPage({ onNav }) {
   );
 }
 
-Object.assign(window, { PageHeader, Home, OverAgathe, AanbodPage, ErvaringenPage, BlogPage, ContactPage });
+Object.assign(window, { PageHeader, OverAgathe, AanbodPage, ErvaringenPage, BlogPage, ContactPage });

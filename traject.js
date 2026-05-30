@@ -69,7 +69,7 @@ function TrajectPage({ onNav, onPlay }) {
       <section className="ewk-hero ewk-hero--quote">
         <div className="ewk-wrap ewk-hero__grid">
           <div>
-            <Eyebrow>1-op-1 Coaching</Eyebrow>
+            <Eyebrow>Rust Ruimte Regie · 1-op-1 traject</Eyebrow>
             <h1 className="ewk-hero__quote">Voor ambitieuze moeders die verlangen naar rust, energie en grip</h1>
             <p className="ewk-hero__lead">
               Je bent gedreven, slim, betrokken en verantwoordelijk. En toch merk je dat het steeds

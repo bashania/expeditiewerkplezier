@@ -192,4 +192,29 @@ const TRUST = [
   ["1", "eerlijk verhaal, uit ervaring"],
 ];
 
-Object.assign(window, { TRAJECTEN, TESTIMONIALS, POSTS, FAQ, TRUST });
+/* --- 1-op-1 programmanaam --- */
+const PROGRAMMA = {
+  naam: "Rust Ruimte Regie",
+  sub: "Het complete 1-op-1 herstel- en groeitraject",
+};
+
+/* --- Home testimonials (rewritten homepage) --- */
+const HOME_REVIEWS = [
+  {
+    name: "Karin Aafjes", role: "Ondernemer", rating: 5,
+    quote:
+      "Tijdens het traject heb ik geleerd om beter mijn rust te pakken en hulp te vragen. Ik maak nu bewustere keuzes, laat de boel de boel en durf mijn grenzen aan te geven. De grootste shift was het loslaten van perfectionisme — ik geniet weer van de kleine dingen. Zonder dit traject had ik niet zo snel de stap naar mijn eigen bedrijf gezet.",
+  },
+  {
+    name: "K.M.", role: "Senior Sales- & Business Development Manager", rating: 5,
+    quote:
+      "Ik was moe en gespannen en had moeite om alle ballen in de lucht te houden: een fulltime baan, twee jonge kinderen en een druk sociaal leven. Door Agathe heb ik geleerd betere keuzes te maken en zonder schuldgevoel aandacht te geven aan wat belangrijk is. Ik voel me blijer, meer in balans en krijg zelfs meer gedaan op een dag — echt een win-win-win.",
+  },
+  {
+    name: "Nicolette", role: "Consultant", rating: 5,
+    quote:
+      "Agathe heeft mij geholpen bewuster te worden van mijn gedachten, reacties en gedrag, waardoor ik mijn vraagstukken echt kon aanpakken en veel meer rust ervaar. Bijzonder is dat dit effect een half jaar later nog steeds merkbaar is. Benaderbaar, toegankelijk en vertrouwenwekkend — en ze houdt je op een prettige manier een spiegel voor.",
+  },
+];
+
+Object.assign(window, { TRAJECTEN, TESTIMONIALS, POSTS, FAQ, TRUST, HOME_REVIEWS, PROGRAMMA });

@@ -571,3 +571,77 @@ textarea.ewk-input{resize:vertical;min-height:90px}
   .ewk-pricebox{flex-direction:column;align-items:flex-start;padding:32px}
   .ewk-tstep{padding:24px}
 }
+
+/* =========================================================================
+   ADDED — offer ladder, gains grid, scan opt-in, deep-dive meta
+   ========================================================================= */
+
+/* offer ladder (Home + Aanbod) */
+.ewk-nav a{white-space:nowrap}
+@media(max-width:1000px){
+  .ewk-nav,.ewk-social,.ewk-show-desktop{display:none}
+  .ewk-hamb{display:flex}
+}
+.ewk-ladder{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.ewk-rung{display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:0;
+  background:#fff;border:1px solid var(--ew-ink-100);border-top:3px solid var(--ew-ink-200);
+  border-radius:var(--ew-radius-lg);box-shadow:var(--ew-shadow-sm);padding:30px 28px 28px;cursor:pointer;
+  transition:transform var(--ew-dur) var(--ew-ease-out),box-shadow var(--ew-dur) var(--ew-ease-out);font-family:inherit}
+.ewk-rung:hover{transform:translateY(-4px);box-shadow:var(--ew-shadow-md)}
+.ewk-rung--sky{border-top-color:var(--ew-sky-500)}
+.ewk-rung--gold{border-top-color:var(--ew-gold-500)}
+.ewk-rung--rose{border-top-color:var(--ew-rose-500)}
+.ewk-rung__step{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ew-rose-600)}
+.ewk-rung--sky .ewk-rung__step{color:var(--ew-sky-700)}
+.ewk-rung--gold .ewk-rung__step{color:var(--ew-gold-700)}
+.ewk-rung h3{font-family:var(--ew-font-serif);font-size:23px;color:var(--ew-ink-900);margin:10px 0 8px;line-height:1.2}
+.ewk-rung p{font-size:15px;line-height:1.6;color:var(--ew-fg-2);margin:0 0 18px}
+.ewk-rung .ewk-offer__link{margin-top:auto}
+.ewk-rung:hover .ewk-offer__link svg{transform:translateX(3px)}
+
+/* gains grid (Deep Dive + Scan) */
+.ewk-gains{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+.ewk-gain{background:#fff;border:1px solid var(--ew-ink-100);border-top:3px solid var(--ew-ink-200);
+  border-radius:var(--ew-radius-lg);box-shadow:var(--ew-shadow-sm);padding:30px 28px}
+.ewk-gain.ewk-offer--rose{border-top-color:var(--ew-rose-500)}
+.ewk-gain.ewk-offer--sky{border-top-color:var(--ew-sky-500)}
+.ewk-gain.ewk-offer--sage{border-top-color:var(--ew-sage-500)}
+.ewk-gain.ewk-offer--gold{border-top-color:var(--ew-gold-500)}
+.ewk-gain .ewk-offer__ic{margin-bottom:16px}
+.ewk-gain .ewk-offer__ic--sage{background:var(--ew-sage-100);color:var(--ew-sage-700)}
+.ewk-gain h3{font-family:var(--ew-font-serif);font-size:20px;color:var(--ew-ink-900);margin:0 0 8px}
+.ewk-gain p{font-size:14px;line-height:1.6;color:var(--ew-fg-2);margin:0}
+
+/* deep-dive hero meta line */
+.ewk-dd-meta{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin:24px 0 0;font-size:14px;font-weight:700;color:var(--ew-ink-500)}
+.ewk-dd-meta svg{width:16px;height:16px;color:var(--ew-rose-500)}
+
+/* scan testimonial tag */
+.ewk-testcard__tag{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--ew-pine-600)}
+.ewk-testcard__tag svg{width:16px;height:16px;color:var(--ew-rose-400)}
+
+/* scan opt-in card */
+.ewk-scan-hero{align-items:start}
+.ewk-scanform{background:#fff;border:1px solid var(--ew-ink-100);border-radius:var(--ew-radius-xl);
+  box-shadow:var(--ew-shadow-lg);padding:36px 34px;position:relative;overflow:hidden}
+.ewk-scanform::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:var(--ew-grad-warm)}
+.ewk-scanform__head{margin-bottom:22px}
+.ewk-scanform__badge{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:800;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--ew-sky-700);background:var(--ew-sky-100);padding:6px 14px;border-radius:999px}
+.ewk-scanform__badge svg{width:15px;height:15px}
+.ewk-scanform h3{font-family:var(--ew-font-serif);font-size:26px;color:var(--ew-ink-900);margin:14px 0 6px}
+.ewk-scanform__head p{font-size:15px;line-height:1.55;color:var(--ew-fg-3);margin:0}
+.ewk-scanform__note{font-size:12px;color:var(--ew-ink-400);margin:14px 0 0;text-align:center}
+.ewk-scanform .ewk-success{padding:18px 0}
+
+/* scan afsluiting split (text + opt-in on pine band) */
+.ewk-scan-close{display:grid;grid-template-columns:1fr .9fr;gap:48px;align-items:center}
+.ewk-scan-close__text .ewk-eyebrow{color:rgba(255,255,255,.85)}
+.ewk-scan-close__text .ewk-h2{color:#fff;margin-top:12px}
+.ewk-scan-close__text p{font-size:18px;line-height:1.65;color:rgba(255,255,255,.92);margin:16px 0 0}
+.ewk-scan-close .ewk-scanform{color:var(--ew-fg-2)}
+
+@media(max-width:980px){
+  .ewk-ladder{grid-template-columns:1fr}
+  .ewk-scan-close{grid-template-columns:1fr;gap:32px}
+}

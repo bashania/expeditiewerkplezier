@@ -485,7 +485,8 @@ function PostCard({ p, onNav }) {
 /* =========================================================================
    FINAL CTA
    ========================================================================= */
-function FinalCTA({ onNav, onEbook }) {
+function FinalCTA({ onNav, onScan, onEbook }) {
+  const goScan = onScan || onEbook;
   return (
     <section className="ewk-finalcta">
       <div className="ewk-wrap ewk-finalcta__inner">
@@ -494,7 +495,44 @@ function FinalCTA({ onNav, onEbook }) {
         <p>Geen verplichtingen — gewoon een eerlijk gesprek over waar jij tegenaan loopt en wat je nodig hebt.</p>
         <div className="ewk-hero__cta is-center">
           <Button variant="primary" size="lg" iconRight="arrow-right" onClick={() => onNav("Contact")}>Plan een kennismaking</Button>
-          <Button variant="outline" size="lg" icon="download" onClick={onEbook}>Download gratis ebook</Button>
+          <Button variant="outline" size="lg" icon="clipboard-list" onClick={goScan}>Doe de gratis scan</Button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* =========================================================================
+   SCAN CTA band (free lead magnet) — replaces the old ebook split
+   ========================================================================= */
+function ScanCTA({ onScan }) {
+  return (
+    <section className="ewk-section ewk-section--sand">
+      <div className="ewk-wrap">
+        <SectionHead eyebrow="Gratis eerste stap"
+          title="Begin vandaag — met de gratis Stress &amp; Energiescan"
+          sub="Je hoofd staat nooit stil en stoppen lukt niet meer? Ontdek in 10 minuten wat er écht speelt in jouw brein en lichaam — en wat jouw eerste stap is naar meer rust en energie." />
+        <div className="ewk-split">
+          <div className="ewk-ebook">
+            <div className="ewk-ebook__cover"><img src="assets/logo-mark.svg" alt="" /><span>scan</span></div>
+            <div>
+              <h3>Stress &amp; Energiescan</h3>
+              <p>
+                Geen standaardtest, maar concreet inzicht in jouw stressprofiel. Je stopt met twijfelen
+                aan jezelf en weet wat je nodig hebt. <span className="ewk-key">Gratis</span>, in een paar
+                minuten, met direct inzicht.
+              </p>
+              <Button variant="primary" size="lg" icon="clipboard-list" onClick={onScan}>Doe de gratis scan</Button>
+            </div>
+          </div>
+          <div className="ewk-quotecard">
+            <div className="ewk-stars">{[0,1,2,3,4].map(i => <Icon key={i} name="star" />)}</div>
+            <p className="ewk-quotecard__q">
+              “Ik dacht echt dat het aan mij lag. Maar door de uitleg viel alles op zijn plek. Dat gaf
+              zoveel rust in mijn hoofd.”
+            </p>
+            <div className="ewk-quotecard__who">Uit de Stress &amp; Energiescan</div>
+          </div>
         </div>
       </div>
     </section>
@@ -524,5 +562,5 @@ function FaqList({ items }) {
 
 Object.assign(window, {
   Portrait, Eyebrow, SectionHead, Hero, TrustBar, Recognition, Benefits,
-  Aanbod, AboutTeaser, Mission, Testimonials, EbookSplit, BlogTeaser, PostCard, FinalCTA, FaqList,
+  Aanbod, AboutTeaser, Mission, Testimonials, EbookSplit, ScanCTA, BlogTeaser, PostCard, FinalCTA, FaqList,
 });

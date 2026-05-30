@@ -6,7 +6,7 @@ function Icon({ name, style }) {
   return <i data-lucide={name} style={style}></i>;
 }
 
-function Button({ variant = "primary", size, block, icon, iconRight, children, onClick, type }) {
+function Button({ variant = "primary", size, block, icon, iconRight, children, onClick, type, href, target }) {
   const cls = [
     "ewk-btn",
     `ewk-btn--${variant}`,
@@ -14,45 +14,55 @@ function Button({ variant = "primary", size, block, icon, iconRight, children, o
     size === "sm" ? "ewk-btn--sm" : "",
     block ? "ewk-btn--block" : "",
   ].filter(Boolean).join(" ");
-  return (
-    <button className={cls} onClick={onClick} type={type || "button"}>
+  const inner = (
+    <React.Fragment>
       {icon && <Icon name={icon} />}
       {children}
       {iconRight && <Icon name={iconRight} />}
-    </button>
+    </React.Fragment>
+  );
+  if (href) {
+    return (
+      <a className={cls} href={href} target={target || "_blank"} rel="noopener noreferrer" onClick={onClick}>{inner}</a>
+    );
+  }
+  return (
+    <button className={cls} onClick={onClick} type={type || "button"}>{inner}</button>
   );
 }
 
 const NAV = ["Home", "Over Agathe", "Aanbod", "Ervaringen", "Blog", "Contact"];
 
-function Header({ scrolled, active, onNav, onEbook, onMenu, menuOpen }) {
+function Header({ scrolled, active, onNav, onScan, onMenu, menuOpen }) {
   return (
-    <header className={"ewk-header" + (scrolled ? " is-scrolled" : "")}>
-      <div className="ewk-wrap ewk-header__inner">
-        <a className="ewk-header__logo" href="#" onClick={(e) => { e.preventDefault(); onNav("Home"); }}>
-          <img src="assets/logo-full.svg" alt="Expeditie Werkplezier" />
-        </a>
+    <React.Fragment>
+      <header className={"ewk-header" + (scrolled ? " is-scrolled" : "")}>
+        <div className="ewk-wrap ewk-header__inner">
+          <a className="ewk-header__logo" href="#" onClick={(e) => { e.preventDefault(); onNav("Home"); }}>
+            <img src="assets/logo-full.svg" alt="Expeditie Werkplezier" />
+          </a>
 
-        <nav className="ewk-nav">
-          {NAV.map((n) => (
-            <a key={n} href="#" className={active === n ? "is-active" : ""}
-               onClick={(e) => { e.preventDefault(); onNav(n); }}>{n}</a>
-          ))}
-        </nav>
+          <nav className="ewk-nav">
+            {NAV.map((n) => (
+              <a key={n} href="#" className={active === n ? "is-active" : ""}
+                 onClick={(e) => { e.preventDefault(); onNav(n); }}>{n}</a>
+            ))}
+          </nav>
 
-        <div className="ewk-header__actions">
-          <div className="ewk-social">
-            <a className="ewk-iconbtn" title="LinkedIn" href="#" onClick={(e)=>e.preventDefault()}><Icon name="linkedin" /></a>
-            <a className="ewk-iconbtn" title="Instagram" href="#" onClick={(e)=>e.preventDefault()}><Icon name="instagram" /></a>
+          <div className="ewk-header__actions">
+            <div className="ewk-social">
+              <a className="ewk-iconbtn" title="LinkedIn" href="#" onClick={(e)=>e.preventDefault()}><Icon name="linkedin" /></a>
+              <a className="ewk-iconbtn" title="Instagram" href="#" onClick={(e)=>e.preventDefault()}><Icon name="instagram" /></a>
+            </div>
+            <div className="ewk-show-desktop">
+              <Button variant="primary" onClick={onScan} icon="clipboard-list">Gratis scan</Button>
+            </div>
+            <button className="ewk-iconbtn ewk-hamb" onClick={onMenu} title="Menu">
+              <Icon name={menuOpen ? "x" : "menu"} />
+            </button>
           </div>
-          <div className="ewk-show-desktop">
-            <Button variant="primary" onClick={onEbook} icon="download">Gratis ebook</Button>
-          </div>
-          <button className="ewk-iconbtn ewk-hamb" onClick={onMenu} title="Menu">
-            <Icon name={menuOpen ? "x" : "menu"} />
-          </button>
         </div>
-      </div>
+      </header>
 
       <div className={"ewk-mobile" + (menuOpen ? " is-open" : "")}>
         {NAV.map((n) => (
@@ -60,10 +70,10 @@ function Header({ scrolled, active, onNav, onEbook, onMenu, menuOpen }) {
              onClick={(e) => { e.preventDefault(); onNav(n); }}>{n}</a>
         ))}
         <div style={{ marginTop: 18 }}>
-          <Button variant="primary" block icon="download" onClick={onEbook}>Download gratis ebook</Button>
+          <Button variant="primary" block icon="clipboard-list" onClick={onScan}>Doe de gratis scan</Button>
         </div>
       </div>
-    </header>
+    </React.Fragment>
   );
 }
 
@@ -143,19 +153,22 @@ function VideoLightbox({ open, onClose }) {
   return (
     <div className={"ewk-modal__scrim" + (open ? " is-open" : "")} onClick={onClose}>
       <div onClick={(e) => e.stopPropagation()}
-           style={{ width: "min(860px,100%)", aspectRatio: "16/9", background: "#1f3d3d",
+           style={{ width: "min(880px,100%)", aspectRatio: "16/9", background: "#1f3d3d",
              borderRadius: 20, boxShadow: "var(--ew-shadow-lg)", position: "relative", overflow: "hidden" }}>
         <button className="ewk-modal__close" onClick={onClose}><Icon name="x" /></button>
         {open && (
-          <video src="assets/bedrijfsvideo.mp4" controls autoPlay
-            style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }} />
+          <video
+            src="https://bashania.github.io/expeditiewerkplezier/assets/bedrijfsvideo.mp4"
+            controls autoPlay playsInline
+            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", background: "#1f3d3d" }}
+          />
         )}
       </div>
     </div>
   );
 }
 
-function Footer({ onEbook, onNav }) {
+function Footer({ onScan, onNav }) {
   return (
     <footer className="ewk-footer">
       <div className="ewk-wrap">
@@ -179,9 +192,9 @@ function Footer({ onEbook, onNav }) {
             </ul>
           </div>
           <div>
-            <h4>Gratis <b>ebook</b></h4>
-            <p>De 7 stappen naar een energiek en comfortabel leven waarin jouw prioriteiten glashelder zijn.</p>
-            <Button variant="solid" onClick={onEbook} icon="download">Download gratis</Button>
+            <h4>Gratis <b>scan</b></h4>
+            <p>Ontdek in 10 minuten wat er écht speelt in jouw brein en lichaam — en wat jouw eerste stap is naar meer rust en energie.</p>
+            <Button variant="solid" onClick={onScan} icon="clipboard-list">Doe de gratis scan</Button>
           </div>
         </div>
         <div className="ewk-footer__bottom">
