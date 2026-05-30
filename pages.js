@@ -456,4 +456,71 @@ function ContactPage({ onNav }) {
   );
 }
 
-Object.assign(window, { PageHeader, OverAgathe, AanbodPage, ErvaringenPage, BlogPage, ContactPage });
+/* ===================== PRIVACY ===================== */
+function PrivacyPage() {
+  return (
+    <main>
+      <PageHeader eyebrow="Juridisch"
+        title="Privacyverklaring"
+        sub="Hoe Expeditie Werkplezier omgaat met jouw persoonsgegevens — transparant en conform de AVG." />
+
+      <section className="ewk-section">
+        <div className="ewk-wrap ewk-prose ewk-legal">
+
+          <p className="ewk-legal__meta">Agathe Hania · Expeditie Werkplezier · Waddinxveen · Laatst bijgewerkt: mei 2025</p>
+
+          <h2>1. Wie ben ik?</h2>
+          <p>Ik ben Agathe Hania, zelfstandig psycholoog en coach onder de naam <strong>Expeditie Werkplezier</strong>, gevestigd in Waddinxveen en ingeschreven bij de Kamer van Koophandel. Als verwerkingsverantwoordelijke bepaal ik welke persoonsgegevens ik verzamel, hoe ik ze gebruik en hoe lang ik ze bewaar.</p>
+
+          <h2>2. Welke gegevens verzamel ik?</h2>
+          <h3>Contactformulier en e-mail</h3>
+          <p>Wanneer je contact met me opneemt verwerk ik je naam, e-mailadres en de inhoud van je bericht.</p>
+          <h3>Kennismakingsgesprek en coaching</h3>
+          <p>In het kader van een traject verwerk ik contactgegevens, de informatie die je deelt over je werk- en privésituatie, voortgangsaantekeningen uit sessies (uitsluitend intern) en facturatiegegevens.</p>
+          <h3>Website</h3>
+          <p>Bij een bezoek aan de website kunnen technische gegevens worden vastgelegd (geanonimiseerd IP-adres, browsertype, bezochte pagina's). Ik gebruik uitsluitend functionele cookies; er worden geen tracking- of advertentiecookies geplaatst zonder jouw toestemming.</p>
+
+          <h2>3. Waarvoor gebruik ik jouw gegevens?</h2>
+          <table className="ewk-legal__table">
+            <thead><tr><th>Doel</th><th>Grondslag</th></tr></thead>
+            <tbody>
+              <tr><td>Beantwoorden van jouw bericht</td><td>Gerechtvaardigd belang / uitvoering overeenkomst</td></tr>
+              <tr><td>Uitvoeren van een coachtraject</td><td>Uitvoering overeenkomst</td></tr>
+              <tr><td>Facturatie en administratie</td><td>Wettelijke verplichting</td></tr>
+              <tr><td>Verbetering van de website</td><td>Gerechtvaardigd belang</td></tr>
+              <tr><td>Nieuwsbrief (indien aangemeld)</td><td>Toestemming</td></tr>
+            </tbody>
+          </table>
+          <p>Ik gebruik jouw gegevens nooit voor andere doeleinden dan hierboven vermeld en verkoop ze nooit aan derden.</p>
+
+          <h2>4. Hoe lang bewaar ik jouw gegevens?</h2>
+          <ul>
+            <li><strong>Contactberichten</strong> — maximaal 1 jaar na het laatste contact</li>
+            <li><strong>Coachingsdossiers</strong> — 2 jaar na afronding van het traject</li>
+            <li><strong>Financiële administratie</strong> — 7 jaar (wettelijke bewaarplicht)</li>
+            <li><strong>Nieuwsbriefabonnees</strong> — zolang je ingeschreven blijft; na afmelding direct verwijderd</li>
+          </ul>
+
+          <h2>5. Deel ik gegevens met anderen?</h2>
+          <p>Ik deel jouw gegevens in principe niet met derden. In een beperkt aantal gevallen is dat nodig: mijn boekhouder (onder geheimhoudingsplicht), de e-mailprovider en hostingpartij (uitsluitend voor technische verwerking), en bij wettelijke verplichting. Met alle verwerkers zijn passende afspraken gemaakt.</p>
+
+          <h2>6. Beveiliging</h2>
+          <p>Ik neem passende technische en organisatorische maatregelen om jouw gegevens te beschermen, waaronder versleutelde verbindingen (HTTPS), toegangsbeheer en regelmatige back-ups.</p>
+
+          <h2>7. Jouw rechten</h2>
+          <p>Op grond van de AVG heb je het recht op inzage, rectificatie, verwijdering, beperking van de verwerking, bezwaar en gegevensoverdraagbaarheid. Stuur een verzoek naar <strong>agathe@expeditiewerkplezier.nl</strong> — ik reageer binnen 4 weken.</p>
+          <p>Heb je een klacht? Dan kun je die indienen bij de <strong>Autoriteit Persoonsgegevens</strong> via autoriteitpersoonsgegevens.nl.</p>
+
+          <h2>8. Wijzigingen</h2>
+          <p>Ik behoud het recht deze privacyverklaring te wijzigen. De actuele versie staat altijd op deze pagina. Bij ingrijpende wijzigingen ontvangen actieve klanten en nieuwsbriefabonnees een bericht.</p>
+
+          <h2>9. Contact</h2>
+          <p>Vragen over deze verklaring? Neem contact op via <strong>agathe@expeditiewerkplezier.nl</strong>.</p>
+
+        </div>
+      </section>
+    </main>
+  );
+}
+
+Object.assign(window, { PageHeader, OverAgathe, AanbodPage, ErvaringenPage, BlogPage, ContactPage, PrivacyPage });

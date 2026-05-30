@@ -168,7 +168,7 @@ function VideoLightbox({ open, onClose }) {
   );
 }
 
-function Footer({ onScan, onNav }) {
+function Footer({ onScan, onNav = () => {} }) {
   return (
     <footer className="ewk-footer">
       <div className="ewk-wrap">
@@ -199,7 +199,13 @@ function Footer({ onScan, onNav }) {
         </div>
         <div className="ewk-footer__bottom">
           <span>© Agathe Hania · Expeditie Werkplezier · Waddinxveen · KVK ·· · BTW NL···B01</span>
-          <span>Algemene Voorwaarden · Privacyverklaring · Cookiebeleid</span>
+          <span>
+            Algemene Voorwaarden
+            {" · "}
+            <a href="#" className="ewk-footer__legal-link" onClick={(e) => { e.preventDefault(); onNav("Privacy"); }}>Privacyverklaring</a>
+            {" · "}
+            Cookiebeleid
+          </span>
         </div>
       </div>
     </footer>
