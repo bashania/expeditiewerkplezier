@@ -23,7 +23,7 @@ function Button({ variant = "primary", size, block, icon, iconRight, children, o
   );
   if (href) {
     return (
-      <a className={cls} href={href} target={target || "_blank"} rel="noopener noreferrer" onClick={onClick}>{inner}</a>
+      <a className={cls} href={href} target={target} rel={target === "_blank" ? "noopener noreferrer" : undefined} onClick={onClick}>{inner}</a>
     );
   }
   return (
@@ -51,8 +51,8 @@ function Header({ scrolled, active, onNav, onScan, onMenu, menuOpen }) {
 
           <div className="ewk-header__actions">
             <div className="ewk-social">
-              <a className="ewk-iconbtn" title="LinkedIn" href="#" onClick={(e)=>e.preventDefault()}><Icon name="linkedin" /></a>
-              <a className="ewk-iconbtn" title="Instagram" href="#" onClick={(e)=>e.preventDefault()}><Icon name="instagram" /></a>
+              <a className="ewk-iconbtn" title="LinkedIn" href="https://www.linkedin.com/in/agathe-hania-893577338/" target="_blank" rel="noopener noreferrer"><Icon name="linkedin" /></a>
+              <a className="ewk-iconbtn" title="Instagram" href="https://www.instagram.com/agathehania/" target="_blank" rel="noopener noreferrer"><Icon name="instagram" /></a>
             </div>
             <div className="ewk-show-desktop">
               <Button variant="primary" onClick={onScan} icon="clipboard-list">Gratis scan</Button>
@@ -177,10 +177,9 @@ function Footer({ onScan, onNav }) {
             <img className="foot-logo" src="assets/logo-full-contra.svg" alt="Expeditie Werkplezier" />
             <p>Speciaal voor werkende moeders die meer grip willen op hun overvolle agenda én hoofd — zodat ze weer kunnen genieten van wat echt belangrijk is.</p>
             <div className="ewk-footer__social">
-              <a href="#" title="LinkedIn" onClick={(e)=>e.preventDefault()}><Icon name="linkedin" /></a>
-              <a href="#" title="Instagram" onClick={(e)=>e.preventDefault()}><Icon name="instagram" /></a>
-              <a href="#" title="Facebook" onClick={(e)=>e.preventDefault()}><Icon name="facebook" /></a>
-              <a href="#" title="Mail" onClick={(e)=>e.preventDefault()}><Icon name="mail" /></a>
+              <a href="https://www.linkedin.com/in/agathe-hania-893577338/" title="LinkedIn" target="_blank" rel="noopener noreferrer"><Icon name="linkedin" /></a>
+              <a href="https://www.instagram.com/agathehania/" title="Instagram" target="_blank" rel="noopener noreferrer"><Icon name="instagram" /></a>
+              <a href="mailto:agathe@agathehania.nl" title="Mail"><Icon name="mail" /></a>
             </div>
           </div>
           <div>

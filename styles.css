@@ -645,3 +645,51 @@ textarea.ewk-input{resize:vertical;min-height:90px}
   .ewk-ladder{grid-template-columns:1fr}
   .ewk-scan-close{grid-template-columns:1fr;gap:32px}
 }
+
+/* ============================================================
+   Bedankpagina Stress & Energiescan (OTO Deep Dive)
+   ============================================================ */
+.ewk-bdk-hero{background:linear-gradient(180deg,var(--ew-cream) 0%,#fff 100%);padding:54px 0 70px}
+.ewk-bdk-hero__inner{max-width:760px;margin:0 auto;text-align:center}
+.ewk-bdk-badge{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;background:var(--ew-sage-100);
+  color:var(--ew-pine-700);font-size:13px;font-weight:var(--ew-weight-bold);
+  padding:8px 16px;border-radius:var(--ew-radius-pill);letter-spacing:.01em}
+.ewk-bdk-badge svg{width:16px;height:16px;color:var(--ew-sage-600)}
+.ewk-bdk-hero__title{font-family:var(--ew-font-serif);font-size:var(--ew-text-5xl);line-height:1.05;
+  letter-spacing:-.02em;color:var(--ew-ink-900);margin:18px 0 0}
+.ewk-bdk-hero__sub{font-family:var(--ew-font-serif);font-size:var(--ew-text-xl);line-height:1.45;
+  color:var(--ew-ink-800);max-width:600px;margin:14px auto 0}
+.ewk-bdk-hero__lead{font-size:17px;line-height:1.6;color:var(--ew-fg-3);margin:18px auto 0;max-width:560px}
+.ewk-bdk-video{margin:34px auto 0;width:100%;aspect-ratio:16/9;border-radius:var(--ew-radius-lg);
+  overflow:hidden;background:#1f3d3d;box-shadow:var(--ew-shadow-lg)}
+.ewk-bdk-video video{width:100%;height:100%;object-fit:cover;display:block;background:#1f3d3d}
+.ewk-bdk-hero__after{font-size:17px;line-height:1.7;color:var(--ew-fg-2);margin:24px auto 0;max-width:620px;text-align:left}
+
+.ewk-bdk-center{text-align:center;margin-left:auto;margin-right:auto}
+
+.ewk-bdk-offerbar{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;
+  max-width:720px;margin:0 auto;background:#fff;border:1px solid var(--ew-ink-200);
+  border-radius:var(--ew-radius-lg);box-shadow:var(--ew-shadow-md);padding:26px 32px;text-align:left}
+.ewk-bdk-offerbar__kicker{display:block;font-size:13px;font-weight:var(--ew-weight-bold);
+  color:var(--ew-rose-600);letter-spacing:.02em}
+.ewk-bdk-offerbar__amount{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-top:8px}
+.ewk-bdk-now{font-family:var(--ew-font-serif);font-size:46px;line-height:1;color:var(--ew-pine-700)}
+.ewk-bdk-was{font-family:var(--ew-font-serif);font-size:24px;color:var(--ew-ink-400);text-decoration:line-through}
+.ewk-bdk-save{font-size:12px;font-weight:var(--ew-weight-bold);color:var(--ew-rose-700);white-space:nowrap;
+  background:var(--ew-rose-100);padding:5px 11px;border-radius:var(--ew-radius-pill)}
+
+.ewk-bdk-checklist{max-width:680px;margin:6px auto 0;list-style:none;padding:0;display:grid;gap:14px}
+.ewk-bdk-checklist li{display:flex;gap:14px;align-items:flex-start;font-size:18px;line-height:1.5;
+  color:var(--ew-ink-800);background:#fff;border:1px solid var(--ew-ink-200);border-radius:var(--ew-radius-md);
+  padding:16px 20px;box-shadow:var(--ew-shadow-xs)}
+.ewk-bdk-checklist .ewk-ic{margin-top:2px}
+
+.ewk-bdk-finalprice{display:flex;align-items:baseline;justify-content:center;gap:14px;margin:18px 0 6px}
+.ewk-bdk-now--light{color:#fff;font-size:48px}
+.ewk-bdk-was--light{color:rgba(255,255,255,.55)}
+
+@media(max-width:720px){
+  .ewk-bdk-hero__after{text-align:left}
+  .ewk-bdk-offerbar{flex-direction:column;align-items:flex-start;padding:24px}
+  .ewk-bdk-checklist li{font-size:16px}
+}

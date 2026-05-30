@@ -378,9 +378,40 @@ function BlogPage({ onNav, onScan }) {
 /* ===================== CONTACT ===================== */
 function ContactPage({ onNav }) {
   const [sent, setSent] = useStP(false);
+  const [sending, setSending] = React.useState(false);
+  const [error, setError] = React.useState("");
   const [form, setForm] = useStP({ naam: "", email: "", bericht: "", onderwerp: "Stress & Energiescan" });
   const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
-  function submit(e) { e.preventDefault(); if (!form.email || !form.naam) return; setSent(true); }
+  async function submit(e) {
+    e.preventDefault();
+    if (sending || !form.email || !form.naam) return;
+    setError("");
+    setSending(true);
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/agathe@agathehania.nl", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({
+          Naam: form.naam,
+          "E-mailadres": form.email,
+          Onderwerp: form.onderwerp,
+          Bericht: form.bericht,
+          _subject: "Nieuw bericht via de site — " + form.onderwerp,
+          _template: "table",
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && (data.success === "true" || data.success === true)) {
+        setSent(true);
+      } else {
+        setError("Het versturen lukte niet. Probeer het zo nog eens, of mail me direct via agathe@agathehania.nl.");
+      }
+    } catch (err) {
+      setError("Het versturen lukte niet. Probeer het zo nog eens, of mail me direct via agathe@agathehania.nl.");
+    } finally {
+      setSending(false);
+    }
+  }
   return (
     <main>
       <PageHeader eyebrow="Contact"
@@ -412,7 +443,10 @@ function ContactPage({ onNav }) {
                   <label>Je bericht</label>
                   <textarea className="ewk-input" rows="5" placeholder="Vertel me kort waar je tegenaan loopt.." value={form.bericht} onChange={set("bericht")} />
                 </div>
-                <Button variant="primary" size="lg" block type="submit" iconRight="arrow-right">Verstuur bericht</Button>
+                <Button variant="primary" size="lg" block type="submit" iconRight={sending ? null : "arrow-right"}>{sending ? "Bezig met versturen…" : "Verstuur bericht"}</Button>
+                {error && (
+                  <p style={{ fontSize: 13, color: "var(--ew-error)", margin: "12px 0 0", textAlign: "center" }}>{error}</p>
+                )}
                 <p style={{ fontSize: 12, color: "var(--ew-ink-400)", margin: "14px 0 0", textAlign: "center" }}>
                   Je gegevens gebruik ik alleen om te reageren op je bericht.
                 </p>
@@ -430,14 +464,13 @@ function ContactPage({ onNav }) {
             <div className="ewk-contact__card">
               <h4>Direct contact</h4>
               <ul>
-                <li><Icon name="mail" /><a href="#" onClick={(e)=>e.preventDefault()}>agathe@expeditiewerkplezier.nl</a></li>
+                <li><Icon name="mail" /><a href="mailto:agathe@agathehania.nl">agathe@agathehania.nl</a></li>
                 <li><Icon name="map-pin" />Waddinxveen, Nederland</li>
                 <li><Icon name="clock" />Reactie binnen 2 werkdagen</li>
               </ul>
               <div className="ewk-contact__social">
-                <a href="#" onClick={(e)=>e.preventDefault()} title="LinkedIn"><Icon name="linkedin" /></a>
-                <a href="#" onClick={(e)=>e.preventDefault()} title="Instagram"><Icon name="instagram" /></a>
-                <a href="#" onClick={(e)=>e.preventDefault()} title="Facebook"><Icon name="facebook" /></a>
+                <a href="https://www.linkedin.com/in/agathe-hania-893577338/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><Icon name="linkedin" /></a>
+                <a href="https://www.instagram.com/agathehania/" target="_blank" rel="noopener noreferrer" title="Instagram"><Icon name="instagram" /></a>
               </div>
             </div>
             <div className="ewk-contact__portrait">

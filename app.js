@@ -25,12 +25,27 @@ function App() {
   // always start a freshly-opened page at the top
   useAE(() => { window.scrollTo(0, 0); }, [page]);
 
-  const PAGES = [...NAV, "Traject", "Deep Dive", "Gratis scan"];
+  const PAGES = [...NAV, "Traject", "Deep Dive", "Gratis scan", "Bedankt scan"];
   function nav(n) {
     setMenuOpen(false);
     setPage(PAGES.includes(n) ? n : "Home");
   }
-  const openScan = () => nav("Gratis scan");
+
+  // Hash-routing voor de bedankpagina — bereikbaar via #bedankt-scan na plug&pay-redirect
+  const HASH_PAGES = { "bedankt-scan": "Bedankt scan" };
+  useAE(() => {
+    const applyHash = () => {
+      const h = (window.location.hash || "").replace(/^#/, "");
+      if (HASH_PAGES[h]) setPage(HASH_PAGES[h]);
+    };
+    applyHash();
+    window.addEventListener("hashchange", applyHash);
+    return () => window.removeEventListener("hashchange", applyHash);
+  }, []);
+
+  // Gratis Stress & Energiescan — extern afgehandeld via plug&pay
+  const SCAN_CHECKOUT = "https://expeditiewerkplezier.plugandpay.com/checkout/gratis-stress-energiescan";
+  const openScan = () => { window.location.href = SCAN_CHECKOUT; };
   const openVideo = () => setVideoOpen(true);
 
   // onEbook kept as an alias to the scan so any legacy CTA still routes correctly
@@ -41,6 +56,7 @@ function App() {
   else if (page === "Aanbod") body = <AanbodPage {...common} />;
   else if (page === "Deep Dive") body = <DeepDivePage {...common} />;
   else if (page === "Gratis scan") body = <ScanPage {...common} />;
+  else if (page === "Bedankt scan") body = <ScanBedankt {...common} />;
   else if (page === "Ervaringen") body = <ErvaringenPage {...common} />;
   else if (page === "Blog") body = <BlogPage {...common} />;
   else if (page === "Traject") body = <TrajectPage {...common} />;

@@ -186,19 +186,19 @@ function WerkLadder({ onScan, onNav }) {
   return (
     <div className="ewk-ladder">
       <button className="ewk-rung ewk-rung--sky" onClick={onScan}>
-        <span className="ewk-rung__step">Stap 1 · gratis</span>
+        <span className="ewk-rung__step">Gratis</span>
         <h3>Stress &amp; Energiescan</h3>
         <p>Ontdek in 10 minuten wat er écht speelt in jouw brein en lichaam.</p>
         <span className="ewk-offer__link">Doe de gratis scan <Icon name="arrow-right" /></span>
       </button>
       <button className="ewk-rung ewk-rung--gold" onClick={() => onNav("Deep Dive")}>
-        <span className="ewk-rung__step">Stap 2 · € 147</span>
+        <span className="ewk-rung__step">Losse sessie · €&nbsp;147</span>
         <h3>1-op-1 Deep Dive</h3>
         <p>In één sessie van 60 minuten helderheid, richting en een concreet plan.</p>
         <span className="ewk-offer__link">Bekijk de Deep Dive <Icon name="arrow-right" /></span>
       </button>
       <button className="ewk-rung ewk-rung--rose" onClick={() => onNav("Traject")}>
-        <span className="ewk-rung__step">Stap 3 · traject</span>
+        <span className="ewk-rung__step">Begeleidingstraject</span>
         <h3>{PROGRAMMA.naam}</h3>
         <p>{PROGRAMMA.sub} — in 3 maanden duurzaam naar rust, energie en regie.</p>
         <span className="ewk-offer__link">Bekijk het traject <Icon name="arrow-right" /></span>
@@ -213,7 +213,7 @@ function HomeAanbod({ onScan, onNav }) {
       <div className="ewk-wrap">
         <SectionHead eyebrow="Zo kun je met me werken"
           title="Klaar om het niet langer alleen te doen?"
-          sub="Van een gratis eerste stap tot een compleet 1-op-1 traject. Je bepaalt zelf waar je instapt." />
+          sub="Drie manieren om met me te werken — van een gratis scan tot een compleet 1-op-1 traject. Kies wat bij jou past." />
         <WerkLadder onScan={onScan} onNav={onNav} />
       </div>
     </section>
