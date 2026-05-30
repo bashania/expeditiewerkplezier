@@ -113,15 +113,19 @@ button{font-family:inherit}
   padding:10px;background:var(--ew-grad-ring);box-shadow:var(--ew-shadow-lg)}
 .ewk-portrait__inner{width:100%;height:100%;border-radius:50%;overflow:hidden;position:relative;background:var(--ew-rose-100)}
 .ewk-portrait__inner img{width:100%;height:100%;object-fit:cover;object-position:center 22%}
-.ewk-play{display:flex;align-items:center;gap:10px;background:#fff;border-radius:999px;padding:9px;
-  box-shadow:var(--ew-shadow-md);cursor:pointer;border:0;transition:transform var(--ew-dur)}
-.ewk-portrait .ewk-play{position:absolute;left:-14px;bottom:34px}
-.ewk-play:hover{transform:translateY(-2px)}
-.ewk-play__dot{width:38px;height:38px;border-radius:50%;background:var(--ew-grad-warm);display:flex;align-items:center;justify-content:center;color:#fff;flex:none}
+/* play affordance — white pill with gradient dot */
+.ewk-play{position:absolute;display:inline-flex;align-items:center;gap:11px;white-space:nowrap;
+  background:#fff;border-radius:var(--ew-radius-pill);padding:8px 18px 8px 8px;
+  box-shadow:var(--ew-shadow-md);cursor:pointer;border:0;
+  transition:transform var(--ew-dur),box-shadow var(--ew-dur)}
+.ewk-portrait .ewk-play{left:-14px;bottom:34px}
+.ewk-play:hover{transform:translateY(-2px);box-shadow:var(--ew-shadow-lg)}
+.ewk-play:active{transform:translateY(0)}
+.ewk-play__dot{width:42px;height:42px;border-radius:50%;background:var(--ew-grad-warm);display:flex;align-items:center;justify-content:center;color:#fff;flex:none;box-shadow:0 4px 12px rgba(176,104,111,.35)}
 .ewk-play__dot svg{width:18px;height:18px;margin-left:2px}
 .ewk-play__dot--big{width:64px;height:64px}
 .ewk-play__dot--big svg{width:28px;height:28px}
-.ewk-play span{font-size:13px;font-weight:700;color:var(--ew-ink-800);padding-right:14px}
+.ewk-play>span:last-child{font-size:14px;font-weight:var(--ew-weight-bold);color:var(--ew-ink-800)}
 
 /* ---------------- Trust bar ---------------- */
 .ewk-trustbar{background:var(--ew-pine-700);padding:30px 0}
