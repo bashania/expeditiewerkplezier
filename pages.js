@@ -523,4 +523,70 @@ function PrivacyPage() {
   );
 }
 
-Object.assign(window, { PageHeader, OverAgathe, AanbodPage, ErvaringenPage, BlogPage, ContactPage, PrivacyPage });
+/* ===================== COOKIEBELEID ===================== */
+function CookiePage() {
+  return (
+    <main>
+      <PageHeader eyebrow="Juridisch"
+        title="Cookiebeleid"
+        sub="Welke cookies deze website gebruikt, waarvoor en hoe je jouw voorkeuren kunt beheren." />
+
+      <section className="ewk-section">
+        <div className="ewk-wrap ewk-prose ewk-legal">
+
+          <p className="ewk-legal__meta">Agathe Hania · Expeditie Werkplezier · Waddinxveen · Laatst bijgewerkt: mei 2025</p>
+
+          <h2>1. Wat zijn cookies?</h2>
+          <p>Cookies zijn kleine tekstbestanden die door een website op je apparaat worden opgeslagen wanneer je de site bezoekt. Ze helpen de website correct te functioneren en kunnen informatie onthouden over je bezoek.</p>
+
+          <h2>2. Welke cookies gebruik ik?</h2>
+
+          <h3>Functionele cookies (altijd actief)</h3>
+          <p>Deze cookies zijn noodzakelijk voor het goed functioneren van de website. Ze worden niet gebruikt om je te volgen of te profileren.</p>
+          <table className="ewk-legal__table">
+            <thead><tr><th>Cookie</th><th>Doel</th><th>Bewaartermijn</th></tr></thead>
+            <tbody>
+              <tr><td>Sessiecookie</td><td>Onthoudt je sessie-instellingen</td><td>Sessieduur</td></tr>
+              <tr><td>Voorkeurscookie</td><td>Slaat weergavevoorkeuren op</td><td>Max. 1 jaar</td></tr>
+            </tbody>
+          </table>
+
+          <h3>Analytische cookies (alleen met toestemming)</h3>
+          <p>Privacy-vriendelijke webstatistieken om te begrijpen hoe bezoekers de website gebruiken. De gegevens zijn geanonimiseerd en worden niet gedeeld met derden.</p>
+          <table className="ewk-legal__table">
+            <thead><tr><th>Cookie</th><th>Doel</th><th>Bewaartermijn</th></tr></thead>
+            <tbody>
+              <tr><td>Analysecookie</td><td>Geanonimiseerde paginastatistieken</td><td>Max. 13 maanden</td></tr>
+            </tbody>
+          </table>
+
+          <h3>Marketing- en trackingcookies</h3>
+          <p>Ik plaats <strong>geen</strong> marketing- of trackingcookies zonder jouw uitdrukkelijke toestemming.</p>
+
+          <h2>3. Cookies van derden</h2>
+          <p>Op sommige pagina's kan content van derden worden getoond (zoals een ingesloten video). Deze partijen kunnen eigen cookies plaatsen waar ik geen controle over heb. Raadpleeg het privacybeleid van de betreffende partij voor meer informatie.</p>
+
+          <h2>4. Toestemming en cookievoorkeur</h2>
+          <p>Bij je eerste bezoek verschijnt een cookiemelding. Je kunt je voorkeur op elk moment wijzigen via de cookiebanner of via je browserinstellingen. Let op: het uitschakelen van functionele cookies kan de werking van de website beïnvloeden.</p>
+
+          <h2>5. Hoe verwijder ik cookies?</h2>
+          <ul>
+            <li><strong>Chrome</strong> — Instellingen → Privacy en beveiliging → Cookies en andere sitegegevens</li>
+            <li><strong>Firefox</strong> — Instellingen → Privacy &amp; Beveiliging → Cookies en sitegegevens</li>
+            <li><strong>Safari</strong> — Voorkeuren → Privacy → Beheer websitegegevens</li>
+            <li><strong>Edge</strong> — Instellingen → Privacy, zoeken en services → Browsing-gegevens wissen</li>
+          </ul>
+
+          <h2>6. Wijzigingen</h2>
+          <p>Ik behoud het recht dit cookiebeleid te wijzigen. De actuele versie staat altijd op deze pagina.</p>
+
+          <h2>7. Contact</h2>
+          <p>Vragen over cookies? Neem contact op via <strong>agathe@expeditiewerkplezier.nl</strong>.</p>
+
+        </div>
+      </section>
+    </main>
+  );
+}
+
+Object.assign(window, { PageHeader, OverAgathe, AanbodPage, ErvaringenPage, BlogPage, ContactPage, PrivacyPage, CookiePage });

@@ -25,7 +25,7 @@ function App() {
   // always start a freshly-opened page at the top
   useAE(() => { window.scrollTo(0, 0); }, [page]);
 
-  const PAGES = [...NAV, "Traject", "Deep Dive", "Gratis scan", "Privacy"];
+  const PAGES = [...NAV, "Traject", "Deep Dive", "Gratis scan", "Privacy", "Cookies"];
   function nav(n) {
     setMenuOpen(false);
     setPage(PAGES.includes(n) ? n : "Home");
@@ -46,6 +46,7 @@ function App() {
   else if (page === "Traject") body = <TrajectPage {...common} />;
   else if (page === "Contact") body = <ContactPage {...common} />;
   else if (page === "Privacy") body = <PrivacyPage />;
+  else if (page === "Cookies") body = <CookiePage />;
   else body = <Home homeHero={t.homeHero} showTrust={t.showTrust} {...common} />;
 
   const active = (page === "Traject" || page === "Deep Dive" || page === "Gratis scan") ? "Aanbod" : page;

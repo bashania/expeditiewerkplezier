@@ -204,7 +204,7 @@ function Footer({ onScan, onNav = () => {} }) {
             {" · "}
             <a href="#" className="ewk-footer__legal-link" onClick={(e) => { e.preventDefault(); onNav("Privacy"); }}>Privacyverklaring</a>
             {" · "}
-            Cookiebeleid
+            <a href="#" className="ewk-footer__legal-link" onClick={(e) => { e.preventDefault(); onNav("Cookies"); }}>Cookiebeleid</a>
           </span>
         </div>
       </div>
