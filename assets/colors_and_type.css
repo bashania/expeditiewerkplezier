@@ -1,0 +1,250 @@
+/* =========================================================================
+   Expeditie Werkplezier — Colors & Type foundations
+   Brand: warm, calm coaching brand for working/ambitious mothers.
+   Palette built on the OFFICIAL brand sheet: rosé #CA848B, gold #EBC64A,
+   sky #6EC7DC, sage #9BBFC1, warm gray #5C5C64, light gray #DDDDDD — plus
+   the logo gradient (#14557B → #81CEC6) reserved for the mark.
+   ========================================================================= */
+
+/* ---- Webfonts -----------------------------------------------------------
+   SUBSTITUTION: real brand font files were not supplied. The logo wordmark is
+   a warm transitional serif and the tagline is its italic. Closest free match
+   = PT Serif. Body/UI uses Mulish (soft humanist sans). Swap for the licensed
+   originals once supplied (see README → Typography).                        */
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
+
+:root {
+  /* ---------- Logo teal (reference only — NOT a UI palette) ----------
+     The cool ocean→aqua of the mark. The logo gradient uses these literally;
+     all UI uses the official rosé + accent trio below.                     */
+  --ew-logo-deep: #14557B;
+  --ew-logo-aqua: #81CEC6;
+
+  /* ---------- Pine — the WARM deep brand color (leads the system) ----------
+     A green-leaning deep teal. Use this (not the bluish ocean) for headings
+     accents, links, the mission band and deep surfaces.                    */
+  --ew-pine-700:  #2E5555;   /* deep surfaces / mission band */
+  --ew-pine-600:  #336060;   /* links, keyword emphasis */
+  --ew-pine-500:  #417676;   /* tagline / accent */
+  --ew-pine-300:  #8FB3B1;
+  --ew-pine-200:  #BFD6D4;
+  --ew-pine-100:  #DCE9E7;
+  --ew-pine-50:   #EEF4F3;
+
+  /* ---------- Rosé — OFFICIAL warm primary (brand sheet #CA848B) ----------
+     Carries CTAs, the warm gradient and human/highlight moments. Deepened
+     shades keep white text legible; #CA848B is the on-sheet base.            */
+  --ew-rose-700: #8E535A;
+  --ew-rose-600: #B0686F;  /* PRIMARY solid (white text) */
+  --ew-rose-500: #CA848B;  /* OFFICIAL base */
+  --ew-rose-400: #D7A0A5;
+  --ew-rose-300: #E4BEC2;
+  --ew-rose-200: #EFD5D8;
+  --ew-rose-100: #F7E7E9;
+  --ew-rose-50:  #FBF2F3;
+
+  /* legacy rosé stays under one name only — --ew-rose-* (see above) */
+
+  /* ---------- Official accent trio: gold · sky · sage ----------
+     Supporting accents from the brand sheet. Use for category coding,
+     badges, illustration fills, section variety. Base tones are background
+     /fill strength — use 600/700 for legible text & icons on light.       */
+  --ew-gold-700: #B68C1F;
+  --ew-gold-600: #D0A82B;
+  --ew-gold-500: #EBC64A;  /* OFFICIAL base */
+  --ew-gold-300: #F3DC8E;
+  --ew-gold-100: #FBF2D4;
+
+  --ew-sky-700:  #2E8DA4;
+  --ew-sky-600:  #3FA7BF;
+  --ew-sky-500:  #6EC7DC;  /* OFFICIAL base */
+  --ew-sky-300:  #A6DEEA;
+  --ew-sky-100:  #DFF2F7;
+
+  --ew-sage-700: #567E80;
+  --ew-sage-600: #6E9799;
+  --ew-sage-500: #9BBFC1;  /* OFFICIAL base */
+  --ew-sage-300: #C2D8D9;
+  --ew-sage-100: #E6EFF0;
+
+  --ew-mist:     #DDDDDD;  /* OFFICIAL light gray */
+  --ew-mist-50:  #EDEDED;
+
+  /* ---------- Warm paper tones (lightly rosé) ---------- */
+  --ew-cream:     #F6ECEB;
+  --ew-sand:      #ECDCDB;
+
+  /* ---------- Neutral ink (warm gray, from wordmark) ---------- */
+  --ew-ink-900: #2B3035;
+  --ew-ink-800: #393F45;
+  --ew-ink-700: #41494F;   /* body text */
+  --ew-ink-600: #5C5D65;   /* wordmark gray, secondary text */
+  --ew-ink-500: #7A8189;
+  --ew-ink-400: #9AA1A7;   /* placeholder, captions */
+  --ew-ink-300: #C2C8CC;   /* borders strong */
+  --ew-ink-200: #DEE3E6;   /* borders / dividers */
+  --ew-ink-100: #EDF0F2;   /* subtle fills */
+  --ew-ink-50:  #F5F7F8;   /* app background */
+  --ew-paper:   #FFFFFF;
+
+  /* ---------- Semantic ---------- */
+  --ew-success: #3E8C73;
+  --ew-success-bg: #E4F1EC;
+  --ew-warning: #D89A4E;
+  --ew-warning-bg: #FBF0DF;
+  --ew-error:   #C25B57;
+  --ew-error-bg: #F8E5E4;
+  --ew-info:    var(--ew-sky-600);
+  --ew-info-bg: var(--ew-sky-100);
+
+  /* ---------- Gradients ----------
+     grad-warm  → the everyday hero device (buttons, accents, photo ring).
+     grad-brand → the cool logo gradient; RESERVED for the logo badge only.
+     grad-bridge→ warm rosé easing into the logo aqua, ties the two worlds. */
+  --ew-grad-warm: linear-gradient(120deg, #B0686F 0%, #CA848B 58%, #D7A0A5 100%);
+  --ew-grad-warm-soft: linear-gradient(135deg, #FBF2F3 0%, #F7E7E9 100%);
+  --ew-grad-bridge: linear-gradient(120deg, #CA848B 0%, #BBA9B0 40%, #81CEC6 100%);
+  --ew-grad-ring: conic-gradient(from 150deg, #CA848B, #D7A0A5, #81CEC6, #417676, #CA848B);
+
+  --ew-grad-brand: linear-gradient(120deg, #14557B 0%, #4F9DA6 48%, #81CEC6 100%);
+  --ew-grad-brand-soft: linear-gradient(135deg, #EDF7F5 0%, #D6EFEC 100%);
+
+  /* ---------- Semantic foreground aliases ---------- */
+  --ew-fg-1: var(--ew-ink-800);   /* headings */
+  --ew-fg-2: var(--ew-ink-700);   /* body */
+  --ew-fg-3: var(--ew-ink-600);   /* secondary */
+  --ew-fg-muted: var(--ew-ink-400);
+  --ew-fg-brand: var(--ew-pine-600);      /* warm deep teal, not ocean blue */
+  --ew-fg-accent: var(--ew-rose-600);  /* warm primary action */
+  --ew-fg-on-brand: #FFFFFF;
+
+  /* =====================  Typography  ===================== */
+  --ew-font-serif: 'PT Serif', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
+  --ew-font-sans:  'Mulish', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Fluid type scale (1.250 major-third-ish, tuned) */
+  --ew-text-xs:   0.75rem;   /* 12 */
+  --ew-text-sm:   0.875rem;  /* 14 */
+  --ew-text-base: 1rem;      /* 16 */
+  --ew-text-lg:   1.125rem;  /* 18 */
+  --ew-text-xl:   1.375rem;  /* 22 */
+  --ew-text-2xl:  1.75rem;   /* 28 */
+  --ew-text-3xl:  2.25rem;   /* 36 */
+  --ew-text-4xl:  2.9375rem; /* 47 */
+  --ew-text-5xl:  3.75rem;   /* 60 */
+
+  --ew-leading-tight: 1.12;
+  --ew-leading-snug: 1.3;
+  --ew-leading-normal: 1.6;
+  --ew-leading-relaxed: 1.75;
+
+  --ew-tracking-tight: -0.015em;
+  --ew-tracking-normal: 0;
+  --ew-tracking-wide: 0.04em;
+  --ew-tracking-caps: 0.12em;
+
+  --ew-weight-light: 300;
+  --ew-weight-regular: 400;
+  --ew-weight-medium: 500;
+  --ew-weight-semibold: 600;
+  --ew-weight-bold: 700;
+  --ew-weight-extrabold: 800;
+
+  /* =====================  Spacing (4px base) ===================== */
+  --ew-space-1: 4px;
+  --ew-space-2: 8px;
+  --ew-space-3: 12px;
+  --ew-space-4: 16px;
+  --ew-space-5: 24px;
+  --ew-space-6: 32px;
+  --ew-space-7: 48px;
+  --ew-space-8: 64px;
+  --ew-space-9: 96px;
+  --ew-space-10: 128px;
+
+  /* =====================  Radii ===================== */
+  --ew-radius-xs: 6px;
+  --ew-radius-sm: 10px;
+  --ew-radius-md: 16px;
+  --ew-radius-lg: 24px;
+  --ew-radius-xl: 32px;
+  --ew-radius-pill: 999px;
+  --ew-radius-circle: 50%;
+
+  /* =====================  Shadows (soft, cool-tinted) ===================== */
+  --ew-shadow-xs: 0 1px 2px rgba(20, 85, 123, 0.06);
+  --ew-shadow-sm: 0 2px 8px rgba(20, 85, 123, 0.07);
+  --ew-shadow-md: 0 10px 24px -8px rgba(20, 85, 123, 0.16);
+  --ew-shadow-lg: 0 22px 48px -16px rgba(20, 85, 123, 0.22);
+  --ew-shadow-focus: 0 0 0 4px rgba(129, 206, 198, 0.45);
+
+  /* =====================  Motion ===================== */
+  --ew-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --ew-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ew-dur-fast: 140ms;
+  --ew-dur: 220ms;
+  --ew-dur-slow: 420ms;
+}
+
+/* =====================  Semantic element styles ===================== */
+.ew-h1, .ew-h2, .ew-h3, .ew-display {
+  font-family: var(--ew-font-serif);
+  color: var(--ew-fg-1);
+  font-weight: var(--ew-weight-bold);
+  letter-spacing: var(--ew-tracking-tight);
+  line-height: var(--ew-leading-tight);
+  margin: 0;
+  text-wrap: balance;
+}
+.ew-display { font-size: var(--ew-text-5xl); }
+.ew-h1 { font-size: var(--ew-text-4xl); }
+.ew-h2 { font-size: var(--ew-text-3xl); }
+.ew-h3 { font-size: var(--ew-text-2xl); line-height: var(--ew-leading-snug); }
+
+.ew-eyebrow {
+  font-family: var(--ew-font-sans);
+  font-weight: var(--ew-weight-bold);
+  font-size: var(--ew-text-sm);
+  letter-spacing: var(--ew-tracking-caps);
+  text-transform: uppercase;
+  color: var(--ew-pine-500);
+}
+
+.ew-tagline {
+  font-family: var(--ew-font-serif);
+  font-style: italic;
+  color: var(--ew-pine-500);
+  font-weight: var(--ew-weight-regular);
+}
+
+.ew-lead {
+  font-family: var(--ew-font-sans);
+  font-size: var(--ew-text-xl);
+  line-height: var(--ew-leading-normal);
+  color: var(--ew-fg-2);
+  font-weight: var(--ew-weight-regular);
+}
+
+.ew-body {
+  font-family: var(--ew-font-sans);
+  font-size: var(--ew-text-base);
+  line-height: var(--ew-leading-relaxed);
+  color: var(--ew-fg-2);
+  font-weight: var(--ew-weight-regular);
+}
+
+.ew-small {
+  font-family: var(--ew-font-sans);
+  font-size: var(--ew-text-sm);
+  color: var(--ew-fg-3);
+}
+
+.ew-caption {
+  font-family: var(--ew-font-sans);
+  font-size: var(--ew-text-xs);
+  letter-spacing: var(--ew-tracking-wide);
+  color: var(--ew-fg-muted);
+}
+
+/* Emphasis pattern from the brand voice: bold inline keywords */
+.ew-key { font-weight: var(--ew-weight-bold); color: var(--ew-pine-600); }
