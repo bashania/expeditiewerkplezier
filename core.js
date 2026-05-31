@@ -1,4 +1,4 @@
-/* Expeditie Werkplezier — core components
+/* Expeditie Werkplezier – core components
    Icon, Button, Header, EbookModal, VideoLightbox, Footer. Exported to window. */
 const { useState, useEffect, useRef } = React;
 
@@ -86,7 +86,7 @@ const MODAL_CONTENT = {
   },
   scan: {
     title: "Doe de gratis Stress & Energiescan",
-    desc: "Ontdek of jouw lichaam al signalen geeft dat het te veel wordt — en wat je kunt doen om weer rust en energie te krijgen. Je ontvangt de scan direct in je inbox.",
+    desc: "Ontdek of jouw lichaam al signalen geeft dat het te veel wordt – en wat je kunt doen om weer rust en energie te krijgen. Je ontvangt de scan direct in je inbox.",
     button: "Stuur mij de scan",
     success: "Je Stress & Energiescan is onderweg naar",
   },
@@ -168,14 +168,14 @@ function VideoLightbox({ open, onClose }) {
   );
 }
 
-function Footer({ onScan, onNav }) {
+function Footer({ onScan, onNav, onCookiePrefs }) {
   return (
     <footer className="ewk-footer">
       <div className="ewk-wrap">
         <div className="ewk-footer__grid">
           <div>
             <img className="foot-logo" src="assets/logo-full-contra.svg" alt="Expeditie Werkplezier" />
-            <p>Speciaal voor werkende moeders die meer grip willen op hun overvolle agenda én hoofd — zodat ze weer kunnen genieten van wat echt belangrijk is.</p>
+            <p>Speciaal voor werkende moeders die meer grip willen op hun overvolle agenda én hoofd – zodat ze weer kunnen genieten van wat echt belangrijk is.</p>
             <div className="ewk-footer__social">
               <a href="https://www.linkedin.com/in/agathe-hania-893577338/" title="LinkedIn" target="_blank" rel="noopener noreferrer"><Icon name="linkedin" /></a>
               <a href="https://www.instagram.com/agathehania/" title="Instagram" target="_blank" rel="noopener noreferrer"><Icon name="instagram" /></a>
@@ -192,17 +192,54 @@ function Footer({ onScan, onNav }) {
           </div>
           <div>
             <h4>Gratis <b>scan</b></h4>
-            <p>Ontdek in 10 minuten wat er écht speelt in jouw brein en lichaam — en wat jouw eerste stap is naar meer rust en energie.</p>
+            <p>Ontdek in 10 minuten wat er écht speelt in jouw brein en lichaam – en wat jouw eerste stap is naar meer rust en energie.</p>
             <Button variant="solid" onClick={onScan} icon="clipboard-list">Doe de gratis scan</Button>
           </div>
         </div>
         <div className="ewk-footer__bottom">
-          <span>© Agathe Hania · Expeditie Werkplezier · Waddinxveen · KVK ·· · BTW NL···B01</span>
-          <span>Algemene Voorwaarden · Privacyverklaring · Cookiebeleid</span>
+          <span>© Agathe Hania · Expeditie Werkplezier · Waddinxveen · KVK 57284946 · BTW NL001412727B96</span>
+          <span>Algemene Voorwaarden · <a href="#" onClick={(e) => { e.preventDefault(); onNav("Privacy"); }}>Privacyverklaring</a> · <a href="#" onClick={(e) => { e.preventDefault(); onNav("Cookies"); }}>Cookiebeleid</a> · <a href="#" onClick={(e) => { e.preventDefault(); onCookiePrefs && onCookiePrefs(); }}>Cookievoorkeuren</a></span>
         </div>
       </div>
     </footer>
   );
 }
 
-Object.assign(window, { Icon, Button, Header, EbookModal, VideoLightbox, Footer, NAV });
+/* ---------------- Cookie consent ---------------- */
+const EWK_CONSENT_KEY = "ewk-cookie-consent";
+
+function readConsent() {
+  try { return JSON.parse(localStorage.getItem(EWK_CONSENT_KEY) || "null"); }
+  catch (e) { return null; }
+}
+function writeConsent(val) {
+  try { localStorage.setItem(EWK_CONSENT_KEY, JSON.stringify({ ...val, ts: Date.now() })); } catch (e) {}
+}
+
+function CookieBanner({ open, onChoice, onNav }) {
+  if (!open) return null;
+  return (
+    <div className="ewk-cookie" role="dialog" aria-label="Cookievoorkeuren" aria-live="polite">
+      <div className="ewk-cookie__card">
+        <span className="ewk-cookie__ic"><Icon name="cookie" /></span>
+        <div className="ewk-cookie__body">
+          <h4>Even over cookies</h4>
+          <p>
+            Ik gebruik alleen <b>functionele cookies</b> om de site goed te laten werken. Analytische
+            cookies (geanonimiseerd) plaats ik alleen met jouw toestemming – nooit voor advertenties of
+            tracking. Meer lezen? Zie mijn{" "}
+            <a href="#" onClick={(e) => { e.preventDefault(); onNav("Cookies"); }}>cookiebeleid</a>.
+          </p>
+          <div className="ewk-cookie__actions">
+            <Button variant="primary" size="sm" onClick={() => onChoice({ functional: true, analytics: true })}>Alle cookies accepteren</Button>
+            <Button variant="outline" size="sm" onClick={() => onChoice({ functional: true, analytics: false })}>Alleen functioneel</Button>
+          </div>
+        </div>
+        <button className="ewk-cookie__close" title="Alleen functioneel" aria-label="Sluiten – alleen functionele cookies"
+                onClick={() => onChoice({ functional: true, analytics: false })}><Icon name="x" /></button>
+      </div>
+    </div>
+  );
+}
+
+Object.assign(window, { Icon, Button, Header, EbookModal, VideoLightbox, Footer, NAV, CookieBanner, readConsent, writeConsent });

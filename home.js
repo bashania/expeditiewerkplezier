@@ -1,4 +1,4 @@
-/* Expeditie Werkplezier — Home (rewritten copy)
+/* Expeditie Werkplezier – Home (rewritten copy)
    "Van altijd 'aan' naar rust, energie en regie" */
 
 const HOME_SYMPTOMS = [
@@ -15,12 +15,12 @@ const HOME_BENEFITS = [
   ["Je weer ", "energie voelt", " en beter slaapt."],
   ["Je af en toe ", "de boel de boel", " kunt laten, zonder schuldgevoel."],
   ["Je veel meer kunt ", "genieten", " van het moment."],
-  ["Je beter voelt ", "wat je nodig hebt", " — en daar ook naar handelt."],
+  ["Je beter voelt ", "wat je nodig hebt", " – en daar ook naar handelt."],
   ["Je je ", "werk weer loslaat", ", zodat je écht aanwezig bent thuis."],
 ];
 
 /* ---- Hero, two layouts (tweakable) ---- */
-function HomeHero({ homeHero, onScan, onNav, onPlay }) {
+function HomeHero({ homeHero, onScan, onNav, onPlay, portret }) {
   if (homeHero === "statement") {
     return (
       <section className="ewk-hero ewk-hero--statement">
@@ -54,14 +54,14 @@ function HomeHero({ homeHero, onScan, onNav, onPlay }) {
           </p>
           <p className="ewk-hero__lead" style={{ marginTop: 16 }}>
             Met een heldere aanpak gericht op jouw brein, lichaam en patronen ontdek je wat je kunt
-            doen om uit die overdrive te komen — zodat je weer keuzes maakt die echt bij je passen.
+            doen om uit die overdrive te komen – zodat je weer keuzes maakt die echt bij je passen.
           </p>
           <div className="ewk-hero__cta">
             <Button variant="primary" size="lg" icon="clipboard-list" onClick={onScan}>Start de gratis Stress &amp; Energiescan</Button>
             <Button variant="ghost" iconRight="arrow-right" onClick={() => onNav("Over Agathe")}>Lees mijn verhaal</Button>
           </div>
         </div>
-        <Portrait play onPlay={onPlay} />
+        <Portrait play onPlay={onPlay} src={portret} />
       </div>
     </section>
   );
@@ -72,19 +72,24 @@ function HomeRecognition() {
   return (
     <section className="ewk-section">
       <div className="ewk-wrap">
-        <div className="ewk-prose" style={{ margin: "0 auto", textAlign: "center" }}>
-          <Eyebrow>Ben jij dit?</Eyebrow>
-          <h2 className="ewk-h2" style={{ margin: "12px 0 22px" }}>Je houdt alles draaiende — maar het kost je steeds meer</h2>
-          <p>
-            Je draagt veel verantwoordelijkheid en werkt in een omgeving waar veel van je gevraagd
-            wordt. Je zorgt voor anderen, ziet wat er moet gebeuren en wilt het graag goed doen. Op je
-            werk én thuis. Dat maakt je betrouwbaar en loyaal.
-          </p>
-          <p>
-            Maar het is ook precies waar het begint te wringen. Want ergens onderweg ben je jezelf
-            voorbijgelopen. Je staat vaak <span className="ewk-key">“aan”</span> en de uitknop is niet
-            altijd meer goed te vinden. Herkenbaar?
-          </p>
+        <div className="ewk-recogtop">
+          <div className="ewk-prose">
+            <Eyebrow>Ben jij dit?</Eyebrow>
+            <h2 className="ewk-h2" style={{ margin: "12px 0 22px" }}>Je houdt alles draaiende – maar het kost je steeds meer</h2>
+            <p>
+              Je draagt veel verantwoordelijkheid en werkt in een omgeving waar veel van je gevraagd
+              wordt. Je zorgt voor anderen, ziet wat er moet gebeuren en wilt het graag goed doen. Op je
+              werk én thuis. Dat maakt je betrouwbaar en loyaal.
+            </p>
+            <p>
+              Maar het is ook precies waar het begint te wringen. Want ergens onderweg ben je jezelf
+              voorbijgelopen. Je staat vaak <span className="ewk-key">“aan”</span> en de uitknop is niet
+              altijd meer goed te vinden. Herkenbaar?
+            </p>
+          </div>
+          <figure className="ewk-photofig ewk-recogtop__media">
+            <img src="assets/photos/cta-9403.jpg" alt="Agathe wijst naar je" loading="lazy" />
+          </figure>
         </div>
         <ul className="ewk-list" style={{ marginTop: 16 }}>
           {HOME_SYMPTOMS.map(([ic, a, b, c], i) => (
@@ -138,7 +143,7 @@ function HomeBenefits() {
       <div className="ewk-wrap">
         <SectionHead eyebrow="Het kan ook anders"
           title="Wat als je maar <em>één stap</em> verwijderd bent van een ander leven?"
-          sub="Niet omdat alles om je heen verandert. Maar omdat jij anders leert omgaan met wat er speelt — op een manier die voor jou werkt." />
+          sub="Niet omdat alles om je heen verandert. Maar omdat jij anders leert omgaan met wat er speelt – op een manier die voor jou werkt." />
         <ul className="ewk-list">
           {HOME_BENEFITS.map(([a, b, c], i) => (
             <li key={i}>
@@ -153,12 +158,12 @@ function HomeBenefits() {
 }
 
 /* ---- Over mij teaser ---- */
-function HomeAbout({ onNav }) {
+function HomeAbout({ onNav, portret }) {
   return (
     <section className="ewk-section ewk-section--wash">
       <div className="ewk-wrap ewk-about">
         <div className="ewk-about__photo">
-          <Portrait size="100%" />
+          <Portrait size="100%" src="assets/photos/portrait-9371.jpg" />
         </div>
         <div className="ewk-about__text">
           <Eyebrow>Over mij</Eyebrow>
@@ -169,7 +174,7 @@ function HomeAbout({ onNav }) {
             lichaam op de rem trapte.
           </p>
           <p>
-            Tijdens mijn herstel begon ik te begrijpen wat er werkelijk speelde — een patroon dat ik
+            Tijdens mijn herstel begon ik te begrijpen wat er werkelijk speelde – een patroon dat ik
             later steeds terugzag bij de vrouwen die ik begeleid. Ik combineer psychologie,
             wetenschappelijke inzichten en lichaamsgerichte technieken met <span className="ewk-key">praktische
             stappen die direct toepasbaar zijn</span>.
@@ -200,7 +205,7 @@ function WerkLadder({ onScan, onNav }) {
       <button className="ewk-rung ewk-rung--rose" onClick={() => onNav("Traject")}>
         <span className="ewk-rung__step">Begeleidingstraject</span>
         <h3>{PROGRAMMA.naam}</h3>
-        <p>{PROGRAMMA.sub} — in 3 maanden duurzaam naar rust, energie en regie.</p>
+        <p>{PROGRAMMA.sub} – in 3 maanden duurzaam naar rust, energie en regie.</p>
         <span className="ewk-offer__link">Bekijk het traject <Icon name="arrow-right" /></span>
       </button>
     </div>
@@ -213,7 +218,7 @@ function HomeAanbod({ onScan, onNav }) {
       <div className="ewk-wrap">
         <SectionHead eyebrow="Zo kun je met me werken"
           title="Klaar om het niet langer alleen te doen?"
-          sub="Drie manieren om met me te werken — van een gratis scan tot een compleet 1-op-1 traject. Kies wat bij jou past." />
+          sub="Drie manieren om met me te werken – van een gratis scan tot een compleet 1-op-1 traject. Kies wat bij jou past." />
         <WerkLadder onScan={onScan} onNav={onNav} />
       </div>
     </section>
@@ -232,7 +237,7 @@ function HomeErvaringen() {
               <div className="ewk-stars">{Array.from({ length: t.rating }).map((_, k) => <Icon key={k} name="star" />)}</div>
               <blockquote>{t.quote}</blockquote>
               <figcaption>
-                <span className="ewk-avatar">{t.name[0]}</span>
+                <ReviewAvatar r={t} />
                 <span><b>{t.name}</b><br />{t.role}</span>
               </figcaption>
             </figure>
@@ -263,15 +268,15 @@ function HomeAfsluiting({ onScan, onNav }) {
   );
 }
 
-function Home({ homeHero, showTrust, onScan, onNav, onPlay }) {
+function Home({ homeHero, showTrust, onScan, onNav, onPlay, portret }) {
   return (
     <main>
-      <HomeHero homeHero={homeHero} onScan={onScan} onNav={onNav} onPlay={onPlay} />
+      <HomeHero homeHero={homeHero} onScan={onScan} onNav={onNav} onPlay={onPlay} portret={portret} />
       {showTrust !== false && <TrustBar />}
       <HomeRecognition />
       <HomeProblem onScan={onScan} />
       <HomeBenefits />
-      <HomeAbout onNav={onNav} />
+      <HomeAbout onNav={onNav} portret={portret} />
       <HomeAanbod onScan={onScan} onNav={onNav} />
       <HomeErvaringen />
       <HomeAfsluiting onScan={onScan} onNav={onNav} />

@@ -1,10 +1,10 @@
-/* Expeditie Werkplezier — 1-op-1 Deep Dive salespagina (€147) */
+/* Expeditie Werkplezier – 1-op-1 Deep Dive salespagina (€147) */
 
 const DD_CHECKOUT = "https://expeditiewerkplezier.plugandpay.com/checkout/1-op-1-deep-dive";
 
 const DD_GAINS = [
   ["lightbulb", "sky", "Helderheid in 60 minuten",
-    "Je ziet wat er bij jou speelt — niet in losse stukjes, maar als één geheel."],
+    "Je ziet wat er bij jou speelt – niet in losse stukjes, maar als één geheel."],
   ["repeat", "rose", "Doorbraak van patronen",
     "Je ontdekt welk onbewust patroon jou hier heeft gebracht en waarom je blijft doorgaan terwijl het te veel is."],
   ["target", "gold", "Eén concrete focus",
@@ -35,27 +35,20 @@ const DD_GAIN = [
 
 const DD_VOORWIE = [
   "een drukke vrouw bent met een verantwoordelijke rol en veel op je bord",
-  "snel schakelt, vooruitdenkt en verantwoordelijkheid pakt — op je werk én thuis",
+  "snel schakelt, vooruitdenkt en verantwoordelijkheid pakt – op je werk én thuis",
   "blijft doorgaan terwijl je voelt dat het eigenlijk te veel is",
   "de lat hoog legt, ook als je allang over je grens zit",
   "thuis bent, maar je werk niet los kunt laten",
   "blijft zoeken naar hoe het anders moet, maar geen grip krijgt",
 ];
 
-const DD_REVIEWS = [
-  { name: "K.M.", role: "Senior Sales- & Business Development Manager", rating: 5,
-    quote: "Ik bleef maar rondjes draaien in mijn hoofd en zag zelf niet meer wat er echt speelde. In dit gesprek werd het ineens helder en wist ik precies waar ik moest beginnen." },
-  { name: "Sema", role: "Communicatieadviseur", rating: 5,
-    quote: "Het voelde alsof iemand precies zag wat ik zelf al zo lang probeerde te begrijpen. Dat gaf zoveel rust en richting." },
-  { name: "Shalini Siwpersad", role: "Adviseur/manager projectbeheersing", rating: 5,
-    quote: "Mijn hoofd zat zó vol en ik probeerde alles tegelijk op te lossen. Na deze sessie had ik eindelijk overzicht en een plan dat bij mij past." },
-];
+/* DEEPDIVE_REVIEWS komt uit data.jsx (echte reviews) */
 
 const DD_FAQ = [
   { q: "Wat levert één sessie me op?",
     a: "Helderheid, richting en een concreet plan waar je direct mee verder kunt. De meeste vrouwen gaan naar huis met een inzicht dat alles op z'n plek laat vallen. Vaak ervaar je al tijdens de sessie meer rust in je hoofd." },
   { q: "Moet ik alles al goed kunnen uitleggen?",
-    a: "Nee. Kom zoals je bent. Je hoeft je situatie niet perfect te verwoorden — dat is precies waar ik je bij help. We zoeken het samen uit." },
+    a: "Nee. Kom zoals je bent. Je hoeft je situatie niet perfect te verwoorden – dat is precies waar ik je bij help. We zoeken het samen uit." },
   { q: "Is één sessie genoeg?",
     a: "Veel vrouwen ervaren na één sessie een duidelijk inzicht en weten welke eerste stap ze kunnen zetten. Verandering vasthouden is iets anders. Als je merkt dat je daarin begeleiding wilt, bespreken we dat aan het einde van de sessie." },
   { q: "Hoe plan ik een sessie?",
@@ -68,7 +61,7 @@ const DD_FAQ = [
     a: "Dan is dat juist een teken dat je er klaar voor bent. Twijfel betekent dat je voelt dat er iets moet veranderen, maar nog niet weet hoe. Dat is precies waar we in de sessie mee beginnen." },
 ];
 
-function DeepDivePage({ onNav, onPlay }) {
+function DeepDivePage({ onNav, onPlay, portret }) {
   return (
     <main>
       {/* Hero */}
@@ -79,7 +72,7 @@ function DeepDivePage({ onNav, onPlay }) {
             <h1 className="ewk-hero__quote">In 60 minuten meer rust door <em>helderheid en richting</em></h1>
             <p className="ewk-hero__lead">
               Voor werkende moeders die zich weer ontspannen en energiek willen voelen. Met deze Deep
-              Dive weet jij binnen een uur wat jouw ineffectieve patronen zijn — en heb je een
+              Dive weet jij binnen een uur wat jouw ineffectieve patronen zijn – en heb je een
               <span className="ewk-key"> persoonlijk plan</span> om mee aan de slag te gaan.
             </p>
             <div className="ewk-hero__cta">
@@ -88,7 +81,7 @@ function DeepDivePage({ onNav, onPlay }) {
             </div>
             <p className="ewk-dd-meta"><Icon name="user" />1-op-1 &nbsp;·&nbsp; <Icon name="clock" />60–90 minuten &nbsp;·&nbsp; <Icon name="sparkles" />volledig afgestemd op jou</p>
           </div>
-          <Portrait play onPlay={onPlay} />
+          <Portrait play onPlay={onPlay} src={portret} />
         </div>
       </section>
 
@@ -96,7 +89,7 @@ function DeepDivePage({ onNav, onPlay }) {
       <section className="ewk-section">
         <div className="ewk-wrap ewk-prose" style={{ margin: "0 auto", textAlign: "center" }}>
           <Eyebrow>Misschien herken je dit</Eyebrow>
-          <h2 className="ewk-h2" style={{ margin: "12px 0 24px" }}>Je weet dat er iets moet veranderen. Maar wat precies — en waar begin je?</h2>
+          <h2 className="ewk-h2" style={{ margin: "12px 0 24px" }}>Je weet dat er iets moet veranderen. Maar wat precies – en waar begin je?</h2>
           <p>
             Veel vrouwen herkennen zichzelf volledig in de signalen en zien precies waar het schuurt. Ze
             voelen dat het zo niet langer kan, maar het lukt ze niet om iets aan de situatie te
@@ -104,7 +97,7 @@ function DeepDivePage({ onNav, onPlay }) {
           </p>
           <p>
             Niet omdat ze de vaardigheden niet hebben, maar omdat ze niet goed weten waar ze moeten
-            beginnen. Ze blijven nadenken en twijfelen, of proberen van alles tegelijk — waardoor het
+            beginnen. Ze blijven nadenken en twijfelen, of proberen van alles tegelijk – waardoor het
             overzicht juist weer verdwijnt. <span className="ewk-key">Als je eerlijk bent, herken je dat
             misschien ook wel.</span>
           </p>
@@ -116,7 +109,7 @@ function DeepDivePage({ onNav, onPlay }) {
         <div className="ewk-wrap">
           <SectionHead eyebrow="Wat deze sessie je oplevert"
             title="In één sessie van stilstand naar een concrete eerste stap"
-            sub="We kijken samen naar jouw situatie — niet in losse stukjes, maar als geheel. We maken scherp wat er onder je klachten zit en wat jou nu het meest helpt." />
+            sub="We kijken samen naar jouw situatie – niet in losse stukjes, maar als geheel. We maken scherp wat er onder je klachten zit en wat jou nu het meest helpt." />
           <div className="ewk-gains">
             {DD_GAINS.map(([ic, accent, t, d]) => (
               <div className={"ewk-gain ewk-offer--" + accent} key={t}>
@@ -171,7 +164,7 @@ function DeepDivePage({ onNav, onPlay }) {
       {/* Even voorstellen */}
       <section className="ewk-section">
         <div className="ewk-wrap ewk-about">
-          <div className="ewk-about__photo"><Portrait size="100%" /></div>
+          <div className="ewk-about__photo"><Portrait size="100%" src={portret} /></div>
           <div className="ewk-about__text">
             <Eyebrow>Even voorstellen</Eyebrow>
             <h2 className="ewk-h2">Ik ben Agathe, arbeids- en organisatiepsycholoog</h2>
@@ -182,7 +175,7 @@ function DeepDivePage({ onNav, onPlay }) {
             <p>
               En wat ik elke dag zie: het gaat niet om harder je best doen. Het gaat om begrijpen wat er
               in je systeem gebeurt. <span className="ewk-key">Dat inzicht is de eerste stap naar rust,
-              overzicht en energie</span> — en daar helpt deze sessie bij.
+              overzicht en energie</span> – en daar helpt deze sessie bij.
             </p>
           </div>
         </div>
@@ -193,12 +186,12 @@ function DeepDivePage({ onNav, onPlay }) {
         <div className="ewk-wrap">
           <SectionHead eyebrow="Wat andere vrouwen zeggen" title="Eén gesprek, dat alles op z'n plek laat vallen" />
           <div className="ewk-testgrid">
-            {DD_REVIEWS.map((t, i) => (
+            {DEEPDIVE_REVIEWS.map((t, i) => (
               <figure className="ewk-testcard" key={i}>
                 <div className="ewk-stars">{Array.from({ length: t.rating }).map((_, k) => <Icon key={k} name="star" />)}</div>
                 <blockquote>{t.quote}</blockquote>
                 <figcaption>
-                  <span className="ewk-avatar">{t.name[0]}</span>
+                  <ReviewAvatar r={t} />
                   <span><b>{t.name}</b><br />{t.role}</span>
                 </figcaption>
               </figure>

@@ -1,10 +1,16 @@
-/* Expeditie Werkplezier — App: routing, interactions, tweaks */
+/* Expeditie Werkplezier – App: routing, interactions, tweaks */
 const { useState: useA, useEffect: useAE } = React;
 
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "homeHero": "portret",
-  "showTrust": true
+  "showTrust": true,
+  "portret": "lachend"
 }/*EDITMODE-END*/;
+
+const PORTRETTEN = {
+  lachend: "assets/photos/portrait-9295.jpg",
+  zacht: "assets/photos/portrait-9314.jpg",
+};
 
 function App() {
   const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
@@ -12,6 +18,12 @@ function App() {
   const [menuOpen, setMenuOpen] = useA(false);
   const [videoOpen, setVideoOpen] = useA(false);
   const [page, setPage] = useA("Home");
+  const [cookieOpen, setCookieOpen] = useA(false);
+
+  // show the cookie banner on first visit (no stored choice yet)
+  useAE(() => { if (!readConsent()) setCookieOpen(true); }, []);
+  function chooseCookies(val) { writeConsent(val); setCookieOpen(false); }
+  function openCookiePrefs() { setCookieOpen(true); }
 
   useAE(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -25,14 +37,15 @@ function App() {
   // always start a freshly-opened page at the top
   useAE(() => { window.scrollTo(0, 0); }, [page]);
 
-  const PAGES = [...NAV, "Traject", "Deep Dive", "Gratis scan", "Bedankt scan"];
+  const PAGES = [...NAV, "Traject", "Deep Dive", "Gratis scan", "Bedankt scan", "Privacy", "Cookies"];
   function nav(n) {
     setMenuOpen(false);
     setPage(PAGES.includes(n) ? n : "Home");
   }
 
-  // Hash-routing voor de bedankpagina — bereikbaar via #bedankt-scan na plug&pay-redirect
-  const HASH_PAGES = { "bedankt-scan": "Bedankt scan" };
+  // Hash-routing voor de bedankpagina (niet in de nav) – bestemming na aankoop:
+  //   .../Expeditie Werkplezier.html#bedankt-scan
+  const HASH_PAGES = { "bedankt-scan": "Bedankt scan", "privacy": "Privacy", "cookies": "Cookies" };
   useAE(() => {
     const applyHash = () => {
       const h = (window.location.hash || "").replace(/^#/, "");
@@ -42,14 +55,15 @@ function App() {
     window.addEventListener("hashchange", applyHash);
     return () => window.removeEventListener("hashchange", applyHash);
   }, []);
-
-  // Gratis Stress & Energiescan — extern afgehandeld via plug&pay
+  // Gratis Stress & Energiescan – CTA's openen de salespagina; de opt-in op die
+  // pagina handelt de inschrijving extern af (plug&pay).
   const SCAN_CHECKOUT = "https://expeditiewerkplezier.plugandpay.com/checkout/gratis-stress-energiescan";
-  const openScan = () => { window.location.href = SCAN_CHECKOUT; };
+  const goCheckout = () => { window.location.href = SCAN_CHECKOUT; };
+  const openScan = () => { nav("Gratis scan"); };
   const openVideo = () => setVideoOpen(true);
 
   // onEbook kept as an alias to the scan so any legacy CTA still routes correctly
-  const common = { onScan: openScan, onEbook: openScan, onNav: nav, onPlay: openVideo };
+  const common = { onScan: openScan, onEbook: openScan, onNav: nav, onPlay: openVideo, onCheckout: goCheckout, portret: PORTRETTEN[t.portret] || PORTRETTEN.lachend };
 
   let body;
   if (page === "Over Agathe") body = <OverAgathe {...common} />;
@@ -61,8 +75,9 @@ function App() {
   else if (page === "Blog") body = <BlogPage {...common} />;
   else if (page === "Traject") body = <TrajectPage {...common} />;
   else if (page === "Contact") body = <ContactPage {...common} />;
+  else if (page === "Privacy") body = <PrivacyPage {...common} />;
+  else if (page === "Cookies") body = <CookiesPage {...common} />;
   else body = <Home homeHero={t.homeHero} showTrust={t.showTrust} {...common} />;
-
   const active = (page === "Traject" || page === "Deep Dive" || page === "Gratis scan") ? "Aanbod" : page;
 
   return (
@@ -70,16 +85,21 @@ function App() {
       <Header scrolled={scrolled} active={active} onNav={nav} onScan={openScan}
               onMenu={() => setMenuOpen(!menuOpen)} menuOpen={menuOpen} />
       {body}
-      <Footer onScan={openScan} onNav={nav} />
+      <Footer onScan={openScan} onNav={nav} onCookiePrefs={openCookiePrefs} />
       <VideoLightbox open={videoOpen} onClose={() => setVideoOpen(false)} />
+      <CookieBanner open={cookieOpen} onChoice={chooseCookies} onNav={nav} />
 
       <TweaksPanel>
-        <TweakSection label="Home — hero" />
+        <TweakSection label="Home – hero" />
         <TweakRadio label="Hero-stijl" value={t.homeHero}
           options={["portret", "statement"]}
           onChange={(v) => setTweak("homeHero", v)} />
         <TweakToggle label="Toon vertrouwensbalk" value={t.showTrust}
           onChange={(v) => setTweak("showTrust", v)} />
+        <TweakSection label="Portret van Agathe" />
+        <TweakRadio label="Foto" value={t.portret}
+          options={["lachend", "zacht"]}
+          onChange={(v) => setTweak("portret", v)} />
       </TweaksPanel>
     </React.Fragment>
   );
