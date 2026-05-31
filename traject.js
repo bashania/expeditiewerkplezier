@@ -1,8 +1,8 @@
-/* Expeditie Werkplezier — 1-op-1 traject salespagina */
+/* Expeditie Werkplezier – 1-op-1 traject salespagina */
 
 const TRJ_RECOG = [
   "Je hebt een groot verantwoordelijkheidsgevoel en vindt het moeilijk om dingen los te laten.",
-  "Je legt de lat hoog voor jezelf — op je werk, thuis en in alles wat je doet.",
+  "Je legt de lat hoog voor jezelf – op je werk, thuis en in alles wat je doet.",
   "Je bent gewend om door te gaan, ook als je eigenlijk al over je grens heen bent.",
   "Je voelt je regelmatig opgejaagd, overprikkeld of moe.",
   "Je slaapt minder diep, herstelt minder goed en hebt minder geduld dan je zou willen.",
@@ -12,7 +12,7 @@ const TRJ_RECOG = [
 const TRJ_KRIJG = [
   "Een uitgebreide intake, zodat we helder in kaart brengen wat er speelt, waar je vastloopt en wat je nodig hebt.",
   "Persoonlijke coachingsessies, volledig afgestemd op jouw situatie.",
-  "1-op-1 begeleiding op maat — geen standaardaanpak, maar passend bij jouw leven en persoonlijkheid.",
+  "1-op-1 begeleiding op maat – geen standaardaanpak, maar passend bij jouw leven en persoonlijkheid.",
   "Een duidelijk en uitgewerkt stappenplan, zodat je niet hoeft te gokken wat je wanneer doet.",
   "De juiste stappen in de juiste volgorde, zodat je niet blijft hangen in losse inzichten.",
   "Een concreet persoonlijk plan voor je dagelijks leven, om rust, energie en balans vast te houden.",
@@ -25,24 +25,13 @@ const TRJ_STAPPEN = [
   ["Inzicht in jouw persoonlijkheid in relatie tot stress",
    "Je hebt vast mooie eigenschappen zoals zorgzaamheid, perfectionisme en doorzettingsvermogen. Alleen: als je die altijd automatisch inzet, werken ze tegen je. Je ontdekt welke patronen jou gevoeliger maken voor stress en wat je écht nodig hebt. Want zelfkennis is de eerste stap naar meer regie."],
   ["Ontspanning, herstel & energie",
-   "Even bijkomen klinkt simpel, maar is de basis van alles. Je leert hoe je ontspanning inbouwt zodat lichaam en hoofd kunnen herstellen. Met meer energie kun je helder denken — en pas dan kun je bewuste keuzes maken."],
+   "Even bijkomen klinkt simpel, maar is de basis van alles. Je leert hoe je ontspanning inbouwt zodat lichaam en hoofd kunnen herstellen. Met meer energie kun je helder denken – en pas dan kun je bewuste keuzes maken."],
   ["Mindset",
    "Soms weet je precies wat je wilt veranderen, maar lukt het toch niet. Dat komt vaak door overtuigingen die je onbewust tegenhouden. Je maakt ze zichtbaar en leert vanuit een positievere blik naar jezelf te kijken, zodat verandering beklijft."],
   ["Omgeving",
-   "Jij staat nu steviger. Maar de wereld om je heen verandert niet zomaar mee. Je ontdekt hoe je omgaat met veeleisende situaties en verwachtingen van anderen, zónder jezelf te verliezen — ook in drukke tijden."],
+   "Jij staat nu steviger. Maar de wereld om je heen verandert niet zomaar mee. Je ontdekt hoe je omgaat met veeleisende situaties en verwachtingen van anderen, zónder jezelf te verliezen – ook in drukke tijden."],
   ["Plan van aanpak",
    "Alle inzichten en nieuwe gewoontes leg je vast in een persoonlijk plan. Concreet, overzichtelijk en gemaakt om op terug te vallen. Zo weet je altijd waar je naartoe werkt en val je niet terug in oude patronen."],
-];
-
-const TRJ_REVIEWS = [
-  { name: "Saskia", role: "HR Manager",
-    quote: "Ik ontdekte dat ik door heel hard door te blijven rennen, steeds minder presteerde. Ik liep continu achter de feiten aan. Maar toen ik wél de tijd nam om stil te staan, ging er een wereld voor me open. Ik voelde de energie terugkomen en kon weer helder nadenken, knopen doorhakken en beslissingen nemen." },
-  { name: "Elsbeth", role: "Project Manager",
-    quote: "Voordat ik bij Agathe kwam, voelde ik me onzeker en overspoeld. Door haar warme begeleiding en de praktische tools kan ik nu veel beter omgaan met mijn emoties en mezelf sneller in balans brengen. Ik durf beter mijn grenzen aan te geven, privé en op het werk. Dat heeft mij als vrouw én als moeder enorm geholpen." },
-  { name: "K.M.", role: "Senior Sales- & Business Development Manager",
-    quote: "Toen ik bij Agathe kwam, was ik moe en gespannen en liep ik vast in het combineren van werk en gezin. Dankzij haar rustige, scherpe en praktische begeleiding krijg ik nu meer gedaan in minder tijd, voel ik me energieker en ervaar ik meer rust en geduld. Dat merk ik op mijn werk én thuis." },
-  { name: "Sema", role: "Communicatieadviseur",
-    quote: "Door het traject met Agathe ben ik weer in mezelf gaan geloven en heb ik echt voor mezelf durven kiezen. Ze hielp me dieper te graven en opnieuw verbinding te maken met wie ik ben. Objectief, scherp en betrokken — juist die combinatie heeft voor mij het verschil gemaakt." },
 ];
 
 const TRJ_FAQ = [
@@ -57,12 +46,12 @@ const TRJ_FAQ = [
   { q: "Mijn werk blijft druk. Heeft het dan wel zin?",
     a: "Ja. Het doel is niet altijd dat je leven ineens minder druk wordt, maar dat jij er anders mee leert omgaan. Een eerdere cliënt verwoordde het mooi: de werkdruk was niet veranderd, maar zij kon er veel beter sturing aan geven en hield meer ruimte over voor haar privéleven." },
   { q: "Krijg ik vooral inzicht, of ook concrete handvatten?",
-    a: "Allebei. Je begrijpt beter wat er met je gebeurt én je krijgt concrete stappen en een persoonlijk plan voor je dagelijks leven. Theorie en praktijk verbinden — dat is precies waar ik voor sta." },
+    a: "Allebei. Je begrijpt beter wat er met je gebeurt én je krijgt concrete stappen en een persoonlijk plan voor je dagelijks leven. Theorie en praktijk verbinden – dat is precies waar ik voor sta." },
   { q: "Kan ik dit combineren met een druk gezin en werk?",
     a: "Ja, juist daarvoor is het bedoeld. Het traject is afgestemd op vrouwen die werk en gezin combineren en behoefte hebben aan een haalbare, realistische aanpak." },
 ];
 
-function TrajectPage({ onNav, onPlay }) {
+function TrajectPage({ onNav, onPlay, portret }) {
   return (
     <main>
       {/* Hero */}
@@ -74,7 +63,7 @@ function TrajectPage({ onNav, onPlay }) {
             <p className="ewk-hero__lead">
               Je bent gedreven, slim, betrokken en verantwoordelijk. En toch merk je dat het steeds
               meer energie kost om alles draaiende te houden. Je wilt het goed doen op je werk, er zijn
-              voor je kinderen, een fijne partner zijn — en ergens tussendoor ook nog ruimte houden
+              voor je kinderen, een fijne partner zijn – en ergens tussendoor ook nog ruimte houden
               voor jezelf.
             </p>
             <div className="ewk-trj-signals">
@@ -92,7 +81,7 @@ function TrajectPage({ onNav, onPlay }) {
               <Button variant="ghost" iconRight="play" onClick={onPlay}>Bekijk mijn verhaal</Button>
             </div>
           </div>
-          <Portrait play onPlay={onPlay} />
+          <Portrait play onPlay={onPlay} src={portret} />
         </div>
       </section>
 
@@ -115,14 +104,14 @@ function TrajectPage({ onNav, onPlay }) {
           <Eyebrow>Het traject</Eyebrow>
           <h2 className="ewk-h2" style={{ margin: "12px auto 24px" }}>In 3 maanden stap voor stap naar rust, energie en grip</h2>
           <p>
-            Dit traject is speciaal voor gedreven, hoogopgeleide moeders zoals jij — met een
+            Dit traject is speciaal voor gedreven, hoogopgeleide moeders zoals jij – met een
             verantwoordelijke baan of onderneming, die merken dat ze zichzelf onderweg zijn
             kwijtgeraakt. Je hebt een groot verantwoordelijkheidsgevoel, bent gewend om door te gaan en
             voelt dat het zo niet langer werkt.
           </p>
           <p>
             Maar verandering gaat niet zomaar. Het vraagt de bereidheid om eerlijk te kijken naar jouw
-            patronen — perfectionisme, altijd maar doorgaan, pleasen en een groot
+            patronen – perfectionisme, altijd maar doorgaan, pleasen en een groot
             verantwoordelijkheidsgevoel. <span className="ewk-key">Juist daar ligt vaak de sleutel naar
             echte, duurzame verandering.</span>
           </p>
@@ -146,7 +135,7 @@ function TrajectPage({ onNav, onPlay }) {
         <div className="ewk-wrap">
           <SectionHead eyebrow="Wat dit traject jou oplevert"
             title="Weer rust in je hoofd en ruimte in je lijf"
-            sub="Je leeft niet langer op de automatische piloot, maar krijgt weer grip op je energie, je grenzen en je dagelijks leven. Niet omdat je harder werkt — maar omdat je niet meer continu in de overlevingsstand staat." />
+            sub="Je leeft niet langer op de automatische piloot, maar krijgt weer grip op je energie, je grenzen en je dagelijks leven. Niet omdat je harder werkt – maar omdat je niet meer continu in de overlevingsstand staat." />
           <div className="ewk-oplevert">
             <div className="ewk-oplevert__block">
               <h4><Icon name="briefcase" />Op je werk</h4>
@@ -174,25 +163,31 @@ function TrajectPage({ onNav, onPlay }) {
 
       {/* Waarom het werkt */}
       <section className="ewk-section">
-        <div className="ewk-wrap ewk-prose" style={{ margin: "0 auto" }}>
-          <Eyebrow>Waarom dit traject werkt</Eyebrow>
-          <h2 className="ewk-h2" style={{ margin: "12px 0 24px" }}>De juiste stappen in de juiste volgorde</h2>
-          <p>
-            Omdat jij geen losse tips nodig hebt. Als je hoofd overvol is en je lichaam al te lang in
-            de overlevingsstand staat, kun je vaak best bedenken wat je anders zou moeten doen — maar
-            lukt het niet om het vol te houden.
-          </p>
-          <p>
-            Daarom beginnen we niet bij nóg harder proberen, maar bij rust, herstel en ruimte in je
-            systeem. Van daaruit kijken we stap voor stap naar de patronen, overtuigingen en
-            omgevingsfactoren die jou uit balans hebben gebracht. Geen standaardaanpak, maar een helder
-            en persoonlijk stappenplan.
-          </p>
-          <p>
-            Juist de combinatie van mijn wetenschappelijke achtergrond, praktijkervaring en
-            ervaringsdeskundigheid maakt het verschil. Ik help je niet alleen begrijpen wát er met je
-            gebeurt, maar ook hóe je daar — op een manier die bij jou past — duurzaam uitkomt.
-          </p>
+        <div className="ewk-wrap ewk-story">
+          <div className="ewk-prose">
+            <Eyebrow>Waarom dit traject werkt</Eyebrow>
+            <h2 className="ewk-h2" style={{ margin: "12px 0 24px" }}>De juiste stappen in de juiste volgorde</h2>
+            <p>
+              Omdat jij geen losse tips nodig hebt. Als je hoofd overvol is en je lichaam al te lang in
+              de overlevingsstand staat, kun je vaak best bedenken wat je anders zou moeten doen – maar
+              lukt het niet om het vol te houden.
+            </p>
+            <p>
+              Daarom beginnen we niet bij nóg harder proberen, maar bij rust, herstel en ruimte in je
+              systeem. Van daaruit kijken we stap voor stap naar de patronen, overtuigingen en
+              omgevingsfactoren die jou uit balans hebben gebracht. Geen standaardaanpak, maar een helder
+              en persoonlijk stappenplan.
+            </p>
+            <p>
+              Juist de combinatie van mijn wetenschappelijke achtergrond, praktijkervaring en
+              ervaringsdeskundigheid maakt het verschil. Ik help je niet alleen begrijpen wát er met je
+              gebeurt, maar ook hóe je daar – op een manier die bij jou past – duurzaam uitkomt.
+            </p>
+          </div>
+          <figure className="ewk-photofig ewk-story__media">
+            <img src="assets/photos/work-9331.jpg" alt="Agathe geconcentreerd aan het werk" loading="lazy" />
+            <figcaption>Geen standaardaanpak, maar de juiste stappen in de juiste volgorde.</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -231,12 +226,12 @@ function TrajectPage({ onNav, onPlay }) {
         <div className="ewk-wrap">
           <SectionHead eyebrow="Ervaringen" title="Wat eerdere cliënten ervoeren" />
           <div className="ewk-testgrid">
-            {TRJ_REVIEWS.map((t, i) => (
+            {TRAJECT_REVIEWS.map((t, i) => (
               <figure className="ewk-testcard" key={i}>
                 <div className="ewk-stars">{[0,1,2,3,4].map((k) => <Icon key={k} name="star" />)}</div>
                 <blockquote>{t.quote}</blockquote>
                 <figcaption>
-                  <span className="ewk-avatar">{t.name[0]}</span>
+                  <ReviewAvatar r={t} />
                   <span><b>{t.name}</b><br />{t.role}</span>
                 </figcaption>
               </figure>
@@ -249,11 +244,11 @@ function TrajectPage({ onNav, onPlay }) {
       <section className="ewk-finalcta">
         <div className="ewk-wrap ewk-finalcta__inner">
           <Eyebrow>Kennismaken?</Eyebrow>
-          <h2 className="ewk-h2">“Dit gaat over mij” — maar ook: “help, wat komt er op me af?”</h2>
+          <h2 className="ewk-h2">“Dit gaat over mij” – maar ook: “help, wat komt er op me af?”</h2>
           <p>
             Wees gerust. Je hoeft het niet alleen uit te zoeken. Verlang je naar meer rust, energie en
             grip en voel je dat het tijd is om het écht anders te doen? Dan ben je welkom voor een
-            kennismakingsgesprek — zodat jij helder kunt voelen of dit de juiste volgende stap is.
+            kennismakingsgesprek – zodat jij helder kunt voelen of dit de juiste volgende stap is.
           </p>
           <div className="ewk-hero__cta is-center">
             <Button variant="primary" size="lg" iconRight="arrow-right" onClick={() => onNav("Contact")}>Ja, ik wil kennismaken</Button>

@@ -1,16 +1,17 @@
-/* Expeditie Werkplezier — Bedankpagina Stress & Energiescan (OTO: Deep Dive €97)
-   Niet in de navigatie. Bereikbaar via #bedankt-scan — de redirect-bestemming
+/* Expeditie Werkplezier – Bedankpagina Stress & Energiescan (OTO: Deep Dive €97)
+   Niet in de navigatie. Bereikbaar via #bedankt-scan – de redirect-bestemming
    na aankoop/aanvraag op plug&pay. */
 
+/* Eigen aanbod-checkout voor de scan-bedankpagina (OTO €97). */
 const BDK_CHECKOUT = "https://expeditiewerkplezier.plugandpay.com/checkout/1-op-1-deep-dive-oto";
 const BDK_VIDEO = "https://bashania.github.io/expeditiewerkplezier/assets/bedrijfsvideo.mp4";
 
 const BDK_OPLEVERT = [
-  "Helderheid over wat er bij jou speelt — niet in losse stukjes, maar als één geheel",
+  "Helderheid over wat er bij jou speelt – niet in losse stukjes, maar als één geheel",
   "Inzicht in het patroon dat maakt dat je blijft doorgaan terwijl het te veel is",
   "Eén concrete focus om mee te starten, in plaats van alles tegelijk te willen oplossen",
   "Een persoonlijk plan dat past bij jouw situatie en jouw leven",
-  "Rust in je hoofd — vaak al direct na de sessie voelbaar",
+  "Rust in je hoofd – vaak al direct na de sessie voelbaar",
 ];
 
 const BDK_PAIN = [
@@ -32,20 +33,13 @@ const BDK_GAIN = [
   "je de dag afsluit met het gevoel dat het genoeg is geweest",
 ];
 
-const BDK_REVIEWS = [
-  { name: "K.M.", role: "Senior Sales- & Business Development Manager", rating: 5,
-    quote: "Ik bleef maar rondjes draaien in mijn hoofd en zag zelf niet meer wat er echt speelde. In dit gesprek werd het ineens helder en wist ik precies waar ik moest beginnen." },
-  { name: "Sema", role: "Communicatieadviseur", rating: 5,
-    quote: "Het voelde alsof iemand precies zag wat ik zelf al zo lang probeerde te begrijpen. Dat gaf zoveel rust en richting." },
-  { name: "Shalini Siwpersad", role: "Adviseur/manager projectbeheersing", rating: 5,
-    quote: "Mijn hoofd zat zó vol en ik probeerde alles tegelijk op te lossen. Na deze sessie had ik eindelijk overzicht en een plan dat bij mij past." },
-];
+/* BEDANKT_REVIEWS komt uit data.jsx (echte reviews) */
 
 const BDK_FAQ = [
   { q: "Wat levert één sessie me op?",
     a: "Helderheid, richting en een concreet plan waar je direct mee verder kunt. De meeste vrouwen gaan naar huis met een inzicht dat alles op z'n plek laat vallen. Vaak ervaar je al tijdens de sessie meer rust in je hoofd." },
   { q: "Moet ik alles al goed kunnen uitleggen?",
-    a: "Nee. Kom zoals je bent. Je hoeft je situatie niet perfect te verwoorden — dat is precies waar ik je bij help. We zoeken het samen uit." },
+    a: "Nee. Kom zoals je bent. Je hoeft je situatie niet perfect te verwoorden – dat is precies waar ik je bij help. We zoeken het samen uit." },
   { q: "Is één sessie genoeg?",
     a: "Veel vrouwen ervaren na één sessie een duidelijk inzicht en weten welke eerste stap ze kunnen zetten. Verandering vasthouden is iets anders. Als je merkt dat je daarin begeleiding wilt, bespreken we dat aan het einde van de sessie." },
   { q: "Wat als ik het spannend vind om mijn verhaal te delen?",
@@ -80,7 +74,7 @@ function ScanBedankt({ onNav }) {
       {/* 1 · Bevestiging + video */}
       <section className="ewk-bdk-hero">
         <div className="ewk-wrap ewk-bdk-hero__inner">
-          <span className="ewk-bdk-badge"><Icon name="check" /> Gelukt — je scan is onderweg</span>
+          <span className="ewk-bdk-badge"><Icon name="check" /> Gelukt – je scan is onderweg</span>
           <h1 className="ewk-bdk-hero__title">Hier is ie!</h1>
           <p className="ewk-bdk-hero__sub">
             De <span className="ewk-key">Stress &amp; Energiescan</span> om in 10 minuten meer
@@ -96,7 +90,7 @@ function ScanBedankt({ onNav }) {
 
           <p className="ewk-bdk-hero__after">
             Yesss, superfijn dat je deze scan hebt aangevraagd. Deze scan gaat je heel veel inzichten
-            geven. Je krijgt niet alleen kennis en algemene inzichten — je ontdekt <span className="ewk-key">jouw
+            geven. Je krijgt niet alleen kennis en algemene inzichten – je ontdekt <span className="ewk-key">jouw
             persoonlijke stressprofiel</span>, zodat je direct heel gericht weet wat er speelt.
           </p>
           <p className="ewk-bdk-hero__after">
@@ -117,7 +111,7 @@ function ScanBedankt({ onNav }) {
           <p>
             Je wilt het goed doen op je werk én thuis. Je hebt een groot verantwoordelijkheidsgevoel,
             bent gewend om door te gaan, maar voelt dat het zo niet langer gaat. <span className="ewk-key">Je
-            weet dat er iets moet veranderen.</span> Maar wat precies — en waar begin je?
+            weet dat er iets moet veranderen.</span> Maar wat precies – en waar begin je?
           </p>
           <p>
             In één sessie brengen we samen in kaart wat er bij jou speelt, welk patroon jou hier heeft
@@ -143,7 +137,7 @@ function ScanBedankt({ onNav }) {
             </p>
             <p>
               Niet omdat ze de vaardigheden niet hebben, maar omdat ze niet goed weten waar ze moeten
-              beginnen. Ze blijven nadenken en twijfelen, of proberen van alles tegelijk — waardoor het
+              beginnen. Ze blijven nadenken en twijfelen, of proberen van alles tegelijk – waardoor het
               overzicht juist weer verdwijnt. <span className="ewk-key">Als je eerlijk bent, herken je dat
               misschien ook wel.</span> Daarom heb ik dit voor je ontwikkeld.
             </p>
@@ -156,7 +150,7 @@ function ScanBedankt({ onNav }) {
         <div className="ewk-wrap">
           <SectionHead eyebrow="Wat deze sessie je oplevert"
             title="In één sessie van stilstand naar een concrete eerste stap"
-            sub="We kijken samen naar jouw situatie — niet in losse stukjes, maar als geheel. We maken inzichtelijk wat er onder jouw klachten zit, waar jij jezelf onbewust voorbij loopt en wat jou nu het meest helpt." />
+            sub="We kijken samen naar jouw situatie – niet in losse stukjes, maar als geheel. We maken inzichtelijk wat er onder jouw klachten zit, waar jij jezelf onbewust voorbij loopt en wat jou nu het meest helpt." />
           <ul className="ewk-bdk-checklist">
             {BDK_OPLEVERT.map((o) => (
               <li key={o}><span className="ewk-ic ewk-ic--ben"><Icon name="check" /></span>{o}</li>
@@ -173,12 +167,12 @@ function ScanBedankt({ onNav }) {
         <div className="ewk-wrap">
           <SectionHead eyebrow="Wat andere vrouwen zeggen" title="Eén gesprek dat alles op z'n plek laat vallen" />
           <div className="ewk-testgrid">
-            {BDK_REVIEWS.map((t, i) => (
+            {BEDANKT_REVIEWS.map((t, i) => (
               <figure className="ewk-testcard" key={i}>
                 <div className="ewk-stars">{Array.from({ length: t.rating }).map((_, k) => <Icon key={k} name="star" />)}</div>
                 <blockquote>{t.quote}</blockquote>
                 <figcaption>
-                  <span className="ewk-avatar">{t.name[0]}</span>
+                  <ReviewAvatar r={t} />
                   <span><b>{t.name}</b><br />{t.role}</span>
                 </figcaption>
               </figure>
@@ -255,7 +249,7 @@ function ScanBedankt({ onNav }) {
             <span className="ewk-bdk-was ewk-bdk-was--light">€ 147</span>
           </div>
           <div className="ewk-hero__cta is-center">
-            <Button variant="primary" size="lg" iconRight="arrow-right" href={BDK_CHECKOUT}>Plan je Deep Dive sessie — nu € 97</Button>
+            <Button variant="primary" size="lg" iconRight="arrow-right" href={BDK_CHECKOUT}>Plan je Deep Dive sessie – nu € 97</Button>
             <Button variant="outline" size="lg" onClick={() => onNav("Contact")}>Eerst een vraag stellen</Button>
           </div>
         </div>

@@ -1,4 +1,4 @@
-/* Expeditie Werkplezier — pages */
+/* Expeditie Werkplezier – pages */
 const { useState: useStP } = React;
 
 /* Reusable inner-page header band */
@@ -20,13 +20,13 @@ function PageHeader({ eyebrow, title, sub, children }) {
 /* ===================== OVER AGATHE ===================== */
 const OA_REASONS = [
   ["heart-handshake", "rose", "Psycholoog én ervaringsdeskundige",
-    "Ik combineer wetenschappelijke kennis met persoonlijke ervaring. Daardoor begrijp ik zowel de theorie als de realiteit van ambitieuze moeders. Je voelt je gezien en gehoord — en dat is, verrassend genoeg, een hele belangrijke stap naar herstel."],
+    "Ik combineer wetenschappelijke kennis met persoonlijke ervaring. Daardoor begrijp ik zowel de theorie als de realiteit van ambitieuze moeders. Je voelt je gezien en gehoord – en dat is, verrassend genoeg, een hele belangrijke stap naar herstel."],
   ["search", "sky", "Snel inzicht in patronen",
-    "Ik help je patronen herkennen die onder je stress liggen: perfectionisme, pleasegedrag, gewoon doorgaan en een groot verantwoordelijkheidsgevoel. Herkennen is de eerste stap. Daarna verkennen we samen wat er voor jou mogelijk is — opties die je zelf niet zo snel had bedacht."],
+    "Ik help je patronen herkennen die onder je stress liggen: perfectionisme, pleasegedrag, gewoon doorgaan en een groot verantwoordelijkheidsgevoel. Herkennen is de eerste stap. Daarna verkennen we samen wat er voor jou mogelijk is – opties die je zelf niet zo snel had bedacht."],
   ["activity", "sage", "Hoofd én lichaam aanpak",
     "Stress zit niet alleen in je hoofd. Daarom werk ik ook met technieken die je zenuwstelsel helpen herstellen: lichaamsgerichte oefeningen waarbij je leert signalen van ‘veiligheid’ tussen brein en lichaam te sturen, zodat je blijvend rust voelt in je hele systeem."],
   ["compass", "gold", "Inzicht én praktische stappen",
-    "Je krijgt niet alleen helderheid, maar ook concrete handvatten om weer grip te krijgen op je energie en je leven. We maken het samen glashelder, zodat je een duidelijk plan hebt — voor nu en voor de toekomst."],
+    "Je krijgt niet alleen helderheid, maar ook concrete handvatten om weer grip te krijgen op je energie en je leven. We maken het samen glashelder, zodat je een duidelijk plan hebt – voor nu en voor de toekomst."],
 ];
 
 const OA_OPLEIDINGEN = [
@@ -54,22 +54,13 @@ const OA_PATROON = [
 const OA_HELP = [
   "weer grip te krijgen op je leven",
   "een gezonde balans te ervaren tussen een uitdagende baan en een fijn gezinsleven",
-  "je eigen verlangens en grenzen haarscherp in beeld te krijgen — en ernaar te handelen",
+  "je eigen verlangens en grenzen haarscherp in beeld te krijgen – en ernaar te handelen",
   "meer rust, ontspanning en oprechte flow te ervaren in plaats van constante druk",
 ];
 
-const OA_TESTIMONIALS = [
-  { name: "Sema", role: "Communicatieadviseur",
-    quote: "Door het traject met Agathe begon ik weer in mezelf te geloven en durfde ik keuzes te maken die echt bij mij passen. Ze helpt je dieper naar jezelf te kijken en houdt je op een prettige manier een spiegel voor. Warm en betrokken, en tegelijk eerlijk en kritisch. Daardoor voelde ik me vanaf het begin veilig en serieus genomen." },
-  { name: "K.M.", role: "Senior Sales & Business Development Manager",
-    quote: "Voordat ik bij Agathe kwam was ik moe, gespannen en had ik moeite alle ballen in de lucht te houden. Ze stelde precies de juiste vragen en hield me op een fijne, eerlijke manier een spiegel voor. Dankzij het traject kan ik weer beter focussen, keuzes maken en voel ik me rustiger en energieker — op werk én thuis." },
-  { name: "Annet", role: "Consultant",
-    quote: "Agathe heeft mij geholpen bewuster te worden van mijn gedachten, reacties en gedrag. Daardoor kon ik mijn vraagstukken echt aanpakken en ervaar ik veel meer rust. Bijzonder vind ik dat het effect een half jaar na het traject nog steeds merkbaar is. Toegankelijk, betrokken en met een natuurlijke, brede kennis." },
-  { name: "Shalini", role: "Adviseur/manager projectbeheersing",
-    quote: "Ik ben zo dankbaar dat ik jou heb leren kennen, en voor alle inzichten. Zonder jou was ik niet de persoon die ik vandaag ben." },
-];
+/* OA_REVIEWS komt uit data.jsx (echte reviews) */
 
-function OverAgathe({ onScan, onNav, onPlay }) {
+function OverAgathe({ onScan, onNav, onPlay, portret }) {
   return (
     <main>
       {/* Opening hook */}
@@ -81,7 +72,7 @@ function OverAgathe({ onScan, onNav, onPlay }) {
             <p className="ewk-oa-hook">Maar ergens onderweg ben je jezelf kwijtgeraakt.</p>
             <p className="ewk-hero__lead">
               Je houdt van je werk. Je houdt van je gezin. En meestal lukt het ook om alles draaiende
-              te houden — totdat je merkt dat het steeds meer energie kost. <span className="ewk-key">Ik
+              te houden – totdat je merkt dat het steeds meer energie kost. <span className="ewk-key">Ik
               weet hoe dat voelt.</span> Want ik stond ooit precies daar waar jij nu staat.
             </p>
             <div className="ewk-hero__cta">
@@ -89,34 +80,40 @@ function OverAgathe({ onScan, onNav, onPlay }) {
               <Button variant="ghost" iconRight="play" onClick={onPlay}>Bekijk mijn verhaal</Button>
             </div>
           </div>
-          <Portrait play onPlay={onPlay} />
+          <Portrait play onPlay={onPlay} src={portret} />
         </div>
       </section>
 
       {/* The story */}
       <section className="ewk-section">
-        <div className="ewk-wrap ewk-prose">
-          <Eyebrow>Mijn verhaal</Eyebrow>
-          <h2 className="ewk-h2" style={{ margin: "12px 0 26px" }}>Toen mijn lichaam op de rem trapte</h2>
-          <p>
-            Na mijn zwangerschapsverlof ging ik weer aan het werk. Parttime — dat leek een goede keuze.
-            Alleen mijn takenpakket was niet minder geworden. Ik wilde alles goed doen, voor mijn werk
-            én voor mijn gezin. Dus ik ging door. Steeds harder. Totdat het niet meer ging.
-          </p>
-          <blockquote className="ewk-pullquote">
-            Van de ene op de andere dag moest ik alles loslaten. Mijn lichaam trok de stekker eruit.
-          </blockquote>
-          <p>
-            Achteraf was het eigenlijk heel logisch. Ik probeerde alles tegelijk te zijn: een betrokken
-            professional, een liefdevolle moeder en iemand die overal verantwoordelijkheid voor nam.
-            Maar ergens onderweg raakte ik mezelf kwijt. Tijdens mijn herstel begon ik te begrijpen wat
-            er werkelijk speelde.
-          </p>
-          <div className="ewk-oa-patterns">
-            {[["sparkles", "Perfectionisme"], ["shield", "Een groot verantwoordelijkheidsgevoel"], ["repeat", "Altijd doorgaan"]].map(([ic, t]) => (
-              <div className="ewk-oa-pattern" key={t}><Icon name={ic} /><span>{t}</span></div>
-            ))}
+        <div className="ewk-wrap ewk-story">
+          <div className="ewk-prose">
+            <Eyebrow>Mijn verhaal</Eyebrow>
+            <h2 className="ewk-h2" style={{ margin: "12px 0 26px" }}>Toen mijn lichaam op de rem trapte</h2>
+            <p>
+              Na mijn zwangerschapsverlof ging ik weer aan het werk. Parttime – dat leek een goede keuze.
+              Alleen mijn takenpakket was niet minder geworden. Ik wilde alles goed doen, voor mijn werk
+              én voor mijn gezin. Dus ik ging door. Steeds harder. Totdat het niet meer ging.
+            </p>
+            <blockquote className="ewk-pullquote">
+              Van de ene op de andere dag moest ik alles loslaten. Mijn lichaam trok de stekker eruit.
+            </blockquote>
+            <p>
+              Achteraf was het eigenlijk heel logisch. Ik probeerde alles tegelijk te zijn: een betrokken
+              professional, een liefdevolle moeder en iemand die overal verantwoordelijkheid voor nam.
+              Maar ergens onderweg raakte ik mezelf kwijt. Tijdens mijn herstel begon ik te begrijpen wat
+              er werkelijk speelde.
+            </p>
+            <div className="ewk-oa-patterns">
+              {[["sparkles", "Perfectionisme"], ["shield", "Een groot verantwoordelijkheidsgevoel"], ["repeat", "Altijd doorgaan"]].map(([ic, t]) => (
+                <div className="ewk-oa-pattern" key={t}><Icon name={ic} /><span>{t}</span></div>
+              ))}
+            </div>
           </div>
+          <figure className="ewk-photofig ewk-story__media">
+            <img src="assets/photos/story-9371.jpg" alt="Agathe in gedachten" loading="lazy" />
+            <figcaption>Tijdens mijn herstel begon ik te begrijpen wat er werkelijk speelde.</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -128,7 +125,7 @@ function OverAgathe({ onScan, onNav, onPlay }) {
           <p>
             Toen ik later vrouwen begon te begeleiden, viel mij iets op. Ik zag dezelfde patronen steeds
             opnieuw terug bij ambitieuze vrouwen die hun werk combineren met een gezin. Hun hoofd staat
-            altijd al bij de volgende taak — zelfs wanneer ze met hun kinderen zijn.
+            altijd al bij de volgende taak – zelfs wanneer ze met hun kinderen zijn.
           </p>
           <blockquote className="ewk-pullquote">
             Ze zijn er wel. Maar niet écht aanwezig. En dat doet pijn.
@@ -140,7 +137,20 @@ function OverAgathe({ onScan, onNav, onPlay }) {
         </div>
       </section>
 
-      {/* Mission band — new copy + Gabor Maté */}
+      {/* Expeditie beeldband */}
+      <section className="ewk-section">
+        <div className="ewk-wrap">
+          <figure className="ewk-photoband">
+            <img src="assets/photos/agathe-9505.jpg" alt="Agathe kijkt naar een wereldkaart van sloophout" loading="lazy" />
+            <figcaption>
+              <span className="ewk-eyebrow">De expeditie</span>
+              <p>Geen quick fix, maar een reis terug naar jezelf – stap voor stap.</p>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      {/* Mission band – new copy + Gabor Maté */}
       <section className="ewk-mission">
         <img className="ewk-mission__mark" src="assets/logo-mark.svg" alt="" />
         <div className="ewk-wrap ewk-mission__inner">
@@ -148,7 +158,7 @@ function OverAgathe({ onScan, onNav, onPlay }) {
           <p className="ewk-mission__quote">
             Een wereld creëren waarin <b>vrouwelijke professionals hun carrière en gezin kunnen
             combineren zonder zichzelf te verliezen</b>. Ik help gedreven moeders hun eigen behoeften
-            weer helder te krijgen — zodat ze leven vanuit <b>rust, energie en plezier</b> in plaats
+            weer helder te krijgen – zodat ze leven vanuit <b>rust, energie en plezier</b> in plaats
             van overleven en wilskracht.
           </p>
           <div className="ewk-aristotle">
@@ -204,7 +214,7 @@ function OverAgathe({ onScan, onNav, onPlay }) {
         <div className="ewk-wrap">
           <SectionHead eyebrow="Voor wie"
             title="Werk jij hard, maar raakt de rek eruit?"
-            sub="Ik werk met hoogopgeleide vrouwen met jonge kinderen die een verantwoordelijke functie hebben — of een eigen onderneming runnen. Veel van hen functioneren lang op hoog niveau, tot ze merken dat het te veel wordt." />
+            sub="Ik werk met hoogopgeleide vrouwen met jonge kinderen die een verantwoordelijke functie hebben – of een eigen onderneming runnen. Veel van hen functioneren lang op hoog niveau, tot ze merken dat het te veel wordt." />
           <div className="ewk-forwho">
             <div className="ewk-forwho__col ewk-forwho__col--sym">
               <h4>Herken je je hierin?</h4>
@@ -231,19 +241,19 @@ function OverAgathe({ onScan, onNav, onPlay }) {
         <div className="ewk-wrap">
           <SectionHead eyebrow="Wat klanten zeggen" title="Verhalen van vrouwen die je voorgingen" />
           <div className="ewk-testgrid">
-            {OA_TESTIMONIALS.map((t, i) => (
+            {OA_REVIEWS.map((t, i) => (
               <figure className="ewk-testcard" key={i}>
                 <div className="ewk-stars">{[0,1,2,3,4].map((k) => <Icon key={k} name="star" />)}</div>
                 <blockquote>{t.quote}</blockquote>
                 <figcaption>
-                  <span className="ewk-avatar">{t.name[0]}</span>
+                  <ReviewAvatar r={t} />
                   <span><b>{t.name}</b><br />{t.role}</span>
                 </figcaption>
               </figure>
             ))}
           </div>
           <p className="ewk-list-note" style={{ marginTop: 40 }}>
-            “Ik ben blijer, energieker en meer gefocust — en dat straalt direct door naar mijn gezin. WIN-WIN-WIN!”
+            “Ik ben blijer, energieker en meer gefocust – en dat straalt direct door naar mijn gezin. WIN-WIN-WIN!”
           </p>
         </div>
       </section>
@@ -275,7 +285,7 @@ function AanbodPage({ onScan, onEbook, onNav }) {
     <main>
       <PageHeader eyebrow="Aanbod"
         title="Zo werken we samen aan jouw <em>werkgeluk</em>"
-        sub="Van een gratis eerste stap tot een compleet 1-op-1 traject. Kies waar je instapt — twijfel je? Dan denk ik graag met je mee." />
+        sub="Drie manieren om met me te werken – van een gratis scan tot een compleet 1-op-1 traject. Kies wat bij jou past, of twijfel je? Dan denk ik graag met je mee." />
 
       <section className="ewk-section">
         <div className="ewk-wrap">
@@ -283,21 +293,26 @@ function AanbodPage({ onScan, onEbook, onNav }) {
         </div>
       </section>
       <section className="ewk-section ewk-section--wash">
-        <div className="ewk-wrap">
-          <SectionHead eyebrow="Hoe het werkt" title="Van eerste contact tot blijvende verandering" />
-          <div className="ewk-steps">
-            {[
-              ["Kennismaken", "Een vrijblijvend gesprek waarin we kijken of het klikt en wat je nodig hebt."],
-              ["Jouw plan", "We brengen je situatie in kaart en stellen samen een aanpak op die bij jóu past."],
-              ["Aan de slag", "Sessies, praktische opdrachten en app-contact — in jouw tempo."],
-              ["Blijvend resultaat", "Je houdt de tools in handen om zelf grip te houden, ook daarna."],
-            ].map(([t, d], i) => (
-              <div className="ewk-step" key={t}>
-                <span className="ewk-step__num">{i + 1}</span>
-                <h4>{t}</h4>
-                <p>{d}</p>
-              </div>
-            ))}
+        <div className="ewk-wrap ewk-howgrid">
+          <figure className="ewk-photofig ewk-howgrid__media">
+            <img src="assets/photos/work-9321.jpg" alt="Agathe tijdens een online sessie" loading="lazy" />
+          </figure>
+          <div>
+            <SectionHead align="left" eyebrow="Hoe het werkt" title="Van eerste contact tot blijvende verandering" />
+            <div className="ewk-steps ewk-steps--2">
+              {[
+                ["Kennismaken", "Een vrijblijvend gesprek waarin we kijken of het klikt en wat je nodig hebt."],
+                ["Jouw plan", "We brengen je situatie in kaart en stellen samen een aanpak op die bij jóu past."],
+                ["Aan de slag", "Sessies, praktische opdrachten en app-contact – in jouw tempo."],
+                ["Blijvend resultaat", "Je houdt de tools in handen om zelf grip te houden, ook daarna."],
+              ].map(([t, d], i) => (
+                <div className="ewk-step" key={t}>
+                  <span className="ewk-step__num">{i + 1}</span>
+                  <h4>{t}</h4>
+                  <p>{d}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -319,26 +334,28 @@ function ErvaringenPage({ onScan, onNav, onPlay }) {
     <main>
       <PageHeader eyebrow="Ervaringen"
         title="Van overleven naar weer <em>genieten</em>"
-        sub="De mooiste graadmeter zijn de verhalen van moeders die je voorgingen. Lees hoe zij hun rust, energie en plezier terugvonden." />
+        sub="De mooiste graadmeter zijn de verhalen van vrouwen die je voorgingen. Lees hoe zij hun rust, energie en plezier terugvonden.">
+        <div className="ewk-hero__cta is-center" style={{ marginTop: 28 }}>
+          <Button variant="ghost" iconRight="play" onClick={onPlay}>Bekijk het verhaal van Agathe</Button>
+        </div>
+      </PageHeader>
       <section className="ewk-section">
         <div className="ewk-wrap">
-          <div className="ewk-testgrid">
-            {TESTIMONIALS.map((t, i) => (
-              <figure className="ewk-testcard" key={i}>
-                <div className="ewk-stars">{Array.from({length: t.rating}).map((_, k) => <Icon key={k} name="star" />)}</div>
-                <blockquote>{t.quote}</blockquote>
-                <figcaption>
-                  <span className="ewk-avatar">{t.name[0]}</span>
-                  <span><b>{t.name}</b><br />{t.role}</span>
-                </figcaption>
-              </figure>
-            ))}
-            <div className="ewk-testcard ewk-testcard--video" onClick={onPlay}>
-              <span className="ewk-play__dot ewk-play__dot--big"><Icon name="play" /></span>
-              <p>Bekijk het verhaal van Agathe</p>
-              <span className="ewk-testcard__sub">Video · 2 min</span>
-            </div>
-          </div>
+          <ReviewWall items={REVIEWS} />
+          <p className="ewk-list-note" style={{ marginTop: 44 }}>
+            De portretten zijn illustraties – veel vrouwen blijven liever anoniem, hun woorden zijn echt.
+          </p>
+        </div>
+      </section>
+      <section className="ewk-section ewk-section--wash">
+        <div className="ewk-wrap">
+          <figure className="ewk-photoband">
+            <img src="assets/photos/agathe-9485.jpg" alt="Agathe ontspannen aan tafel" loading="lazy" />
+            <figcaption>
+              <span className="ewk-eyebrow">Achter de verhalen</span>
+              <p>Weer ruimte om te genieten van wat echt belangrijk is.</p>
+            </figcaption>
+          </figure>
         </div>
       </section>
       <Mission />
@@ -357,7 +374,7 @@ function BlogPage({ onNav, onScan }) {
     <main>
       <PageHeader eyebrow="Blog"
         title="Praktische inzichten voor <em>meer rust</em>"
-        sub="No-nonsense artikelen over werkdruk, energie, grenzen en genieten — om te lezen, te herkennen en mee aan de slag te gaan." />
+        sub="No-nonsense artikelen over werkdruk, energie, grenzen en genieten – om te lezen, te herkennen en mee aan de slag te gaan." />
       <section className="ewk-section">
         <div className="ewk-wrap">
           <div className="ewk-filters">
@@ -376,7 +393,7 @@ function BlogPage({ onNav, onScan }) {
 }
 
 /* ===================== CONTACT ===================== */
-function ContactPage({ onNav }) {
+function ContactPage({ onNav, portret }) {
   const [sent, setSent] = useStP(false);
   const [sending, setSending] = React.useState(false);
   const [error, setError] = React.useState("");
@@ -396,7 +413,7 @@ function ContactPage({ onNav }) {
           "E-mailadres": form.email,
           Onderwerp: form.onderwerp,
           Bericht: form.bericht,
-          _subject: "Nieuw bericht via de site — " + form.onderwerp,
+          _subject: "Nieuw bericht via de site – " + form.onderwerp,
           _template: "table",
         }),
       });
@@ -416,7 +433,7 @@ function ContactPage({ onNav }) {
     <main>
       <PageHeader eyebrow="Contact"
         title="Laten we <em>kennismaken</em>"
-        sub="Heb je een vraag, of wil je een vrijblijvende kennismaking plannen? Stuur me een bericht — ik reageer meestal binnen twee werkdagen." />
+        sub="Heb je een vraag, of wil je een vrijblijvende kennismaking plannen? Stuur me een bericht – ik reageer meestal binnen twee werkdagen." />
       <section className="ewk-section">
         <div className="ewk-wrap ewk-contact">
           <div className="ewk-contact__form">
@@ -474,7 +491,7 @@ function ContactPage({ onNav }) {
               </div>
             </div>
             <div className="ewk-contact__portrait">
-              <Portrait size="100%" />
+              <Portrait size="100%" src={portret} />
             </div>
           </aside>
         </div>

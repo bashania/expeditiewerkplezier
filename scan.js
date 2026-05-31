@@ -1,4 +1,4 @@
-/* Expeditie Werkplezier — Gratis Stress & Energiescan salespagina */
+/* Expeditie Werkplezier – Gratis Stress & Energiescan salespagina */
 const { useState: useScanState } = React;
 
 const SCAN_GAINS = [
@@ -32,59 +32,41 @@ const SCAN_VOORWIE = [
 
 const SCAN_FAQ = [
   { q: "Is dit gratis?",
-    a: "Ja, volledig gratis. Je vult je naam en e-mailadres in en krijgt direct toegang. De scan bestaat uit een korte vragenlijst. Na het berekenen van de score weet je waar jouw grootste lichamelijke, mentale of emotionele uitdagingen liggen — met handvatten om de eerste stappen te zetten." },
+    a: "Ja, volledig gratis. Je vult je naam en e-mailadres in en krijgt direct toegang. De scan bestaat uit een korte vragenlijst. Na het berekenen van de score weet je waar jouw grootste lichamelijke, mentale of emotionele uitdagingen liggen – met handvatten om de eerste stappen te zetten." },
   { q: "Hoe lang duurt het?",
     a: "Een paar minuten. Kort en direct waardevol." },
   { q: "Is dit een standaard test?",
     a: "Nee. Je krijgt inzicht in wat er onder jouw klachten ligt, vanuit brein en lichaam. Geen generieke uitslag, maar iets wat echt bij jou past." },
   { q: "Wat als ik veel herken?",
-    a: "Dan is dat juist waardevol. Het betekent dat je systeem al een tijdje signalen geeft — en dat je nu weet waar je moet beginnen." },
+    a: "Dan is dat juist waardevol. Het betekent dat je systeem al een tijdje signalen geeft – en dat je nu weet waar je moet beginnen." },
   { q: "Wat gebeurt er na de scan?",
     a: "Je ontvangt je resultaten direct. Wil je daarna meer weten over hoe je verder kunt? Dan vertel ik je graag meer." },
 ];
 
-/* Inline opt-in (used in hero + afsluiting) */
-function ScanOptin({ compact }) {
-  const [sent, setSent] = useScanState(false);
-  const [naam, setNaam] = useScanState("");
-  const [email, setEmail] = useScanState("");
-  function submit(e) { e.preventDefault(); if (!email) return; setSent(true); }
+/* Opt-in kaart (hero + afsluiting) – de inschrijving zelf gebeurt op de
+   externe checkout (plug&pay), dus dit is een CTA-kaart, geen formulier. */
+function ScanOptin({ compact, onCheckout }) {
   return (
     <div className={"ewk-scanform" + (compact ? " ewk-scanform--compact" : "")}>
-      {!sent ? (
-        <React.Fragment>
-          <div className="ewk-scanform__head">
-            <span className="ewk-scanform__badge"><Icon name="clipboard-list" />Gratis</span>
-            <h3>Doe de gratis scan</h3>
-            <p>Ontdek in 10 minuten wat er écht speelt — en wat jouw eerste stap is.</p>
-          </div>
-          <form onSubmit={submit}>
-            <div className="ewk-field">
-              <label>Je voornaam</label>
-              <input className="ewk-input" placeholder="Sanne" value={naam} onChange={(e) => setNaam(e.target.value)} />
-            </div>
-            <div className="ewk-field">
-              <label>E-mailadres</label>
-              <input className="ewk-input" type="email" placeholder="jij@voorbeeld.nl" value={email} onChange={(e) => setEmail(e.target.value)} required />
-            </div>
-            <div style={{ marginTop: 20 }}>
-              <Button variant="primary" block type="submit" iconRight="arrow-right">Doe de gratis scan</Button>
-            </div>
-            <p className="ewk-scanform__note">Gratis · een paar minuten · direct inzicht. Je kunt je altijd weer afmelden.</p>
-          </form>
-        </React.Fragment>
-      ) : (
-        <div className="ewk-success">
-          <div className="ewk-success__ring"><Icon name="check" /></div>
-          <h3>Mooi, {naam || "je bent er klaar voor"}!</h3>
-          <p>De Stress &amp; Energiescan is onderweg naar <b style={{ color: "var(--ew-pine-600)" }}>{email}</b>. Check je inbox en zet die eerste stap.</p>
-        </div>
-      )}
+      <div className="ewk-scanform__head">
+        <span className="ewk-scanform__badge"><Icon name="clipboard-list" />Gratis</span>
+        <h3>Doe de gratis scan</h3>
+        <p>Ontdek in 10 minuten wat er écht speelt – en wat jouw eerste stap is naar meer rust en energie.</p>
+      </div>
+      <ul className="ewk-scanform__list">
+        <li><Icon name="check" />Een paar minuten</li>
+        <li><Icon name="check" />Direct inzicht in je inbox</li>
+        <li><Icon name="check" />Geen verplichtingen</li>
+      </ul>
+      <div style={{ marginTop: 20 }}>
+        <Button variant="primary" block iconRight="arrow-right" onClick={onCheckout}>Doe de gratis scan</Button>
+      </div>
+      <p className="ewk-scanform__note">Je wordt doorgestuurd naar een korte, beveiligde aanmelding. Je kunt je altijd weer afmelden.</p>
     </div>
   );
 }
 
-function ScanPage({ onNav }) {
+function ScanPage({ onNav, onCheckout }) {
   return (
     <main>
       {/* Hero with opt-in */}
@@ -104,7 +86,7 @@ function ScanPage({ onNav }) {
               <li><Icon name="check" />Weet wat je nodig hebt</li>
             </ul>
           </div>
-          <ScanOptin />
+          <ScanOptin onCheckout={onCheckout} />
         </div>
       </section>
 
@@ -121,7 +103,7 @@ function ScanPage({ onNav }) {
           <p>
             En hoe harder je probeert om het onder controle te krijgen, hoe minder grip je lijkt te
             hebben. <span className="ewk-key">En ergens weet je: zo wil je je niet blijven voelen.</span>
-            De scan laat je zien wat er onder die vermoeidheid ligt — zodat je stopt met twijfelen aan
+            De scan laat je zien wat er onder die vermoeidheid ligt – zodat je stopt met twijfelen aan
             jezelf en weet wat je nodig hebt.
           </p>
         </div>
@@ -208,10 +190,10 @@ function ScanPage({ onNav }) {
             <h2 className="ewk-h2">Je probeert al lang genoeg alleen</h2>
             <p>
               Als jij ergens voelt dat dit over jou gaat, dan is dit misschien precies wat je nu nodig
-              hebt. Niet omdat je het niet alleen kunt — maar omdat je al lang genoeg alleen probeert.
+              hebt. Niet omdat je het niet alleen kunt – maar omdat je al lang genoeg alleen probeert.
             </p>
           </div>
-          <ScanOptin compact />
+          <ScanOptin compact onCheckout={onCheckout} />
         </div>
       </section>
     </main>
