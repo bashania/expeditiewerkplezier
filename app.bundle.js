@@ -1208,7 +1208,7 @@ function VideoLightbox({
   }, /*#__PURE__*/React.createElement(Icon, {
     name: "x"
   })), open && /*#__PURE__*/React.createElement("video", {
-    src: "https://bashania.github.io/expeditiewerkplezier/assets/bedrijfsvideo.mp4",
+    src: "assets/bedrijfsvideo.mp4",
     controls: true,
     autoPlay: true,
     playsInline: true,
@@ -4506,7 +4506,7 @@ Object.assign(window, {
 
 /* Eigen aanbod-checkout voor de scan-bedankpagina (OTO €97). */
 const BDK_CHECKOUT = "https://expeditiewerkplezier.plugandpay.com/checkout/1-op-1-deep-dive-oto";
-const BDK_VIDEO = "https://bashania.github.io/expeditiewerkplezier/assets/bedrijfsvideo.mp4";
+const BDK_VIDEO = "assets/bedrijfsvideo.mp4";
 const BDK_OPLEVERT = ["Helderheid over wat er bij jou speelt, niet in losse stukjes, maar als één geheel", "Inzicht in het patroon dat maakt dat je blijft doorgaan terwijl het te veel is", "Eén concrete focus om mee te starten, in plaats van alles tegelijk te willen oplossen", "Een persoonlijk plan dat past bij jouw situatie en jouw leven", "Rust in je hoofd, vaak al direct na de sessie voelbaar"];
 const BDK_PAIN = ["steeds maar door te gaan terwijl je voelt dat het eigenlijk te veel is", "van alles te proberen, maar niet echt verschil te merken", "een vol hoofd te hebben dat maar blijft doorgaan", "te twijfelen wat nu écht de juiste stap is", "alles tegelijk te willen oplossen en daardoor vast te blijven zitten", "aan het einde van de dag moe te zijn, zonder het gevoel dat je echt verder komt", "het idee te hebben dat je dit alleen moet uitzoeken"];
 const BDK_GAIN = ["je weer overzicht voelt in je hoofd, in plaats van chaos", "je precies weet waar je moet beginnen, zonder te blijven twijfelen", "je niet meer alles tegelijk hoeft op te lossen, maar stap voor stap vooruitgaat", "je meer rust ervaart in je lichaam, ook op drukke dagen", "je weer met aandacht aanwezig bent thuis, zonder dat je hoofd ergens anders zit", "je de dag afsluit met het gevoel dat het genoeg is geweest"];

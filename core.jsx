@@ -158,7 +158,7 @@ function VideoLightbox({ open, onClose }) {
         <button className="ewk-modal__close" onClick={onClose}><Icon name="x" /></button>
         {open && (
           <video
-            src="https://bashania.github.io/expeditiewerkplezier/assets/bedrijfsvideo.mp4"
+            src="assets/bedrijfsvideo.mp4"
             controls autoPlay playsInline
             style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", background: "#1f3d3d" }}
           />
