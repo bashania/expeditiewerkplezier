@@ -1,0 +1,12 @@
+[build]
+  publish = "."
+
+# Statische site – geen build-stap nodig. De pagina's en app.bundle.js
+# staan al klaar in de repo-root.
+
+[[headers]]
+  for = "/app.bundle.js"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+# Vriendelijke 404 (Netlify serveert /404.html automatisch bij niet gevonden).
