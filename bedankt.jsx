@@ -4,7 +4,7 @@
 
 /* Eigen aanbod-checkout voor de scan-bedankpagina (OTO €97). */
 const BDK_CHECKOUT = "https://expeditiewerkplezier.plugandpay.com/checkout/1-op-1-deep-dive-oto";
-const BDK_VIDEO = "https://bashania.github.io/expeditiewerkplezier/assets/bedrijfsvideo.mp4";
+const BDK_VIDEO = "assets/bedrijfsvideo.mp4";
 
 const BDK_OPLEVERT = [
 "Helderheid over wat er bij jou speelt, niet in losse stukjes, maar als één geheel",
