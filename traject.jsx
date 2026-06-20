@@ -1,5 +1,8 @@
 /* Expeditie Werkplezier – 1-op-1 traject salespagina */
 
+/* Aanmeld-/kennismakingsformulier voor het Rust Ruimte Regie-traject. */
+const RRR_CHECKOUT = "https://link.agathehania.nl/widget/form/ElzrAVrYemCQQw9WLTj7";
+
 const TRJ_RECOG = [
 "Je hebt een groot verantwoordelijkheidsgevoel en vindt het moeilijk om dingen los te laten.",
 "Je legt de lat hoog voor jezelf, op je werk, thuis en in alles wat je doet.",
@@ -77,7 +80,7 @@ function TrajectPage({ onNav, onPlay, portret }) {
               vraagt. <span className="ewk-key">Maar jij voelt het wel. Zo wil je niet doorgaan.</span>
             </p>
             <div className="ewk-hero__cta">
-              <Button variant="primary" size="lg" iconRight="arrow-right" onClick={() => onNav("Contact")}>Vrijblijvend kennismaken</Button>
+              <Button variant="primary" size="lg" iconRight="arrow-right" href={RRR_CHECKOUT}>Vrijblijvend kennismaken</Button>
               <Button variant="ghost" iconRight="play" onClick={onPlay}>Bekijk mijn verhaal</Button>
             </div>
           </div>
@@ -147,7 +150,7 @@ verantwoordelijkheidsgevoel en andere patronen duurzaam doorbreekt. Je leert mee
             </div>
           </div>
           <div style={{ textAlign: "center", marginTop: 40 }}>
-            <Button variant="primary" size="lg" iconRight="arrow-right" onClick={() => onNav("Contact")}>Ja, ik wil kennismaken</Button>
+            <Button variant="primary" size="lg" iconRight="arrow-right" href={RRR_CHECKOUT}>Ja, ik wil kennismaken</Button>
           </div>
         </div>
       </section>
@@ -206,7 +209,7 @@ verantwoordelijkheidsgevoel en andere patronen duurzaam doorbreekt. Je leert mee
                 <span><Icon name="file-check" />Concreet plan van aanpak</span>
               </div>
             </div>
-            <Button variant="primary" size="lg" iconRight="arrow-right" onClick={() => onNav("Contact")}>Ja, dit wil ik</Button>
+            <Button variant="primary" size="lg" iconRight="arrow-right" href={RRR_CHECKOUT}>Ja, dit wil ik</Button>
           </div>
         </div>
       </section>
@@ -241,7 +244,7 @@ verantwoordelijkheidsgevoel en andere patronen duurzaam doorbreekt. Je leert mee
             kennismakingsgesprek, zodat jij helder kunt voelen of dit de juiste volgende stap is.
           </p>
           <div className="ewk-hero__cta is-center">
-            <Button variant="primary" size="lg" iconRight="arrow-right" onClick={() => onNav("Contact")}>Ja, ik wil kennismaken</Button>
+            <Button variant="primary" size="lg" iconRight="arrow-right" href={RRR_CHECKOUT}>Ja, ik wil kennismaken</Button>
           </div>
         </div>
       </section>
@@ -290,7 +293,7 @@ verantwoordelijkheidsgevoel en andere patronen duurzaam doorbreekt. Je leert mee
             traject past bij wat jij nodig hebt.
           </p>
           <div className="ewk-hero__cta is-center">
-            <Button variant="primary" size="lg" iconRight="arrow-right" onClick={() => onNav("Contact")}>Plan een kennismaking</Button>
+            <Button variant="primary" size="lg" iconRight="arrow-right" href={RRR_CHECKOUT}>Plan een kennismaking</Button>
           </div>
         </div>
       </section>
