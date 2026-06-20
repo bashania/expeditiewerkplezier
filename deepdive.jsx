@@ -1,6 +1,6 @@
 /* Expeditie Werkplezier – 1-op-1 Deep Dive salespagina (€147) */
 
-const DD_CHECKOUT = "https://expeditiewerkplezier.plugandpay.com/checkout/1-op-1-deep-dive";
+const DD_CHECKOUT = "https://link.agathehania.nl/widget/form/oU53LisVR5VPwUeBod3F";
 
 const DD_GAINS = [
   ["lightbulb", "sky", "Helderheid in 60 minuten",

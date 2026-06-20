@@ -2273,7 +2273,7 @@ Object.assign(window, {
 /* ===== deepdive.jsx ===== */
 /* Expeditie Werkplezier – 1-op-1 Deep Dive salespagina (€147) */
 
-const DD_CHECKOUT = "https://expeditiewerkplezier.plugandpay.com/checkout/1-op-1-deep-dive";
+const DD_CHECKOUT = "https://link.agathehania.nl/widget/form/oU53LisVR5VPwUeBod3F";
 const DD_GAINS = [["lightbulb", "sky", "Helderheid in 60 minuten", "Je ziet wat er bij jou speelt – niet in losse stukjes, maar als één geheel."], ["repeat", "rose", "Doorbraak van patronen", "Je ontdekt welk onbewust patroon jou hier heeft gebracht en waarom je blijft doorgaan terwijl het te veel is."], ["target", "gold", "Eén concrete focus", "Je weet precies waar je mee begint, in plaats van alles tegelijk te willen oplossen."], ["clipboard-list", "sage", "Een persoonlijk plan", "Afgestemd op jouw situatie, jouw leven en wat voor jou werkt."], ["wind", "sky", "Rust in je hoofd", "Vaak al direct na de sessie voelbaar."]];
 const DD_PAIN = ["steeds maar door te gaan terwijl je voelt dat het eigenlijk te veel is", "van alles te proberen, maar niet echt verschil te merken", "een vol hoofd te hebben dat maar blijft doorgaan", "te twijfelen wat nu écht de juiste stap is", "alles tegelijk te willen oplossen en daardoor vast te blijven zitten", "de dag moe af te sluiten, zonder het gevoel dat je echt verder komt"];
 const DD_GAIN = ["je weer overzicht voelt in je hoofd, in plaats van chaos", "je precies weet waar je moet beginnen, zonder te blijven twijfelen", "je niet meer alles tegelijk hoeft op te lossen, maar stap voor stap vooruitgaat", "je meer rust ervaart in je lichaam, ook op drukke dagen", "je weer met aandacht aanwezig bent thuis, zonder dat je hoofd ergens anders zit", "je de dag afsluit met het gevoel dat het genoeg is geweest"];
