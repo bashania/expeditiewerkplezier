@@ -1957,6 +1957,8 @@ Object.assign(window, {
 /* ===== traject.jsx ===== */
 /* Expeditie Werkplezier – 1-op-1 traject salespagina */
 
+/* Aanmeld-/kennismakingsformulier voor het Rust Ruimte Regie-traject. */
+const RRR_CHECKOUT = "https://link.agathehania.nl/widget/form/ElzrAVrYemCQQw9WLTj7";
 const TRJ_RECOG = ["Je hebt een groot verantwoordelijkheidsgevoel en vindt het moeilijk om dingen los te laten.", "Je legt de lat hoog voor jezelf, op je werk, thuis en in alles wat je doet.", "Je bent gewend om door te gaan, ook als je eigenlijk al over je grens heen bent.", "Je voelt je regelmatig opgejaagd, overprikkeld of moe.", "Je slaapt minder diep, herstelt minder goed en hebt minder geduld dan je zou willen.", "Je weet ergens wel dat het anders moet, maar het lukt niet om dat vast te houden in je dagelijks leven."];
 const TRJ_KRIJG = ["Een uitgebreide intake, zodat we helder in kaart brengen wat er speelt, waar je vastloopt en wat je nodig hebt.", "Persoonlijke coachingsessies, volledig afgestemd op jouw situatie.", "1-op-1 begeleiding op maat – geen standaardaanpak, maar passend bij jouw leven en persoonlijkheid.", "Een duidelijk en uitgewerkt stappenplan, zodat je niet blijft hangen in losse inzichten.", "De juiste stappen in de juiste volgorde, zodat je niet hoeft te gokken wat je wanneer doet.", "Een concreet persoonlijk plan voor je dagelijkse leven, om rust, energie en balans vast te houden.", "Handvatten om terugval te voorkomen, zodat je niet alleen herstelt maar duurzaam anders gaat leven."];
 const TRJ_WERK = ["meer focus", "meer overzicht", "meer mentale scherpte", "beter prioriteren", "helderder nadenken", "efficiënter werken"];
@@ -2017,7 +2019,7 @@ function TrajectPage({
     variant: "primary",
     size: "lg",
     iconRight: "arrow-right",
-    onClick: () => onNav("Contact")
+    href: RRR_CHECKOUT
   }, "Vrijblijvend kennismaken"), /*#__PURE__*/React.createElement(Button, {
     variant: "ghost",
     iconRight: "play",
@@ -2114,7 +2116,7 @@ function TrajectPage({
     variant: "primary",
     size: "lg",
     iconRight: "arrow-right",
-    onClick: () => onNav("Contact")
+    href: RRR_CHECKOUT
   }, "Ja, ik wil kennismaken")))), /*#__PURE__*/React.createElement("section", {
     className: "ewk-section"
   }, /*#__PURE__*/React.createElement("div", {
@@ -2166,7 +2168,7 @@ function TrajectPage({
     variant: "primary",
     size: "lg",
     iconRight: "arrow-right",
-    onClick: () => onNav("Contact")
+    href: RRR_CHECKOUT
   }, "Ja, dit wil ik")))), /*#__PURE__*/React.createElement("section", {
     className: "ewk-section"
   }, /*#__PURE__*/React.createElement("div", {
@@ -2198,7 +2200,7 @@ function TrajectPage({
     variant: "primary",
     size: "lg",
     iconRight: "arrow-right",
-    onClick: () => onNav("Contact")
+    href: RRR_CHECKOUT
   }, "Ja, ik wil kennismaken")))), /*#__PURE__*/React.createElement("section", {
     className: "ewk-section"
   }, /*#__PURE__*/React.createElement("div", {
@@ -2261,7 +2263,7 @@ function TrajectPage({
     variant: "primary",
     size: "lg",
     iconRight: "arrow-right",
-    onClick: () => onNav("Contact")
+    href: RRR_CHECKOUT
   }, "Plan een kennismaking")))));
 }
 Object.assign(window, {
@@ -2271,7 +2273,7 @@ Object.assign(window, {
 /* ===== deepdive.jsx ===== */
 /* Expeditie Werkplezier – 1-op-1 Deep Dive salespagina (€147) */
 
-const DD_CHECKOUT = "https://expeditiewerkplezier.plugandpay.com/checkout/1-op-1-deep-dive";
+const DD_CHECKOUT = "https://link.agathehania.nl/widget/form/oU53LisVR5VPwUeBod3F";
 const DD_GAINS = [["lightbulb", "sky", "Helderheid in 60 minuten", "Je ziet wat er bij jou speelt – niet in losse stukjes, maar als één geheel."], ["repeat", "rose", "Doorbraak van patronen", "Je ontdekt welk onbewust patroon jou hier heeft gebracht en waarom je blijft doorgaan terwijl het te veel is."], ["target", "gold", "Eén concrete focus", "Je weet precies waar je mee begint, in plaats van alles tegelijk te willen oplossen."], ["clipboard-list", "sage", "Een persoonlijk plan", "Afgestemd op jouw situatie, jouw leven en wat voor jou werkt."], ["wind", "sky", "Rust in je hoofd", "Vaak al direct na de sessie voelbaar."]];
 const DD_PAIN = ["steeds maar door te gaan terwijl je voelt dat het eigenlijk te veel is", "van alles te proberen, maar niet echt verschil te merken", "een vol hoofd te hebben dat maar blijft doorgaan", "te twijfelen wat nu écht de juiste stap is", "alles tegelijk te willen oplossen en daardoor vast te blijven zitten", "de dag moe af te sluiten, zonder het gevoel dat je echt verder komt"];
 const DD_GAIN = ["je weer overzicht voelt in je hoofd, in plaats van chaos", "je precies weet waar je moet beginnen, zonder te blijven twijfelen", "je niet meer alles tegelijk hoeft op te lossen, maar stap voor stap vooruitgaat", "je meer rust ervaart in je lichaam, ook op drukke dagen", "je weer met aandacht aanwezig bent thuis, zonder dat je hoofd ergens anders zit", "je de dag afsluit met het gevoel dat het genoeg is geweest"];
@@ -2551,7 +2553,7 @@ const SCAN_FAQ = [{
 }];
 
 /* Opt-in kaart (hero + afsluiting) – de inschrijving zelf gebeurt op de
-   externe checkout (plug&pay), dus dit is een CTA-kaart, geen formulier. */
+   externe checkout, dus dit is een CTA-kaart, geen formulier. */
 function ScanOptin({
   compact,
   onCheckout
@@ -2586,7 +2588,7 @@ function ScanOptin({
   }, "Je wordt doorgestuurd naar een korte, beveiligde aanmelding. Je kunt je altijd weer afmelden."));
 }
 
-/* Terugkerende CTA-band: linkt direct door naar de plug&pay-checkout. */
+/* Terugkerende CTA-band: linkt direct door naar de externe checkout. */
 function ScanCtaBand({
   onCheckout,
   eyebrow,
@@ -4505,7 +4507,7 @@ Object.assign(window, {
    na aankoop/aanvraag op plug&pay. */
 
 /* Eigen aanbod-checkout voor de scan-bedankpagina (OTO €97). */
-const BDK_CHECKOUT = "https://expeditiewerkplezier.plugandpay.com/checkout/1-op-1-deep-dive-oto";
+const BDK_CHECKOUT = "https://link.agathehania.nl/widget/form/eitVS2EUBDr9hGuHdyUH";
 const BDK_VIDEO = "assets/bedrijfsvideo.mp4";
 const BDK_OPLEVERT = ["Helderheid over wat er bij jou speelt, niet in losse stukjes, maar als één geheel", "Inzicht in het patroon dat maakt dat je blijft doorgaan terwijl het te veel is", "Eén concrete focus om mee te starten, in plaats van alles tegelijk te willen oplossen", "Een persoonlijk plan dat past bij jouw situatie en jouw leven", "Rust in je hoofd, vaak al direct na de sessie voelbaar"];
 const BDK_PAIN = ["steeds maar door te gaan terwijl je voelt dat het eigenlijk te veel is", "van alles te proberen, maar niet echt verschil te merken", "een vol hoofd te hebben dat maar blijft doorgaan", "te twijfelen wat nu écht de juiste stap is", "alles tegelijk te willen oplossen en daardoor vast te blijven zitten", "aan het einde van de dag moe te zijn, zonder het gevoel dat je echt verder komt", "het idee te hebben dat je dit alleen moet uitzoeken"];
@@ -4849,8 +4851,8 @@ function App() {
   }
 
   // Gratis Stress & Energiescan – CTA's openen de salespagina; de opt-in op die
-  // pagina handelt de inschrijving extern af (plug&pay).
-  const SCAN_CHECKOUT = "https://expeditiewerkplezier.plugandpay.com/checkout/gratis-stress-energiescan";
+  // pagina handelt de inschrijving extern af (Energy Scan-checkout).
+  const SCAN_CHECKOUT = "https://link.agathehania.nl/widget/form/0vuA8kmauh9Lutys0a0b";
   const goCheckout = () => {
     window.location.href = SCAN_CHECKOUT;
   };

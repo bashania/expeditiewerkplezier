@@ -44,7 +44,7 @@ const SCAN_FAQ = [
 
 
 /* Opt-in kaart (hero + afsluiting) – de inschrijving zelf gebeurt op de
-   externe checkout (plug&pay), dus dit is een CTA-kaart, geen formulier. */
+   externe checkout, dus dit is een CTA-kaart, geen formulier. */
 function ScanOptin({ compact, onCheckout }) {
   return (
     <div className={"ewk-scanform" + (compact ? " ewk-scanform--compact" : "")}>
@@ -66,7 +66,7 @@ function ScanOptin({ compact, onCheckout }) {
 
 }
 
-/* Terugkerende CTA-band: linkt direct door naar de plug&pay-checkout. */
+/* Terugkerende CTA-band: linkt direct door naar de externe checkout. */
 function ScanCtaBand({ onCheckout, eyebrow, title, sub, label }) {
   return (
     <section className="ewk-ctaband">
