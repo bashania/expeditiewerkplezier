@@ -4850,7 +4850,7 @@ function App() {
 
   // Gratis Stress & Energiescan – CTA's openen de salespagina; de opt-in op die
   // pagina handelt de inschrijving extern af (plug&pay).
-  const SCAN_CHECKOUT = "https://expeditiewerkplezier.plugandpay.com/checkout/gratis-stress-energiescan";
+  const SCAN_CHECKOUT = "https://checkout.agathehania.nl/gratis-stress-scan";
   const goCheckout = () => {
     window.location.href = SCAN_CHECKOUT;
   };
