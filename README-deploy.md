@@ -12,6 +12,7 @@ build-stap** nodig: Netlify hoeft de bestanden alleen te serveren.
 | `over-agathe.html`, `aanbod.html`, `ervaringen.html`, `contact.html` | Hoofdpagina's |
 | `traject.html`, `deep-dive.html`, `gratis-scan.html` | Aanbod-pagina's |
 | `bedankt-scan.html` | Bedankpagina ná de scan (niet in de navigatie, `noindex`) |
+| `sitemap.html` | Intern overzicht van álle pagina's (niet in de navigatie, `noindex`) |
 | `privacy.html`, `cookies.html`, `voorwaarden.html` | Juridische pagina's |
 | `404.html` | Vriendelijke "niet gevonden"-pagina |
 | `app.bundle.js` | **Gegenereerde** JS-bundel met alle paginalogica |

@@ -4766,6 +4766,142 @@ Object.assign(window, {
   ScanBedankt
 });
 
+/* ===== sitemap.jsx ===== */
+/* Expeditie Werkplezier – Verborgen sitemap-overzicht.
+   Staat zelf NIET in een menu en is noindex. Handig om in één oogopslag te
+   zien welke pagina's er zijn – inclusief losse pagina's die nergens in de
+   navigatie staan, zoals de bedankpagina na de scan. */
+
+const SITEMAP_GROUPS = [{
+  title: "In het hoofdmenu",
+  icon: "menu",
+  desc: "Pagina's die in de bovenbalk én in het footermenu staan.",
+  pages: [{
+    name: "Home",
+    file: "index.html"
+  }, {
+    name: "Over Agathe",
+    file: "over-agathe.html"
+  }, {
+    name: "Aanbod",
+    file: "aanbod.html"
+  }, {
+    name: "Ervaringen",
+    file: "ervaringen.html"
+  }, {
+    name: "Contact",
+    file: "contact.html"
+  }]
+}, {
+  title: "Onder “Aanbod”",
+  icon: "git-branch",
+  desc: "Aanbod-pagina's waar je via knoppen naartoe gaat – niet apart in het menu.",
+  pages: [{
+    name: "Traject (Rust Ruimte Regie)",
+    file: "traject.html"
+  }, {
+    name: "1-op-1 Deep Dive",
+    file: "deep-dive.html"
+  }, {
+    name: "Gratis Stress & Energiescan",
+    file: "gratis-scan.html"
+  }]
+}, {
+  title: "In de footer",
+  icon: "scale",
+  desc: "Juridische pagina's, gelinkt onderaan elke pagina.",
+  pages: [{
+    name: "Privacyverklaring",
+    file: "privacy.html"
+  }, {
+    name: "Cookiebeleid",
+    file: "cookies.html"
+  }, {
+    name: "Algemene Voorwaarden",
+    file: "voorwaarden.html"
+  }]
+}, {
+  title: "Niet in een menu (verborgen)",
+  icon: "eye-off",
+  desc: "Losse pagina's die nergens in de navigatie staan. Bezoekers komen hier alleen via een directe link of een redirect.",
+  pages: [{
+    name: "Bedankt – je scan is onderweg",
+    file: "bedankt-scan.html",
+    note: "Na het aanvragen van de gratis scan",
+    noindex: true
+  }, {
+    name: "Sitemap (deze pagina)",
+    file: "sitemap.html",
+    note: "Intern overzicht",
+    noindex: true
+  }]
+}, {
+  title: "Systeem",
+  icon: "alert-triangle",
+  desc: "Technische pagina's.",
+  pages: [{
+    name: "404 – pagina niet gevonden",
+    file: "404.html",
+    note: "Foutpagina",
+    noindex: true
+  }]
+}];
+function SitemapItem({
+  p
+}) {
+  return /*#__PURE__*/React.createElement("li", {
+    className: "ewk-sitemap__item"
+  }, /*#__PURE__*/React.createElement("a", {
+    href: p.file,
+    className: "ewk-sitemap__link"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "ewk-sitemap__name"
+  }, p.name), /*#__PURE__*/React.createElement("span", {
+    className: "ewk-sitemap__file"
+  }, p.file)), /*#__PURE__*/React.createElement("span", {
+    className: "ewk-sitemap__meta"
+  }, p.note ? /*#__PURE__*/React.createElement("span", {
+    className: "ewk-sitemap__note"
+  }, p.note) : null, p.noindex ? /*#__PURE__*/React.createElement("span", {
+    className: "ewk-sitemap__badge"
+  }, "noindex") : null));
+}
+function SitemapPage() {
+  const total = SITEMAP_GROUPS.reduce((n, g) => n + g.pages.length, 0);
+  return /*#__PURE__*/React.createElement("main", null, /*#__PURE__*/React.createElement("section", {
+    className: "ewk-pagehead"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "ewk-wrap ewk-pagehead__inner"
+  }, /*#__PURE__*/React.createElement(Eyebrow, null, "Intern · sitemap"), /*#__PURE__*/React.createElement("h1", {
+    className: "ewk-pagehead__title"
+  }, "Alle ", /*#__PURE__*/React.createElement("em", null, "pagina's"), " op een rij"), /*#__PURE__*/React.createElement("p", {
+    className: "ewk-pagehead__sub"
+  }, "Een compleet overzicht van alle ", total, " pagina's van de site – inclusief de losse pagina's die nergens in een menu staan, zoals de bedankpagina. Deze pagina is zelf verborgen: niet in de navigatie en ", /*#__PURE__*/React.createElement("code", null, "noindex"), "."))), /*#__PURE__*/React.createElement("section", {
+    className: "ewk-section"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "ewk-wrap ewk-sitemap"
+  }, SITEMAP_GROUPS.map(g => /*#__PURE__*/React.createElement("div", {
+    className: "ewk-sitemap__group",
+    key: g.title
+  }, /*#__PURE__*/React.createElement("h2", {
+    className: "ewk-sitemap__grouptitle"
+  }, /*#__PURE__*/React.createElement(Icon, {
+    name: g.icon
+  }), /*#__PURE__*/React.createElement("span", null, g.title), /*#__PURE__*/React.createElement("span", {
+    className: "ewk-sitemap__count"
+  }, g.pages.length)), /*#__PURE__*/React.createElement("p", {
+    className: "ewk-sitemap__groupdesc"
+  }, g.desc), /*#__PURE__*/React.createElement("ul", {
+    className: "ewk-sitemap__list"
+  }, g.pages.map(p => /*#__PURE__*/React.createElement(SitemapItem, {
+    key: p.file,
+    p: p
+  }))))))));
+}
+Object.assign(window, {
+  SitemapPage
+});
+
 /* ===== app.jsx ===== */
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 /* Expeditie Werkplezier – App shell voor de statische multi-page build.
@@ -4799,7 +4935,8 @@ const PAGE_FILES = {
   "Bedankt scan": "bedankt-scan.html",
   "Privacy": "privacy.html",
   "Cookies": "cookies.html",
-  "Voorwaarden": "voorwaarden.html"
+  "Voorwaarden": "voorwaarden.html",
+  "Sitemap": "sitemap.html"
 };
 function App() {
   const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
@@ -4867,7 +5004,7 @@ function App() {
     portret: PORTRETTEN[t.portret] || PORTRETTEN.lachend
   };
   let body;
-  if (page === "Over Agathe") body = /*#__PURE__*/React.createElement(OverAgathe, common);else if (page === "Aanbod") body = /*#__PURE__*/React.createElement(AanbodPage, common);else if (page === "Deep Dive") body = /*#__PURE__*/React.createElement(DeepDivePage, common);else if (page === "Gratis scan") body = /*#__PURE__*/React.createElement(ScanPage, common);else if (page === "Bedankt scan") body = /*#__PURE__*/React.createElement(ScanBedankt, common);else if (page === "Ervaringen") body = /*#__PURE__*/React.createElement(ErvaringenPage, common);else if (page === "Traject") body = /*#__PURE__*/React.createElement(TrajectPage, common);else if (page === "Contact") body = /*#__PURE__*/React.createElement(ContactPage, common);else if (page === "Privacy") body = /*#__PURE__*/React.createElement(PrivacyPage, common);else if (page === "Cookies") body = /*#__PURE__*/React.createElement(CookiesPage, common);else if (page === "Voorwaarden") body = /*#__PURE__*/React.createElement(VoorwaardenPage, common);else body = /*#__PURE__*/React.createElement(Home, _extends({
+  if (page === "Over Agathe") body = /*#__PURE__*/React.createElement(OverAgathe, common);else if (page === "Aanbod") body = /*#__PURE__*/React.createElement(AanbodPage, common);else if (page === "Deep Dive") body = /*#__PURE__*/React.createElement(DeepDivePage, common);else if (page === "Gratis scan") body = /*#__PURE__*/React.createElement(ScanPage, common);else if (page === "Bedankt scan") body = /*#__PURE__*/React.createElement(ScanBedankt, common);else if (page === "Ervaringen") body = /*#__PURE__*/React.createElement(ErvaringenPage, common);else if (page === "Traject") body = /*#__PURE__*/React.createElement(TrajectPage, common);else if (page === "Contact") body = /*#__PURE__*/React.createElement(ContactPage, common);else if (page === "Privacy") body = /*#__PURE__*/React.createElement(PrivacyPage, common);else if (page === "Cookies") body = /*#__PURE__*/React.createElement(CookiesPage, common);else if (page === "Voorwaarden") body = /*#__PURE__*/React.createElement(VoorwaardenPage, common);else if (page === "Sitemap") body = /*#__PURE__*/React.createElement(SitemapPage, common);else body = /*#__PURE__*/React.createElement(Home, _extends({
     homeHero: t.homeHero,
     showTrust: t.showTrust
   }, common));

@@ -29,6 +29,7 @@ const PAGE_FILES = {
   "Privacy": "privacy.html",
   "Cookies": "cookies.html",
   "Voorwaarden": "voorwaarden.html",
+  "Sitemap": "sitemap.html",
 };
 
 function App() {
@@ -88,6 +89,7 @@ function App() {
   else if (page === "Privacy") body = <PrivacyPage {...common} />;
   else if (page === "Cookies") body = <CookiesPage {...common} />;
   else if (page === "Voorwaarden") body = <VoorwaardenPage {...common} />;
+  else if (page === "Sitemap") body = <SitemapPage {...common} />;
   else body = <Home homeHero={t.homeHero} showTrust={t.showTrust} {...common} />;
   const active = (page === "Traject" || page === "Deep Dive" || page === "Gratis scan") ? "Aanbod" : page;
 
