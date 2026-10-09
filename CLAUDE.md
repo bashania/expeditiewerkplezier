@@ -1,40 +1,19 @@
-# CLAUDE.md — werkafspraken voor deze repo
+# Werkafspraken voor deze repository
 
-Statische multi-page site (zie `README-deploy.md`). Elke pagina is een eigen
-HTML-bestand in de repo-root en deelt één bundel `app.bundle.js`. Geen build-stap.
+Statische multi-page website. Elke publieke pagina is een HTML-bestand met een gedeelde React-bundel. De JSX-bestanden zijn de bron; bewerk app.bundle.js nooit handmatig. Bouw met `npm ci` en `npm run build`. Netlify publiceert uitsluitend `dist/` en bouwt bij iedere deploy opnieuw.
 
-## Tracking-script: ALTIJD op elke pagina
+## Iconen
 
-Op **elke publieke HTML-pagina** moet het externe tracking-script staan, vlak
-vóór de afsluitende `</body>`-tag:
+`Icon` rendert Lucide-SVG's via React. Roep geen `lucide.createIcons()` aan: dat vervangt door React beheerde DOM-elementen en veroorzaakt crashes bij updates. Gebruik een letterlijk benoemde icoonnaam, ook in contentarrays; de build neemt de gebruikte iconen op in de bundel.
 
-```html
-<!-- Externe tracking -->
-<script src="https://link.agathehania.nl/js/external-tracking.js" data-tracking-id="tk_a5ec1a710f0349d4ac299a98b8b31b94"></script>
-```
+## Tracking en toestemming
 
-**Regels:**
+Elke publieke pagina, inclusief de 404 en sitemap, laadt precies één keer de lokale `assets/tracking.js` met `defer`, na de applicatiebundel. De 404 gebruikt rootrelatieve asset-URL's om ook op onbekende geneste paden te werken.
 
-- Voeg dit toe bij **elke nieuwe pagina** die je aanmaakt.
-- Controleer bij **elke wijziging** aan een bestaande pagina dat het er (nog) staat.
-- Plaats het als laatste regel(s) vóór `</body>`, ná `app.bundle.js`.
-- Precies **één** keer per pagina — niet dubbel.
+Plaats het externe tracking-script nooit rechtstreeks in HTML. De lokale loader laadt `link.agathehania.nl/js/external-tracking.js` uitsluitend na een actuele, expliciete keuze voor alle cookies. Functioneel-only, oude, verlopen of ongeldige keuzes geven geen toestemming. Intrekken herlaadt de pagina om het actieve script te stoppen. Eerdere externe cookies verdwijnen daarmee niet automatisch.
 
-**Geldt voor** alle content-pagina's + de 404:
-`index.html`, `aanbod.html`, `bedankt-scan.html`, `contact.html`, `cookies.html`,
-`deep-dive.html`, `ervaringen.html`, `gratis-scan.html`, `over-agathe.html`,
-`privacy.html`, `traject.html`, `voorwaarden.html`, `404.html`.
+De legacy-redirect en Mobiele preview laden geen tracking. De preview is een ontwikkelbestand en wordt niet gepubliceerd.
 
-**Bewust NIET op** (zou dubbeltellen / heeft geen zin):
-- `Expeditie Werkplezier.html` — directe redirect naar `index.html`.
-- `Mobiele preview.html` — dev-tool die `index.html` in een iframe toont.
+## Controles
 
-**Snelle controle** dat alle pagina's het hebben (verwacht: `1` per content-pagina):
-
-```bash
-for f in *.html; do echo "$(grep -c external-tracking.js "$f")  $f"; done
-```
-
-> Let op (AVG/cookies): dit script laadt nu onvoorwaardelijk op elke pageview.
-> Als de site cookie-consent moet respecteren, koppel het dan aan de bestaande
-> consent-flow (`cookies.jsx`) i.p.v. het direct te laden.
+`npm run build` maakt de bundel en publicatiemap. `npm test` controleert de contactformulierafhandeling met gesimuleerde antwoorden, tracking en intrekken, mobiele breedtes, dynamische iconen, videodialoog en oude redirects. Installeer Chromium met `npx playwright install chromium`, of stel `CHROMIUM_PATH` in op een geïnstalleerde browser. Verstuur bij tests geen echte contactberichten.

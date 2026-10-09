@@ -34,7 +34,7 @@
   /* ---------- Rosé — OFFICIAL warm primary (brand sheet #CA848B) ----------
      Carries CTAs, the warm gradient and human/highlight moments. Deepened
      shades keep white text legible; #CA848B is the on-sheet base.            */
-  --ew-rose-700: #8E535A;
+  --ew-rose-700: #854B53;
   --ew-rose-600: #B0686F;  /* PRIMARY solid (white text) */
   --ew-rose-500: #CA848B;  /* OFFICIAL base */
   --ew-rose-400: #D7A0A5;
@@ -49,19 +49,19 @@
      Supporting accents from the brand sheet. Use for category coding,
      badges, illustration fills, section variety. Base tones are background
      /fill strength — use 600/700 for legible text & icons on light.       */
-  --ew-gold-700: #B68C1F;
+  --ew-gold-700: #796019;
   --ew-gold-600: #D0A82B;
   --ew-gold-500: #EBC64A;  /* OFFICIAL base */
   --ew-gold-300: #F3DC8E;
   --ew-gold-100: #FBF2D4;
 
-  --ew-sky-700:  #2E8DA4;
+  --ew-sky-700:  #24697A;
   --ew-sky-600:  #3FA7BF;
   --ew-sky-500:  #6EC7DC;  /* OFFICIAL base */
   --ew-sky-300:  #A6DEEA;
   --ew-sky-100:  #DFF2F7;
 
-  --ew-sage-700: #567E80;
+  --ew-sage-700: #44696B;
   --ew-sage-600: #6E9799;
   --ew-sage-500: #9BBFC1;  /* OFFICIAL base */
   --ew-sage-300: #C2D8D9;
@@ -79,8 +79,8 @@
   --ew-ink-800: #393F45;
   --ew-ink-700: #41494F;   /* body text */
   --ew-ink-600: #5C5D65;   /* wordmark gray, secondary text */
-  --ew-ink-500: #7A8189;
-  --ew-ink-400: #9AA1A7;   /* placeholder, captions */
+  --ew-ink-500: #58616B;
+  --ew-ink-400: #626C76;   /* legible placeholders and captions */
   --ew-ink-300: #C2C8CC;   /* borders strong */
   --ew-ink-200: #DEE3E6;   /* borders / dividers */
   --ew-ink-100: #EDF0F2;   /* subtle fills */
@@ -92,7 +92,7 @@
   --ew-success-bg: #E4F1EC;
   --ew-warning: #D89A4E;
   --ew-warning-bg: #FBF0DF;
-  --ew-error:   #C25B57;
+  --ew-error:   #A74643;
   --ew-error-bg: #F8E5E4;
   --ew-info:    var(--ew-sky-600);
   --ew-info-bg: var(--ew-sky-100);
@@ -101,7 +101,7 @@
      grad-warm  → the everyday hero device (buttons, accents, photo ring).
      grad-brand → the cool logo gradient; RESERVED for the logo badge only.
      grad-bridge→ warm rosé easing into the logo aqua, ties the two worlds. */
-  --ew-grad-warm: linear-gradient(120deg, #B0686F 0%, #CA848B 58%, #D7A0A5 100%);
+  --ew-grad-warm: linear-gradient(120deg, #8E535A 0%, #9D5C64 58%, #A05F68 100%);
   --ew-grad-warm-soft: linear-gradient(135deg, #FBF2F3 0%, #F7E7E9 100%);
   --ew-grad-bridge: linear-gradient(120deg, #CA848B 0%, #BBA9B0 40%, #81CEC6 100%);
   --ew-grad-ring: conic-gradient(from 150deg, #CA848B, #D7A0A5, #81CEC6, #417676, #CA848B);

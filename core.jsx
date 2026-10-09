@@ -3,10 +3,21 @@
 const { useState, useEffect, useRef } = React;
 
 function Icon({ name, style }) {
-  return <i data-lucide={name} style={style}></i>;
+  const key = name.split("-").map(part => part.charAt(0).toUpperCase() + part.slice(1)).join("");
+  const definition = lucideIcons[key];
+  if (!definition) return null;
+  function renderNode([tag, attributes, children = []], index) {
+    const props = Object.fromEntries(Object.entries(attributes).map(([attribute, value]) =>
+      [attribute.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase()), value]));
+    if (tag === "svg") Object.assign(props, {
+      className: `lucide lucide-${name}`, style, "aria-hidden": true, focusable: "false",
+    });
+    return React.createElement(tag, { ...props, key: index }, children.map(renderNode));
+  }
+  return renderNode(definition, 0);
 }
 
-function Button({ variant = "primary", size, block, icon, iconRight, children, onClick, type, href, target }) {
+function Button({ variant = "primary", size, block, icon, iconRight, children, onClick, type, href, target, disabled }) {
   const cls = [
     "ewk-btn",
     `ewk-btn--${variant}`,
@@ -27,25 +38,39 @@ function Button({ variant = "primary", size, block, icon, iconRight, children, o
     );
   }
   return (
-    <button className={cls} onClick={onClick} type={type || "button"}>{inner}</button>
+    <button className={cls} onClick={onClick} type={type || "button"} disabled={disabled}>{inner}</button>
   );
 }
 
+const PAGE_FILES = {
+  "Home": "index.html", "Over Agathe": "over-agathe.html", "Aanbod": "aanbod.html",
+  "Ervaringen": "ervaringen.html", "Contact": "contact.html", "Traject": "traject.html",
+  "Deep Dive": "deep-dive.html", "Gratis scan": "gratis-scan.html", "Bedankt scan": "bedankt-scan.html",
+  "Privacy": "privacy.html", "Cookies": "cookies.html", "Voorwaarden": "voorwaarden.html",
+  "Sitemap": "sitemap.html",
+};
 const NAV = ["Home", "Over Agathe", "Aanbod", "Ervaringen", "Contact"];
+
+function followPage(event, name, onNav) {
+  if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  event.preventDefault();
+  onNav(name);
+}
 
 function Header({ scrolled, active, onNav, onScan, onMenu, menuOpen }) {
   return (
     <React.Fragment>
       <header className={"ewk-header" + (scrolled ? " is-scrolled" : "")}>
         <div className="ewk-wrap ewk-header__inner">
-          <a className="ewk-header__logo" href="#" onClick={(e) => { e.preventDefault(); onNav("Home"); }}>
+          <a className="ewk-header__logo" href={PAGE_FILES.Home} onClick={(e) => followPage(e, "Home", onNav)}>
             <img src="assets/logo-full.svg" alt="Expeditie Werkplezier" />
           </a>
 
           <nav className="ewk-nav">
             {NAV.map((n) => (
-              <a key={n} href="#" className={active === n ? "is-active" : ""}
-                 onClick={(e) => { e.preventDefault(); onNav(n); }}>{n}</a>
+              <a key={n} href={PAGE_FILES[n]} className={active === n ? "is-active" : ""}
+                 aria-current={active === n ? "page" : undefined}
+                 onClick={(e) => followPage(e, n, onNav)}>{n}</a>
             ))}
           </nav>
 
@@ -57,17 +82,18 @@ function Header({ scrolled, active, onNav, onScan, onMenu, menuOpen }) {
             <div className="ewk-show-desktop">
               <Button variant="primary" onClick={onScan} icon="clipboard-list">Gratis scan</Button>
             </div>
-            <button className="ewk-iconbtn ewk-hamb" onClick={onMenu} title="Menu">
+            <button className="ewk-iconbtn ewk-hamb" onClick={onMenu} title="Menu"
+                    aria-expanded={menuOpen} aria-controls="mobile-menu">
               <Icon name={menuOpen ? "x" : "menu"} />
             </button>
           </div>
         </div>
       </header>
 
-      <div className={"ewk-mobile" + (menuOpen ? " is-open" : "")}>
+      <div id="mobile-menu" className={"ewk-mobile" + (menuOpen ? " is-open" : "")} hidden={!menuOpen}>
         {NAV.map((n) => (
-          <a key={n} href="#" className={active === n ? "is-active" : ""}
-             onClick={(e) => { e.preventDefault(); onNav(n); }}>{n}</a>
+          <a key={n} href={PAGE_FILES[n]} className={active === n ? "is-active" : ""}
+             onClick={(e) => followPage(e, n, onNav)}>{n}</a>
         ))}
         <div style={{ marginTop: 18 }}>
           <Button variant="primary" block icon="clipboard-list" onClick={onScan}>Doe de gratis scan</Button>
@@ -150,21 +176,38 @@ function EbookModal({ open, kind = "ebook", onClose }) {
 }
 
 function VideoLightbox({ open, onClose }) {
+  const dialogRef = useRef(null);
+  useEffect(() => {
+    if (!open) return;
+    const dialog = dialogRef.current;
+    const previousFocus = document.activeElement;
+    const previousOverflow = document.body.style.overflow;
+    dialog.showModal();
+    document.body.style.overflow = "hidden";
+    return () => {
+      dialog.close();
+      document.body.style.overflow = previousOverflow;
+      previousFocus?.focus();
+    };
+  }, [open]);
+  if (!open) return null;
   return (
-    <div className={"ewk-modal__scrim" + (open ? " is-open" : "")} onClick={onClose}>
+    <dialog ref={dialogRef} className="ewk-modal__scrim is-open" aria-label="Het verhaal van Agathe"
+            onCancel={(e) => { e.preventDefault(); onClose(); }}
+            onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
       <div onClick={(e) => e.stopPropagation()}
            style={{ width: "min(880px,100%)", aspectRatio: "16/9", background: "#1f3d3d",
              borderRadius: 20, boxShadow: "var(--ew-shadow-lg)", position: "relative", overflow: "hidden" }}>
-        <button className="ewk-modal__close" onClick={onClose}><Icon name="x" /></button>
+        <button className="ewk-modal__close" aria-label="Video sluiten" onClick={onClose}><Icon name="x" /></button>
         {open && (
           <video
             src="assets/bedrijfsvideo.mp4"
-            controls autoPlay playsInline
+            controls autoPlay playsInline preload="metadata"
             style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", background: "#1f3d3d" }}
           />
         )}
       </div>
-    </div>
+    </dialog>
   );
 }
 
@@ -186,7 +229,7 @@ function Footer({ onScan, onNav, onCookiePrefs }) {
             <h4>Menu</h4>
             <ul className="ewk-footer__links">
               {NAV.map((n) => (
-                <li key={n}><a href="#" onClick={(e) => { e.preventDefault(); onNav(n); }}>{n}</a></li>
+                <li key={n}><a href={PAGE_FILES[n]} onClick={(e) => followPage(e, n, onNav)}>{n}</a></li>
               ))}
             </ul>
           </div>
@@ -198,7 +241,7 @@ function Footer({ onScan, onNav, onCookiePrefs }) {
         </div>
         <div className="ewk-footer__bottom">
           <span>© Agathe Hania · Expeditie Werkplezier · Waddinxveen · KVK 57284946 · BTW NL001412727B96</span>
-          <span><a href="#" onClick={(e) => { e.preventDefault(); onNav("Voorwaarden"); }}>Algemene Voorwaarden</a> · <a href="#" onClick={(e) => { e.preventDefault(); onNav("Privacy"); }}>Privacyverklaring</a> · <a href="#" onClick={(e) => { e.preventDefault(); onNav("Cookies"); }}>Cookiebeleid</a> · <a href="#" onClick={(e) => { e.preventDefault(); onCookiePrefs && onCookiePrefs(); }}>Cookievoorkeuren</a></span>
+          <span><a href={PAGE_FILES.Voorwaarden} onClick={(e) => followPage(e, "Voorwaarden", onNav)}>Algemene Voorwaarden</a> · <a href={PAGE_FILES.Privacy} onClick={(e) => followPage(e, "Privacy", onNav)}>Privacyverklaring</a> · <a href={PAGE_FILES.Cookies} onClick={(e) => followPage(e, "Cookies", onNav)}>Cookiebeleid</a> · <button className="ewk-footer__cookieprefs" onClick={onCookiePrefs}>Cookievoorkeuren</button></span>
         </div>
       </div>
     </footer>
@@ -207,13 +250,21 @@ function Footer({ onScan, onNav, onCookiePrefs }) {
 
 /* ---------------- Cookie consent ---------------- */
 const EWK_CONSENT_KEY = "ewk-cookie-consent";
+const EWK_CONSENT_VERSION = 2;
+const EWK_CONSENT_MAX_AGE = 365 * 24 * 60 * 60 * 1000;
 
 function readConsent() {
-  try { return JSON.parse(localStorage.getItem(EWK_CONSENT_KEY) || "null"); }
+  try {
+    const consent = JSON.parse(localStorage.getItem(EWK_CONSENT_KEY) || "null");
+    return consent && consent.version === EWK_CONSENT_VERSION && typeof consent.analytics === "boolean" &&
+      typeof consent.ts === "number" && Date.now() - consent.ts < EWK_CONSENT_MAX_AGE ? consent : null;
+  }
   catch (e) { return null; }
 }
 function writeConsent(val) {
-  try { localStorage.setItem(EWK_CONSENT_KEY, JSON.stringify({ ...val, ts: Date.now() })); } catch (e) {}
+  const consent = { ...val, version: EWK_CONSENT_VERSION, ts: Date.now() };
+  try { localStorage.setItem(EWK_CONSENT_KEY, JSON.stringify(consent)); } catch (e) {}
+  window.dispatchEvent(new CustomEvent("ewk:consent", { detail: consent }));
 }
 
 function CookieBanner({ open, onChoice, onNav }) {
@@ -225,10 +276,10 @@ function CookieBanner({ open, onChoice, onNav }) {
         <div className="ewk-cookie__body">
           <h4>Even over cookies</h4>
           <p>
-            Ik gebruik alleen <b>functionele cookies</b> om de site goed te laten werken. Analytische
-            cookies (geanonimiseerd) plaats ik alleen met jouw toestemming – nooit voor advertenties of
-            tracking. Meer lezen? Zie mijn{" "}
-            <a href="#" onClick={(e) => { e.preventDefault(); onNav("Cookies"); }}>cookiebeleid</a>.
+            Je keuze wordt op dit apparaat onthouden. Het externe script voor statistieken en tracking
+            laad ik alleen als je <b>alle cookies accepteert</b>. Kies “Alleen functioneel” om dit uit te
+            schakelen. Meer lezen? Zie mijn{" "}
+            <a href={PAGE_FILES.Cookies} onClick={(e) => followPage(e, "Cookies", onNav)}>cookiebeleid</a>.
           </p>
           <div className="ewk-cookie__actions">
             <Button variant="primary" size="sm" onClick={() => onChoice({ functional: true, analytics: true })}>Alle cookies accepteren</Button>

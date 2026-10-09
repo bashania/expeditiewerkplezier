@@ -1,12 +1,16 @@
 [build]
-  publish = "."
+  publish = "dist"
+  command = "npm run build"
 
-# Statische site – geen build-stap nodig. De pagina's en app.bundle.js
-# staan al klaar in de repo-root.
+  [build.environment]
+    NODE_VERSION = "22"
+
+# Publiceer alleen de website; broncode, uploads en ontwikkelbestanden blijven
+# buiten dist. De bundel wordt bij iedere deploy opnieuw uit de JSX gebouwd.
 
 [[headers]]
   for = "/app.bundle.js"
   [headers.values]
-    Cache-Control = "public, max-age=3600"
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 # Vriendelijke 404 (Netlify serveert /404.html automatisch bij niet gevonden).
