@@ -15,23 +15,6 @@ const PORTRETTEN = {
   zacht: "assets/photos/portrait-9314.jpg",
 };
 
-// Paginanaam -> deploybaar HTML-bestand
-const PAGE_FILES = {
-  "Home": "index.html",
-  "Over Agathe": "over-agathe.html",
-  "Aanbod": "aanbod.html",
-  "Ervaringen": "ervaringen.html",
-  "Contact": "contact.html",
-  "Traject": "traject.html",
-  "Deep Dive": "deep-dive.html",
-  "Gratis scan": "gratis-scan.html",
-  "Bedankt scan": "bedankt-scan.html",
-  "Privacy": "privacy.html",
-  "Cookies": "cookies.html",
-  "Voorwaarden": "voorwaarden.html",
-  "Sitemap": "sitemap.html",
-};
-
 function App() {
   const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
   const [scrolled, setScrolled] = useA(false);
@@ -52,9 +35,6 @@ function App() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  // (her)teken lucide-iconen na elke betekenisvolle render
-  useAE(() => { if (window.lucide) window.lucide.createIcons(); });
 
   // Navigatie tussen losse pagina's via echte URL's
   function nav(n) {

@@ -13,11 +13,7 @@ const CK_SECTIONS = [
 ];
 
 const CK_FUNCTIONEEL = [
-  ["Sessiecookie", "Onthoudt je sessie-instellingen", "Sessie (verdwijnt als je de browser sluit)"],
-  ["Voorkeurscookie", "Slaat weergavevoorkeuren op (bijv. taalinstelling)", "Max. 1 jaar"],
-];
-const CK_ANALYTISCH = [
-  ["Analysecookie", "Geanonimiseerde paginastatistieken", "Max. 13 maanden"],
+  ["ewk-cookie-consent (localStorage)", "Onthoudt jouw keuze voor functionele opslag en optionele tracking", "Max. 1 jaar geldig; je kunt de keuze eerder wissen"],
 ];
 
 const CK_BROWSERS = [
@@ -39,7 +35,7 @@ function CkTable({ rows }) {
   return (
     <div className="ewk-legal__table ewk-legal__table--3" role="table">
       <div className="ewk-legal__tr ewk-legal__tr--head" role="row">
-        <span role="columnheader">Cookie</span>
+        <span role="columnheader">Opslag</span>
         <span role="columnheader">Doel</span>
         <span role="columnheader">Bewaartermijn</span>
       </div>
@@ -82,7 +78,7 @@ function CookiesPage({ onNav }) {
             Ik houd mijn website zo licht en privacy-vriendelijk mogelijk. Hieronder lees je welke
             cookies ik gebruik, waarom, en hoe je zelf de regie houdt.
           </p>
-          <span className="ewk-legal__updated"><Icon name="calendar-check" />Laatst bijgewerkt: mei 2025</span>
+          <span className="ewk-legal__updated"><Icon name="calendar-check" />Laatst bijgewerkt: 9 oktober 2026</span>
         </div>
       </section>
 
@@ -107,7 +103,8 @@ function CookiesPage({ onNav }) {
             <p>
               Cookies zijn kleine tekstbestanden die door een website op je apparaat worden opgeslagen
               wanneer je de site bezoekt. Ze helpen de website correct te functioneren en kunnen
-              informatie onthouden over je bezoek.
+              informatie onthouden over je bezoek. Deze site bewaart je cookievoorkeur in localStorage:
+              lokale browseropslag die dezelfde keuze ook bij een volgend bezoek onthoudt.
             </p>
 
             {/* 2 */}
@@ -116,10 +113,10 @@ function CookiesPage({ onNav }) {
             <div className="ewk-legal__catrow">
               <span className="ewk-legal__cat-ic ewk-legal__cat-ic--sage"><Icon name="settings-2" /></span>
               <div>
-                <h3 className="ewk-legal__cat-title">Functionele cookies <span className="ewk-legal__tag ewk-legal__tag--on">Altijd actief</span></h3>
+                <h3 className="ewk-legal__cat-title">Functionele opslag <span className="ewk-legal__tag ewk-legal__tag--on">Altijd actief</span></h3>
                 <p className="ewk-legal__cat-desc">
-                  Noodzakelijk voor het goed functioneren van de website. Zonder deze cookies werken
-                  bepaalde onderdelen niet naar behoren. Ze worden niet gebruikt om je te volgen of te profileren.
+                  Ik onthoud je cookiekeuze op dit apparaat, zodat je deze niet bij iedere pagina
+                  opnieuw hoeft te maken. Deze voorkeur wordt niet gebruikt om je te volgen of te profileren.
                 </p>
               </div>
             </div>
@@ -128,14 +125,15 @@ function CookiesPage({ onNav }) {
             <div className="ewk-legal__catrow">
               <span className="ewk-legal__cat-ic ewk-legal__cat-ic--sky"><Icon name="bar-chart-3" /></span>
               <div>
-                <h3 className="ewk-legal__cat-title">Analytische cookies <span className="ewk-legal__tag ewk-legal__tag--opt">Alleen met toestemming</span></h3>
+                <h3 className="ewk-legal__cat-title">Statistieken en tracking <span className="ewk-legal__tag ewk-legal__tag--opt">Alleen met toestemming</span></h3>
                 <p className="ewk-legal__cat-desc">
-                  Ik gebruik privacy-vriendelijke webstatistieken om te begrijpen hoe bezoekers de
-                  website gebruiken. De gegevens zijn geanonimiseerd en worden niet gedeeld met derden.
+                  Alleen als je “Alle cookies accepteren” kiest, laad ik een extern script via
+                  link.agathehania.nl voor statistieken en tracking. Daarbij kunnen bezoekgegevens
+                  worden verwerkt en cookies worden geplaatst. Bij “Alleen functioneel” wordt dit
+                  script niet geladen.
                 </p>
               </div>
             </div>
-            <CkTable rows={CK_ANALYTISCH} />
 
             <div className="ewk-legal__catrow">
               <span className="ewk-legal__cat-ic ewk-legal__cat-ic--rose"><Icon name="ban" /></span>
@@ -151,9 +149,9 @@ function CookiesPage({ onNav }) {
             {/* 3 */}
             <CkH s={CK_SECTIONS[2]} />
             <p>
-              Op sommige pagina's kan content van derden worden getoond (zoals een ingesloten video).
-              Deze partijen kunnen eigen cookies plaatsen. Ik heb geen controle over de cookies van
-              derden. Raadpleeg het privacybeleid van de betreffende partij voor meer informatie.
+              Als je doorklikt naar een aanmeld- of betaalpagina, gelden ook de privacy- en
+              cookievoorwaarden van die externe dienst. Het contactformulier verstuurt jouw ingevulde
+              gegevens via FormSubmit. De video op deze site wordt vanaf de eigen website geladen.
             </p>
 
             {/* 4 */}
@@ -174,7 +172,9 @@ function CookiesPage({ onNav }) {
             </ul>
             <p className="ewk-legal__note">
               <Icon name="info" />
-              Let op: het uitschakelen van functionele cookies kan de werking van de website beïnvloeden.
+              Trek je toestemming in via “Alleen functioneel”, dan wordt de pagina opnieuw geladen
+              om de actieve tracking te stoppen. Dit verwijdert geen eerder geplaatste cookies van derden;
+              die kun je via je browser wissen.
             </p>
 
             {/* 5 */}

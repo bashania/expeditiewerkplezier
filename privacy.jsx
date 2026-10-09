@@ -83,7 +83,7 @@ function PrivacyPage({ onNav }) {
             Ik ga zorgvuldig en eerlijk om met je persoonsgegevens. Hieronder leg ik zo helder
             mogelijk uit welke gegevens ik verwerk, waarvoor, en welke rechten je hebt.
           </p>
-          <span className="ewk-legal__updated"><Icon name="calendar-check" />Laatst bijgewerkt: mei 2025</span>
+          <span className="ewk-legal__updated"><Icon name="calendar-check" />Laatst bijgewerkt: 9 oktober 2026</span>
         </div>
       </section>
 
@@ -145,7 +145,7 @@ function PrivacyPage({ onNav }) {
                 <h4>Website en cookies</h4>
                 <p>Bij een bezoek aan mijn website kunnen technische gegevens worden vastgelegd:</p>
                 <ul className="ewk-legal__ticks">
-                  <li><Icon name="check" />IP-adres (geanonimiseerd)</li>
+                  <li><Icon name="check" />IP-adres</li>
                   <li><Icon name="check" />Browsertype en -versie</li>
                   <li><Icon name="check" />Bezochte pagina's en tijdstip</li>
                 </ul>
@@ -153,8 +153,9 @@ function PrivacyPage({ onNav }) {
             </div>
             <p className="ewk-legal__note">
               <Icon name="cookie" />
-              Ik gebruik uitsluitend functionele cookies die nodig zijn voor het correct werken van
-              de website. Er worden geen tracking- of advertentiecookies geplaatst zonder jouw toestemming.
+              Ik bewaar je cookievoorkeur lokaal in je browser. Het externe script voor statistieken en
+              tracking wordt uitsluitend na jouw toestemming geladen. Je kunt die keuze op elk moment
+              wijzigen via “Cookievoorkeuren” onderaan de website.
             </p>
 
             {/* 3 */}

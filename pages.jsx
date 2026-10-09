@@ -438,18 +438,18 @@ function ContactPage({ onNav, portret }) {
         <div className="ewk-wrap ewk-contact">
           <div className="ewk-contact__form">
             {!sent ?
-            <form onSubmit={submit}>
+            <form onSubmit={submit} aria-busy={sending}>
                 <div className="ewk-field">
-                  <label>Je naam</label>
-                  <input className="ewk-input" placeholder="Sanne de Vries" value={form.naam} onChange={set("naam")} required />
+                  <label htmlFor="contact-name">Je naam</label>
+                  <input id="contact-name" autoComplete="name" className="ewk-input" placeholder="Sanne de Vries" value={form.naam} onChange={set("naam")} required />
                 </div>
                 <div className="ewk-field">
-                  <label>E-mailadres</label>
-                  <input className="ewk-input" type="email" placeholder="jij@voorbeeld.nl" value={form.email} onChange={set("email")} required />
+                  <label htmlFor="contact-email">E-mailadres</label>
+                  <input id="contact-email" autoComplete="email" className="ewk-input" type="email" placeholder="jij@voorbeeld.nl" value={form.email} onChange={set("email")} required />
                 </div>
                 <div className="ewk-field">
-                  <label>Waar gaat het over?</label>
-                  <select className="ewk-input" value={form.onderwerp} onChange={set("onderwerp")}>
+                  <label htmlFor="contact-subject">Waar gaat het over?</label>
+                  <select id="contact-subject" className="ewk-input" value={form.onderwerp} onChange={set("onderwerp")}>
                     <option>Stress &amp; Energiescan</option>
                     <option>1-op-1 Deep Dive</option>
                     <option>Rust Ruimte Regie (traject)</option>
@@ -457,19 +457,19 @@ function ContactPage({ onNav, portret }) {
                   </select>
                 </div>
                 <div className="ewk-field">
-                  <label>Je bericht</label>
-                  <textarea className="ewk-input" rows="5" placeholder="Vertel me kort waar je tegenaan loopt.." value={form.bericht} onChange={set("bericht")} />
+                  <label htmlFor="contact-message">Je bericht</label>
+                  <textarea id="contact-message" className="ewk-input" rows="5" placeholder="Vertel me kort waar je tegenaan loopt.." value={form.bericht} onChange={set("bericht")} />
                 </div>
-                <Button variant="primary" size="lg" block type="submit" iconRight={sending ? null : "arrow-right"}>{sending ? "Bezig met versturen…" : "Verstuur bericht"}</Button>
+                <Button variant="primary" size="lg" block type="submit" disabled={sending} iconRight={sending ? null : "arrow-right"}>{sending ? "Bezig met versturen…" : "Verstuur bericht"}</Button>
                 {error &&
-              <p style={{ fontSize: 13, color: "var(--ew-error)", margin: "12px 0 0", textAlign: "center" }}>{error}</p>
+              <p role="alert" style={{ fontSize: 13, color: "var(--ew-error)", margin: "12px 0 0", textAlign: "center" }}>{error}</p>
               }
-                <p style={{ fontSize: 12, color: "var(--ew-ink-400)", margin: "14px 0 0", textAlign: "center" }}>
+                <p style={{ fontSize: 12, color: "var(--ew-fg-3)", margin: "14px 0 0", textAlign: "center" }}>
                   Je gegevens gebruik ik alleen om te reageren op je bericht.
                 </p>
               </form> :
 
-            <div className="ewk-success">
+            <div className="ewk-success" role="status">
                 <div className="ewk-success__ring"><Icon name="check" /></div>
                 <h3>Dankjewel, {form.naam}!</h3>
                 <p>Je bericht is verstuurd. Ik neem snel contact met je op via <b style={{ color: "var(--ew-pine-600)" }}>{form.email}</b>.</p>

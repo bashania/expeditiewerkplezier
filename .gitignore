@@ -1,2 +1,6 @@
 .DS_Store
 documenten/
+node_modules/
+dist/
+playwright-report/
+test-results/
